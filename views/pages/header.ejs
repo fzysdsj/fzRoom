@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
     <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>gulp.js</title>
+    <title>fzRoom</title>
     <meta name="description" content="Gulp.js" />
     <meta name="keywords" content="Gulp.js,Gulp,Node.js,Node,JavaScript,CoffeeScript,Grunt,Gruntjs" />
     <meta name="author" content="gulp.js" />
     <link rel="icon" href="favicon.ico" />
     <!-- Bootstrap core CSS-->
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9-->
-    <script src="js/html5shiv.min.js"></script>
+    <script src="/js/html5shiv.min.js"></script>
 </head>
 
 <body>
@@ -30,16 +30,77 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/home">首页</a></li>
-                    <li><a href="/article">文章</a></li>
+                    <li><a href="/home">主页</a></li>
+                    <!-- <li><a href="/article">文章</a></li> -->
                     <li><a href="/forum">论坛</a></li>
-                    <li><a href="/pvp">切磋</a></li>
-                    <li><a href="/money">打榜</a></li>
-                    <li><a href="/pve">副本</a></li>
+                    <!-- <li><a href="/pvp">切磋</a></li> -->
+                    <!-- <li><a href="/money">打榜</a></li> -->
+                    <!-- <li><a href="/pve">副本</a></li> -->
                     <li><a href="/search">搜索</a></li>
-                    <li><a href="/author">关于</a></li>
+                    <li><a href="/author">相关</a></li>
+
+                    <li id="login">
+                        <% if(!user){ %>
+                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            请登录 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#signinModal">登录</a></li>
+                                <li><a href="/signup">注册</a></li>
+                                <li><a href="/home">闲逛</a></li>
+                            </ul>
+                            <% }else{ %>
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <%= user.usernick %> <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/users/profile">个人中心</a></li>
+                                    <li><a href="/logout">登出</a></li>
+                                    <li>
+                                        <!-- <a href="/home"></a> -->
+                                    </li>
+                                </ul>
+                                <% } %>
+                    </li>
                 </ul>
             </div>
             <!-- /.nav-collapse-->
         </div>
     </nav>
+    <!-- <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-brand"> 方丈阁 </div>
+            <div id="fzys" class="navbar-brand"> <small> </small><a href="https://fzysdsj.github.io/" title="https://fzysdsj.github.io/" target="_black">|Blog</a><a href="https://github.com/fzysdsj" title="https://github.com/fzysdsj" target="_black">|Github</a><a href="https://twitter.com/fzysdsj"
+                    title="https://twitter.com/fzysdsj" target="_black">|Twitter</a><a href="http://mail.163.com/js6/main.jsp?sid=ECjzheUfgXPNQZVSpyffySzLEasIvfYZ&amp;df=email163#module=welcome.WelcomeModule%7C%7B%7D" title="fzysdsj@163.com" target="_black">|Email</a>
+                <a href="#back">|回到顶部</a>
+                </small>
+            </div>
+        </div> -->
+    <!-- <p class="navbar-text navbar-right"><a href="/signup" title="点击跳转到注册页面" class="navbar-link">注册</a><span>&nbsp;|&nbsp;</span><a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登录</a></p>
+    </div> -->
+    <div id="signinModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" action="/signin">
+                    <div class="modal-header">登录</div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="signinName">用户名</label>
+                            <input id="signinName" name="username" type="text" placeholder="请输入6~12位用户名" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="signinPassword">密码</label>
+                            <input id="signinPassword" name="password" type="password" placeholder="请输入6~12位密码" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+                        <button type="submit" class="btn btn-success">提交</button>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    function getRegist() {
+                        location.href = "/signup";
+                    }
+                </script>
+            </div>
+        </div>
+    </div>

@@ -26,6 +26,7 @@ pre {
 .jumbotron {
     text-align: center;
     background-color: #00b7d4;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
     color: #fff;
 }
 
@@ -63,6 +64,7 @@ pre {
 
 .navbar-inverse {
     background-color: #00b7d4;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
     border-color: transparent;
 }
 
@@ -233,4 +235,25 @@ pre {
 
 .mgl20 {
     margin-left: 20px;
+}
+
+
+/* 下拉按钮 */
+
+#navbar .navbar-nav #login {
+    cursor: pointer;
+}
+
+.navbar-nav>.open>a {
+    background-color: #00b7d4 !important;
+    cursor: pointer;
+}
+
+.navbar-nav>.open>a:hover {
+    background-color: #078 !important;
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    color: #802063 !important;
 }

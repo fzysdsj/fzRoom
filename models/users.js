@@ -18,22 +18,36 @@ pool.on('connnection',function(connection){
 function User(user){
   this.username = user.username;
   this.userpwd = user.userpwd;
+  this.usernick =user.usernick;
+  this.useremail = user.useremail;
+  this.userphone = user.userphone;
+  this.userhome = user.userhome;
+  this.userclass = user.userclass;
+  this.usersex = user.usersex;
 }
 
 User.prototype.userSave = function save(callback){
+  console.log(this.username);
+  console.log(this.userpwd);
   var user = {
     username : this.username,
-    userpwd : this.userpwd
+    userpwd : this.userpwd,
+    usernick:this.usernick,
+    useremail:this.useremail,
+    userphone:this.userphone,
+    userhome:this.userhome,
+    userclass:this.userclass,
+    usersex:this.usersex
   };
-  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD) VALUES (0,?,?)";
+  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX) VALUES (0,?,?,?,?,?,?,?,?)";
   pool.getConnection(function(err,connection){
-    connection.query(INSERT_USER,[user.username,user.userpwd],function(err,result){
+    connection.query(INSERT_USER,[user.username,user.userpwd,user.usernick,user.useremail,user.userphone,user.userhome,user.userclass,user.usersex],function(err,result){
       if(err){
         console.log("INSERT_USER Error: " + err.message);
         return;
       }
-      connection.release();
       callback(err,result);
+      connection.release();
     });
   });
 };
@@ -53,11 +67,16 @@ User.prototype.userNum = function(username, callback) {
     });
   });
 };
-
 User.prototype.userInfo = function(callback){
   var user = {
     username : this.username,
-    userpwd : this.userpwd
+    userpwd : this.userpwd,
+    usernick:this.usernick,
+    useremail:this.useremail,
+    userphone:this.userphone,
+    userhome:this.userhome,
+    userclass:this.userclass,
+    usersex:this.usersex
   };
   var SELECT_LOGIN ="SELECT * FROM USERINFO WHERE USERNAME = ?";
   pool.getConnection(function(err,connection){
