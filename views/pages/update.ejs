@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-offset-4">
-                <form class="form-horizontal" action="/users/update" method="post">
+                <form class="form-horizontal" action="/users/update" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">用户ID</label>
                         <div class="col-sm-3">
@@ -60,6 +60,12 @@
                         <label class="col-sm-2 control-label">用户性别</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" placeholder="用户性别" name="usersex" value="<%= datas[0].usersex %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户头像</label>
+                        <div class="col-sm-3">
+                            <input type="file" class="form-control" name="useravatar" value="<%= datas[0].useravatar %>">
                         </div>
                     </div>
                     <div class="form-group">

@@ -61,17 +61,29 @@ router.get("/toUpdate/:id", function (req, res, next) {
     });
 });
 router.post("/update", function (req, res, next) {
-    var id = req.body.id;
-    var username = req.body.username;
-    var userpwd = req.body.userpwd;
-    var usernick = req.body.usernick;
-    var useremail = req.body.useremail;
-    var userphone = req.body.userphone;
-    var userhome = req.body.userhome;
-    var userclass = req.body.userclass;
-    var usersex = req.body.usersex;
-    console.log(id);
-    var sql = "update userinfo set username = '" + username + "',userpwd = '" + userpwd + "',usernick = '" + usernick + "',useremail = '" + useremail + "',userphone = '" + userphone + "',userhome = '" + userhome + "',userclass = '" + userclass + "',usersex = '" + usersex + "' where userid = " + id;
+     var form = new formidable.IncomingForm();
+    //设置编辑
+    form.encoding = 'utf-8';
+    //设置文件存储路径
+    form.uploadDir = "./public/uploads/";
+    //保留后缀
+    form.keepExtensions = true;
+    //设置单文件大小限制    
+    form.maxFieldsSize = 2 * 1024 * 1024;
+    form.parse(req, function (err, fields, files) {
+        var id = fields.id;
+        var username = fields.username;
+        var userpwd = fields.userpwd;
+        var usernick = fields.usernick;
+        var userphone = fields.userphone;
+        var useremail = fields.useremail;
+        var userhome = fields.userhome;
+        var usersex = fields.usersex;
+        var userclass = fields.userclass;
+        var checkbox = fields.checkbox;
+        var useravatar = path.basename(files.useravatar.path);
+    console.log(useravatar);
+    var sql = "update userinfo set username = '" + username + "',userpwd = '" + userpwd + "',usernick = '" + usernick + "',useremail = '" + useremail + "',userphone = '" + userphone + "',userhome = '" + userhome + "',userclass = '" + userclass + "',usersex = '" + usersex +"',useravatar = '" + useravatar + "' where userid = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -79,6 +91,7 @@ router.post("/update", function (req, res, next) {
         } else {
             res.redirect("/users");
         }
+    });
     });
 });
 //查看用户信息(用户信息页)
@@ -135,7 +148,7 @@ router.post('/signup', function (req, res) {
     //设置编辑
     form.encoding = 'utf-8';
     //设置文件存储路径
-    form.uploadDir = "./public/images/";
+    form.uploadDir = "./public/uploads/";
     //保留后缀
     form.keepExtensions = true;
     //设置单文件大小限制    
