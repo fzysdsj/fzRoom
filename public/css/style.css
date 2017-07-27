@@ -7,6 +7,7 @@ body {
     font-weight: normal;
     padding-top: 50px;
     font-size: 16px !important;
+    background-color: seashell;
 }
 
 a {
@@ -16,16 +17,17 @@ a {
 a:hover,
 a:focus {
     color: #333;
+    text-shadow: 1px 1px 5px #E8E8E8
 }
 
-pre {
+.pre {
     border: none;
     background-color: transparent;
 }
 
 .jumbotron {
     text-align: center;
-    background-color: rgba(32,32,32,1);
+    background-color: rgba(32, 32, 32, 1);
     color: #fff;
 }
 
@@ -63,7 +65,7 @@ pre {
 }
 
 .navbar-inverse {
-    background-color: rgba(32,32,32,1);
+    background-color: rgba(32, 32, 32, 1);
     border-color: transparent;
 }
 
@@ -75,7 +77,7 @@ pre {
 
 .navbar-inverse .navbar-brand .title {
     padding: 10px 0 0 10px;
-    font: 300 15px/30px '楷体';
+    font: 300 16px/30px '华文行楷';
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -127,7 +129,7 @@ pre {
 }
 
 .benefits p {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .markdown-body {
@@ -256,10 +258,29 @@ pre {
 .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
     color: #666 !important;
 }
-.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img,
+.img-responsive,
+.thumbnail a>img,
+.thumbnail>img {
     display: inline-block;
     max-width: 100%;
     height: auto;
     width: 25px;
     height: 25px;
+}
+
+.navbar-nav>li.fzRoom>a {
+    font-size: 20px;
+    font-family: "华文行楷";
+    line-height: 23px;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.hwxk {
+    font-family: "华文行楷";
 }
