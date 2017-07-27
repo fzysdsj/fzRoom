@@ -24,6 +24,7 @@ function User(user){
   this.userhome = user.userhome;
   this.userclass = user.userclass;
   this.usersex = user.usersex;
+  this.useravatar = user.useravatar;
 }
 
 User.prototype.userSave = function save(callback){
@@ -37,11 +38,13 @@ User.prototype.userSave = function save(callback){
     userphone:this.userphone,
     userhome:this.userhome,
     userclass:this.userclass,
-    usersex:this.usersex
+    usersex:this.usersex,
+    useravatar: this.useravatar
   };
-  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX) VALUES (0,?,?,?,?,?,?,?,?)";
+  console.log(user.useravatar);
+  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX,USERAVATAR) VALUES (0,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function(err,connection){
-    connection.query(INSERT_USER,[user.username,user.userpwd,user.usernick,user.useremail,user.userphone,user.userhome,user.userclass,user.usersex],function(err,result){
+    connection.query(INSERT_USER,[user.username,user.userpwd,user.usernick,user.useremail,user.userphone,user.userhome,user.userclass,user.usersex,user.useravatar],function(err,result){
       if(err){
         console.log("INSERT_USER Error: " + err.message);
         return;
@@ -76,7 +79,8 @@ User.prototype.userInfo = function(callback){
     userphone:this.userphone,
     userhome:this.userhome,
     userclass:this.userclass,
-    usersex:this.usersex
+    usersex:this.usersex,
+    useravatar: this.useravatar
   };
   var SELECT_LOGIN ="SELECT * FROM USERINFO WHERE USERNAME = ?";
   pool.getConnection(function(err,connection){

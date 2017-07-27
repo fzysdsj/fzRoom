@@ -10,12 +10,12 @@ body {
 }
 
 a {
-    color: #00b7d4;
+    color: #444;
 }
 
 a:hover,
 a:focus {
-    color: #0058cd;
+    color: #333;
 }
 
 pre {
@@ -25,8 +25,7 @@ pre {
 
 .jumbotron {
     text-align: center;
-    background-color: #00b7d4;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    background-color: rgba(32,32,32,1);
     color: #fff;
 }
 
@@ -37,6 +36,7 @@ pre {
 .jumbotron .logo {
     width: 100%;
     max-width: 400px;
+    font: 400 80px/160px 'Philing';
 }
 
 .jumbotron .btn-getting-started {
@@ -63,8 +63,7 @@ pre {
 }
 
 .navbar-inverse {
-    background-color: #00b7d4;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    background-color: rgba(32,32,32,1);
     border-color: transparent;
 }
 
@@ -92,7 +91,7 @@ pre {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-    border-color: #00b7d4;
+    border-color: #333;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -245,15 +244,22 @@ pre {
 }
 
 .navbar-nav>.open>a {
-    background-color: #00b7d4 !important;
+    background-color: #444 !important;
     cursor: pointer;
 }
 
 .navbar-nav>.open>a:hover {
-    background-color: #078 !important;
+    background-color: #333 !important;
     cursor: pointer;
 }
 
 .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-    color: #802063 !important;
+    color: #666 !important;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    width: 25px;
+    height: 25px;
 }

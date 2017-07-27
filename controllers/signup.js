@@ -2,6 +2,7 @@ var express = require('express');
 var User = require("../models/users.js");
 var fs = require('fs');
 var path = require('path');
+var formidable = require('formidable');
 var router = express.Router();
 /* GET home page. */
 var regExpname = /[A-Za-z0-9_\-\u4e00-\u9fa5]{6,12}/;
@@ -17,6 +18,17 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
   // var userId = Math.ceil(Math.random(0, 1) * 1000000);
   // var userid = userId;
+  console.log('开始文件上传....');
+   var form = new formidable.IncomingForm();
+    //设置编辑
+    form.encoding = 'utf-8';
+    //设置文件存储路径
+    form.uploadDir = "../public/images/";
+    //保留后缀
+    form.keepExtensions = true;
+    //设置单文件大小限制    
+    form.maxFieldsSize = 2 * 1024 * 1024;
+    
   var username = req.body.username;
   var password = req.body.password;
   var repassword = req.body.repassword;
@@ -26,7 +38,9 @@ router.post('/', function (req, res) {
   var userhome = req.body.userhome;
   var usersex = req.body.usersex;
   var checkbox = req.body.checkbox;
+  var useravatar =req.body.useravatar;
   console.log('checkbox:' + checkbox);
+  console.log('useravatar:' + useravatar);
   console.log('usersex:' + usersex);
 
   var userclass = 0;
@@ -87,7 +101,8 @@ router.post('/', function (req, res) {
       userphone: userphone,
       userhome: userhome,
       userclass: userclass,
-      usersex: usersex
+      usersex: usersex,
+      useravatar:useravatar
     });
     //检查用户名是否已经存在
     newUser.userNum(newUser.username, function (err, results) {
