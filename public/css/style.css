@@ -284,3 +284,8 @@ a:focus {
 .hwxk {
     font-family: "华文行楷";
 }
+
+a.index {
+    color: #fff;
+    text-decoration: none;
+}
