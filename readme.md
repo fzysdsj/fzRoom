@@ -1,19 +1,19 @@
 # fzRoom 项目记录(进行中)
 ## 技术栈
-    - 语言:node.js  8.1.3
-    - 框架：express  4
-    - 数据库:MySql  5+
-    - 模板引擎: EJS
-    - 包管理: bower(前) npm(后)
+- 语言:node.js  8.1.3
+- 框架：express  4
+- 数据库:MySql  5+
+- 模板引擎: EJS
+- 包管理: bower(前) npm(后)
 ## 中间件
-    - cookie-parse 
-    - bodyPaser
-    - connect-session
-    - express-session
-    - formidable
-    - express-mysql-session
-    - morgan
-    - serve-favicon
+- cookie-parse 
+- bodyPaser
+- connect-session
+- express-session
+- formidable
+- express-mysql-session
+- morgan
+- serve-favicon
 ## 项目结构初步完善
     ├── bin	        程序启动相关(express初始化自动生成)
     ├── config      配置相关(数据库信息和路由)
@@ -52,6 +52,6 @@
 
 ## 部分页面
  - 主页
-    !['主页'](/public/images/index.png)
+    !['主页'](./public/images/index.png)
  - 其他的就不放了，因为还没做完。项目框架写出来以后，接下来是软件工程的流程了，要再开始着手做，得小十天呢，毕竟需求和设计不是边敲代码，就能想出来的。为什么要做这个网站呢，起初是想着用cocos creator把自己的小说做成一个RPG游戏，那样的话，自己的大学也算完美了吧。不过玩了一个月，感觉功能还是有点太少，坑还是太多，很多时候无从下手。由担心着毕业问题，果断转了人人都做的网站。话没说完，且到此处。
 
