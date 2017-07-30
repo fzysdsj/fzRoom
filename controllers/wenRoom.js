@@ -6,9 +6,9 @@ router.get('/', function(req, res, next) {
    return;
 });
 //文章模块
-router.get('/article', function(req, res, next) {
-  res.render('article');
-});
+// router.get('/article', function(req, res, next) {
+//   res.render('article');
+// });
 
 /*加功能*/
 

@@ -1,0 +1,11 @@
+<%- include('header') %>
+    <form action="/articles/add" method="post">
+        文章题目:
+        <input type="text" name="arttitle"><br>作者:
+        <label for="artuid"><%= user.userName %></label>
+        <input type="text" id="artuid" name="artuid" value="<%= user.userId %>" class="hidden"><br>文章内容:
+        <textarea rows="3" cols="20" name="artcontent">
+</textarea>
+        <input type="submit" value="发布">
+    </form>
+    <%- include('footer') %>

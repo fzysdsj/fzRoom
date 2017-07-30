@@ -46,44 +46,44 @@
 
                                                 <td>
                                                     <a href="#">
-                                                        <%= datas[i].userid %>
+                                                        <%= datas[i].userId %>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].username %>
+                                                    <%= datas[i].userName %>
                                                 </td>
                                                 <td class="hidden-480">
-                                                    <%= datas[i].userpwd %>
+                                                    <%= datas[i].userPwd %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].usernick %>
+                                                    <%= datas[i].userNick %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].useremail %>
+                                                    <%= datas[i].userEmail %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].userphone %>
+                                                    <%= datas[i].userPhone %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].userhome %>
+                                                    <%= datas[i].userHome %>
                                                 </td>
                                                 <td class="hidden-480">
-                                                    <span class="label label-sm label-warning"><%= datas[i].userclass %></span>
+                                                    <span class="label label-sm label-warning"><%= datas[i].userClass %></span>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].usersex %>
+                                                    <%= datas[i].userSex %>
                                                 </td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                        <a class="blue" href="/users/toSelect/<%= datas[i].userid %>">
+                                                        <a class="blue" href="/users/toSelect/<%= datas[i].userId %>">
                                                             <i class="icon-zoom-in bigger-130"></i>
                                                         </a>
 
-                                                        <a class="green" href="/users/toUpdate/<%= datas[i].userid %>">
+                                                        <a class="green" href="/users/toUpdate/<%= datas[i].userId %>">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/users/del/<%= datas[i].userid %>">
+                                                        <a class="red" href="/users/del/<%= datas[i].userId %>">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                         <a class="yellow" href="/users/add">
@@ -99,7 +99,7 @@
 
                                                             <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                                 <li>
-                                                                    <a href="/users/toSelect/<%= datas[i].userid %>" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                    <a href="/users/toSelect/<%= datas[i].userId %>" class="tooltip-info" data-rel="tooltip" title="View">
                                                                         <span class="blue">
 																					<i class="icon-zoom-in bigger-120"></i>
 																				</span>
@@ -107,7 +107,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="/users/toUpdate/<%= datas[i].userid %>" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <a href="/users/toUpdate/<%= datas[i].userId %>" class="tooltip-success" data-rel="tooltip" title="Edit">
                                                                         <span class="green">
 																					<i class="icon-edit bigger-120"></i>
 																				</span>
@@ -115,7 +115,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="/users/del/<%= datas[i].userid %>" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                    <a href="/users/del/<%= datas[i].userId %>" class="tooltip-error" data-rel="tooltip" title="Delete">
                                                                         <span class="red">
 																					<i class="icon-trash bigger-120"></i>
 																				</span>

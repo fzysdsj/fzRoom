@@ -22,15 +22,36 @@ router.get("/add", function (req, res, next) {
     res.render("add");
 });
 router.post("/add", function (req, res, next) {
-    var name = req.body.username;
-    var pwd = req.body.userpwd;
-    console.log(name);
-    db.query("insert into userinfo(username,userpwd) values('" + name + "','" + pwd + "')", function (err, rows) {
+
+    // console.log(name);
+    
+    var form = new formidable.IncomingForm();
+    //设置编辑
+    form.encoding = 'utf-8';
+    //设置文件存储路径
+    form.uploadDir = "./public/uploads/";
+    //保留后缀
+    form.keepExtensions = true;
+    //设置单文件大小限制    
+    form.maxFieldsSize = 2 * 1024 * 1024;
+    form.parse(req, function (err, fields, files) {
+        var id = fields.id;
+        var name = fields.username;
+        var pwd = fields.userpwd;
+        var nick = fields.usernick;
+        var email = fields.useremail;
+        var phone = fields.userphone;
+        var home = fields.userhome;
+        var uclass = fields.userclass;
+        var sex = fields.usersex;
+        var avatar = path.basename(files.useravatar.path);
+        db.query("insert into userinfo(userId,userName,userPwd,userNick,userEmail,userPhone,userHome,userClass,userSex,userAvatar) values('" + id + "','" + name + "','" + pwd + "','" + nick + "','" + email + "','" + phone + "','" + home + "','" + uclass + "','" + sex + "','" + avatar + "')", function (err, rows) {
         if (err) {
             res.send("新增失败" + err);
         } else {
             res.redirect("/users");
         }
+    });
     });
 });
 
@@ -61,7 +82,7 @@ router.get("/toUpdate/:id", function (req, res, next) {
     });
 });
 router.post("/update", function (req, res, next) {
-     var form = new formidable.IncomingForm();
+    var form = new formidable.IncomingForm();
     //设置编辑
     form.encoding = 'utf-8';
     //设置文件存储路径
@@ -82,16 +103,16 @@ router.post("/update", function (req, res, next) {
         var userclass = fields.userclass;
         var checkbox = fields.checkbox;
         var useravatar = path.basename(files.useravatar.path);
-    console.log(useravatar);
-    var sql = "update userinfo set username = '" + username + "',userpwd = '" + userpwd + "',usernick = '" + usernick + "',useremail = '" + useremail + "',userphone = '" + userphone + "',userhome = '" + userhome + "',userclass = '" + userclass + "',usersex = '" + usersex +"',useravatar = '" + useravatar + "' where userid = " + id;
-    console.log(sql);
-    db.query(sql, function (err, rows) {
-        if (err) {
-            res.send("修改失败 " + err);
-        } else {
-            res.redirect("/users");
-        }
-    });
+        console.log(useravatar);
+        var sql = "update userinfo set username = '" + username + "',userpwd = '" + userpwd + "',usernick = '" + usernick + "',useremail = '" + useremail + "',userphone = '" + userphone + "',userhome = '" + userhome + "',userclass = '" + userclass + "',usersex = '" + usersex + "',useravatar = '" + useravatar + "' where userid = " + id;
+        console.log(sql);
+        db.query(sql, function (err, rows) {
+            if (err) {
+                res.send("修改失败 " + err);
+            } else {
+                res.redirect("/users");
+            }
+        });
     });
 });
 //查看用户信息(用户信息页)
@@ -194,18 +215,18 @@ router.post('/signup', function (req, res) {
         }
         else {
             var newUser = new User({
-                username: username,
-                userpwd: password,
-                usernick: usernick,
-                useremail: useremail,
-                userphone: userphone,
-                userhome: userhome,
-                userclass: userclass,
-                usersex: usersex,
-                useravatar: useravatar
+                userName: username,
+                userPwd: password,
+                userNick: usernick,
+                userEmail: useremail,
+                userPhone: userphone,
+                userHome: userhome,
+                userClass: userclass,
+                userSex: usersex,
+                userAvatar: useravatar
             });
             //检查用户名是否已经存在
-            newUser.userNum(newUser.username, function (err, results) {
+            newUser.userNum(newUser.userName, function (err, results) {
 
                 if (results != null && results[0]['num'] > 0) {
                     req.flash('error', '用户名已存在');
@@ -242,14 +263,13 @@ router.get('/signin', function (req, res, next) {
     res.render('signin', { errMsg: '' });
 });
 router.post("/signin", function (req, res) {
-    
+
     //获取form表单提交的登录数据
     var username = req.body.username;
     var password = req.body.password;
-    console.log(req.session.username);
     var loginUser = new User({
-        username: username,
-        userpwd: password
+        userName: username,
+        userPwd: password
     });
     //通过用户名取到用户信息
     loginUser.userInfo(function (err, result) {
@@ -262,7 +282,7 @@ router.post("/signin", function (req, res) {
             return res.redirect('/users/signin');
         }
         if (req.session.user) {
-            if (req.session.user.username == username) {
+            if (req.session.user.userName == username) {
                 req.flash('error', '用户已登录');
                 return res.redirect('/users/signin');
             }
@@ -273,18 +293,18 @@ router.post("/signin", function (req, res) {
         }
         else {
             //判断用户密码是否填写正确  演示没做加密，等有时间再加
-            if (result[0]['userpwd'] == password) {
+            if (result[0]['userPwd'] == password) {
                 var user = {
-                    'username': username,
-                    'userpwd': password,
-                    'usernick': result[0]['usernick'],
-                    'useravatar': result[0]['useravatar'],
-                    'userid':result[0]['userid']
+                    'userName': username,
+                    'userPwd': password,
+                    'userNick': result[0]['userNick'],
+                    'userAvatar': result[0]['userAvatar'],
+                    'userId': result[0]['userId']
                 };
-                console.log("userid:"+user.userid);
+                console.log("userid:" + user.userId);
                 req.session.user = user;//保存用户session信息
                 //等级大于1000的，为管理员，直接进入后台页面
-                if (result[0]['userclass'] > 1000) {
+                if (result[0]['userClass'] > 1000) {
                     res.redirect('/users/backend');
                 } else {
                     res.redirect('/wenRoom/know');
@@ -312,8 +332,8 @@ router.get("/logout", function (req, res, next) {
         res.redirect('/users/signin');
     }
 });
-router.get('/backend', function(req, res, next) {
-  res.render('backend');
-  return;
+router.get('/backend', function (req, res, next) {
+    res.render('backend');
+    return;
 });
 module.exports = router;
