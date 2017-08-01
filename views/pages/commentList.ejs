@@ -19,17 +19,17 @@
 																<span class="lbl"></span>
 															</label>
                                             </th>
-                                            <th>文章ID</th>
-                                            <th>作者ID</th>
-                                            <th class="hidden-480">题目</th>
-
+                                            <th>评论ID</th>
+                                            <th>所在文章ID</th>
+                                            <th>发言者ID</th>
+                                            <th class="hidden-480">内容</th>
+                                            <th><i>发言时间</i></th>
                                             <th>
-                                                <i>内容</i>
+                                                <i>点赞数</i>
                                             </th>
-                                            <th><i>阅读量</i></th>
-                                            <th><i>分类</i></th>
-                                            <th><i>关键词</i></th>
-                                            <th><i>发布时间</i></th>
+                                            <th><i>点踩数</i></th>
+                                            <th><i>c</i></th>
+                                            <th><i>发布</i></th>
                                             <th><i>点赞数</i></th>
                                             <th><i>操作</i></th>
                                         </tr>
@@ -46,44 +46,44 @@
 
                                                 <td>
                                                     <a href="#">
-                                                        <%= datas[i].artId %>
+                                                        <%= datas[i].comId %>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artUid %>
+                                                    <%= datas[i].comAid %>
                                                 </td>
                                                 <td class="hidden-480">
-                                                    <%= datas[i].artTitle %>
+                                                    <%= datas[i].comUid %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artContent %>
+                                                    <%= datas[i].comContent %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artSaw %>
+                                                    <%= datas[i].comStartTime %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artCategory %>
+                                                    <%= datas[i].comUp%>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artKeyWords %>
+                                                    <%= datas[i].comDown %>
                                                 </td>
                                                 <td class="hidden-480">
-                                                    <span class="label label-sm label-warning"><%= datas[i].artStartTime %></span>
+                                                    <span class="label label-sm label-warning"></span>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artUp %>
+
                                                 </td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                        <a class="blue" href="/users/toSelect/<%= datas[i].userId %>">
+                                                        <a class="blue" href="/users/toSelect/">
                                                             <i class="icon-zoom-in bigger-130"></i>
                                                         </a>
 
-                                                        <a class="green" href="/users/toUpdate/<%= datas[i].userId %>">
+                                                        <a class="green" href="/users/toUpdate/">
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/users/del/<%= datas[i].userId %>">
+                                                        <a class="red" href="/users/del/">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                         <a class="yellow" href="/users/add">
@@ -99,7 +99,7 @@
 
                                                             <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                                 <li>
-                                                                    <a href="/users/toSelect/<%= datas[i].userId %>" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                    <a href="/users/toSelect/" class="tooltip-info" data-rel="tooltip" title="View">
                                                                         <span class="blue">
 																					<i class="icon-zoom-in bigger-120"></i>
 																				</span>
@@ -107,7 +107,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="/users/toUpdate/<%= datas[i].userId %>" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <a href="/users/toUpdate/" class="tooltip-success" data-rel="tooltip" title="Edit">
                                                                         <span class="green">
 																					<i class="icon-edit bigger-120"></i>
 																				</span>
@@ -115,7 +115,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="/users/del/<%= datas[i].userId %>" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                    <a href="/users/del/" class="tooltip-error" data-rel="tooltip" title="Delete">
                                                                         <span class="red">
 																					<i class="icon-trash bigger-120"></i>
 																				</span>

@@ -1,298 +1,104 @@
 <%- include('header') %>
-    <!-- basic styles -->
-
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-
-    <!--[if IE 7]>
-		  <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
-		<![endif]-->
-
-    <!-- page specific plugin styles -->
-
-
-    <!-- fonts -->
-
-    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" /> -->
-
-    <!-- ace styles -->
-
-    <link rel="stylesheet" href="/assets/css/ace.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <!--[if lte IE 8]>
-		  <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
-		<![endif]-->
-
-    <!-- inline styles related to this page -->
-
-    <!-- ace settings handler -->
-
-    <script src="/assets/js/ace-extra.min.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-    <!--[if lt IE 9]>
-		<script src="/assets/js/html5shiv.js"></script>
-		<script src="/assets/js/respond.min.js"></script>
-		<![endif]-->
-    <div class="main-container" id="main-container">
-        <script type="text/javascript">
-            try {
-                ace.settings.check('main-container', 'fixed')
-            } catch (e) {}
-        </script>
-
-        <div class="main-container-inner">
-            <div class="main-content">
-
-                <div class="page-content">
-                    <div class="row">
-                        <h1>文章录入页</h1>
-                        <h1> </h1>
-                        <form action="/articles/add" method="post">
-                            <div class="col-xs-12">
-                                <!-- PAGE CONTENT BEGINS -->
-                                <h4 class="clearfix text-center">
-                                    <input type="text" name="arttitle" class="col-md-6" placeholder="
-                                请输入标题">作者:
-                                    <label for="artuid"><%= user.userName %></label>
-                                    <input type="text" id="artuid" name="artuid" value="<%= user.userId %>" class="hidden"><br></h4>
-                                <input type="text" id="artcontent" name="artcontent" class="hidden"><br></h4>
-                                <span class="block pull-right">
-										<small class="grey middle">选择风格: &nbsp;</small>
-
-										<span class="btn-toolbar inline middle no-margin">
-											<span data-toggle="buttons" class="btn-group no-margin">
-												<label class="btn btn-sm btn-yellow">
-													1
-													<input type="radio" value="1" />
-												</label>
-
-												<label class="btn btn-sm btn-yellow active">
-													2
-													<input type="radio" value="2" />
-												</label>
-
-												<label class="btn btn-sm btn-yellow">
-													3
-													<input type="radio" value="3" />
-												</label>
-											</span>
-                                </span>
-                                </span>
-                                <div class="wysiwyg-editor" id="editor1"></div>
-                                <div class="hr hr-double dotted"></div>
-                            </div>
-                            <div class="widget-toolbox padding-4 clearfix">
-                                <div class="btn-group pull-left">
-                                    <button class="btn btn-sm btn-info">
-															<i class="icon-remove bigger-125"></i>
-															取消
-														</button>
+    <link media="all" type="text/css" rel="stylesheet" href="/css/article.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/articleA.css">
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <div class="container">
+                <div class="col-group">
+                    <div class="col-9 col-mb-12">
+                        <section class="ac-main-section one-section white section">
+                            <div class="rg-board">
+                                <div class="rg-board-head">
+                                    <p class="title">
+                                        <!-- ri ri-edit -->
+                                        <i class=""></i> 撰写文章
+                                    </p>
                                 </div>
-                                <div class="btn-group pull-right">
-                                    <button class="btn btn-sm btn-purple" type="submit">
-															<i class="icon-save bigger-125"></i>
-															提交
-														</button>
+                                <div class="rg-board-body">
+                                    <form method="POST" action="/articles/create" id="createArticleForm" class="ui form" enctype="multipart/form-data"><input name="_token" type="hidden" value="apZEZyLUaH8C2Fbq7Cx6fotpHY3NS35aGL7eMZtn">
+                                        <label for="artuid"></label>
+                                        <input type="text" id="artuid" name="artuid" value="<%= user.userId %>" class="hidden">
+                                        <div class="inline field">
+                                            <label for="artcategory">文章分类</label>
+                                            <div class="ui  selection" tabindex="0">
+                                                <select name="artcategory" id="artcategory">
+																			<option class="rg-option-sub" value="历史">
+											历史
+										</option>
+																			<option class="rg-option-sub" value="美文">
+											美文
+										</option>
+																			<option class="rg-option-sub" value="技术">
+											技术
+										</option>
+																			<option class="rg-option-sub" value="轶事">
+											轶事
+										</option>
+																			<option class="rg-option-sub" value="体育">
+											体育
+										</option>
+																			<option class="rg-option-sub" value="两性">
+											两性
+										</option>
+                                                                    </select>
+                                                <i class="dropdown icon"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="title">文章标题</label>
+                                            <input placeholder="文章标题" name="arttitle" type="text" id="title">
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="body">文章内容</label>
+                                            <textarea placeholder="这里输入文章内容" name="artcontent" cols="50" rows="10" id="body"></textarea>
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="artpic">文章图片</label>
+                                            <div class="pic-box">
+                                                <!-- <div id="picList" class="uploader-list"></div>
+                                                <a href="javascript:void(0);" class="rg-button upload-pic webuploader-container" id="picPicker">
+                                                    <div class="webuploader-pick">
+                                                        <i class="icon icon-picture"></i> 选择图片上传
+                                                    </div>
+                                                    <div id="rt_rt_1bmedorcr1j4hmoiioervq1laj1" style="position: absolute; top: 8px; left: 16px; width: 108.156px; height: 15px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
+                                                </a> -->
+                                                <input type="file" name="artpic" id="artpic">
+                                            </div>
+
+                                        </div>
+
+                                        <!-- <div class="field">
+                                            <label for="cover">封面图 (说明：可选，文章推荐首页时需要。要求图片像素：宽480px，高640px，尺寸不符合会自动裁剪。)</label>
+                                            <div class="pic-box">
+                                                <div id="picPreview" class="uploader">
+                                                    <div id="" class="file-item thumbnail old" style="display:inline-block;"><img src="">
+                                                        <div class="info"></div>
+                                                        <div class="delete"><i class="ri ri-remove"></i></div><input type="hidden" name="cover" value=""></div>
+                                                </div>
+                                                <a href="javascript:void(0);" class="rg-button upload-pic webuploader-container" id="coverPicker">
+                                                    <div class="webuploader-pick">
+                                                        <i class="icon icon-picture"></i> 选择图片上传
+                                                    </div>
+                                                    <div id="rt_rt_1bmedorcvtkesdr12pepifq854" style="position: absolute; top: 8px; left: 16px; width: 108.156px; height: 15px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
+                                                </a>
+                                            </div>
+
+
+                                        </div> -->
+
+                                        <input class="field rg-button" type="submit" value="发表文章">
+                                    </form>
                                 </div>
                             </div>
-                        </form>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            var $path_assets = "assets"; //this will be used in loading jQuery UI if needed!
-        </script>
+
     </div>
-    <!-- /.col -->
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-        <i class="icon-double-angle-up icon-only bigger-110"></i>
-    </a>
-    <!--[if !IE]> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <!-- <![endif]-->
-    <!--[if IE]>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<![endif]-->
 
-    <!--[if !IE]> -->
-
-    <script type="text/javascript">
-        window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
-    </script>
-
-    <!-- <![endif]-->
-
-    <!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-    <script type="text/javascript">
-        if ("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-    </script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-
-    <!-- page specific plugin scripts -->
-
-    <script src="/assets/js/markdown/markdown.min.js"></script>
-    <script src="/assets/js/markdown/bootstrap-markdown.min.js"></script>
-    <script src="/assets/js/jquery.hotkeys.min.js"></script>
-    <script src="/assets/js/bootstrap-wysiwyg.min.js"></script>
-
-    <!-- ace scripts -->
-
-    <script src="/assets/js/ace-elements.min.js"></script>
-    <script src="/assets/js/ace.min.js"></script>
-
-    <!-- inline scripts related to this page -->
-
-    <script type="text/javascript">
-        jQuery(function($) {
-
-            function showErrorAlert(reason, detail) {
-                var msg = '';
-                if (reason === 'unsupported-file-type') {
-                    msg = "Unsupported format " + detail;
-                } else {
-                    console.log("error uploading file", reason, detail);
-                }
-                $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                    '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
-            }
-
-            //$('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
-
-            //but we want to change a few buttons colors for the third style
-            $('#editor1').ace_wysiwyg({
-                toolbar: [
-                    'font',
-                    null,
-                    'fontSize',
-                    null, {
-                        name: 'bold',
-                        className: 'btn-info'
-                    }, {
-                        name: 'italic',
-                        className: 'btn-info'
-                    }, {
-                        name: 'strikethrough',
-                        className: 'btn-info'
-                    }, {
-                        name: 'underline',
-                        className: 'btn-info'
-                    },
-                    null, {
-                        name: 'insertunorderedlist',
-                        className: 'btn-success'
-                    }, {
-                        name: 'insertorderedlist',
-                        className: 'btn-success'
-                    }, {
-                        name: 'outdent',
-                        className: 'btn-purple'
-                    }, {
-                        name: 'indent',
-                        className: 'btn-purple'
-                    },
-                    null, {
-                        name: 'justifyleft',
-                        className: 'btn-primary'
-                    }, {
-                        name: 'justifycenter',
-                        className: 'btn-primary'
-                    }, {
-                        name: 'justifyright',
-                        className: 'btn-primary'
-                    }, {
-                        name: 'justifyfull',
-                        className: 'btn-inverse'
-                    },
-                    null, {
-                        name: 'createLink',
-                        className: 'btn-pink'
-                    }, {
-                        name: 'unlink',
-                        className: 'btn-pink'
-                    },
-                    null, {
-                        name: 'insertImage',
-                        className: 'btn-success'
-                    },
-                    null,
-                    'foreColor',
-                    null, {
-                        name: 'undo',
-                        className: 'btn-grey'
-                    }, {
-                        name: 'redo',
-                        className: 'btn-grey'
-                    }
-                ],
-                'wysiwyg': {
-                    fileUploadError: showErrorAlert
-                }
-            }).prev().addClass('wysiwyg-style2');
-            $('[data-toggle="buttons"] .btn').on('click', function(e) {
-                var target = $(this).find('input[type=radio]');
-                var which = parseInt(target.val());
-                var toolbar = $('#editor1').prev().get(0);
-                if (which == 1 || which == 2 || which == 3) {
-                    toolbar.className = toolbar.className.replace(/wysiwyg\-style(1|2)/g, '');
-                    if (which == 1) $(toolbar).addClass('wysiwyg-style1');
-                    else if (which == 2) $(toolbar).addClass('wysiwyg-style2');
-                }
-            });
-            //Add Image Resize Functionality to Chrome and Safari
-            //webkit browsers don't have image resize functionality when content is editable
-            //so let's add something using jQuery UI resizable
-            //another option would be opening a dialog for user to enter dimensions.
-            if (typeof jQuery.ui !== 'undefined' && /applewebkit/.test(navigator.userAgent.toLowerCase())) {
-                var lastResizableImg = null;
-
-                function destroyResizable() {
-                    if (lastResizableImg == null) return;
-                    lastResizableImg.resizable("destroy");
-                    lastResizableImg.removeData('resizable');
-                    lastResizableImg = null;
-                }
-
-                var enableImageResize = function() {
-                    $('.wysiwyg-editor')
-                        .on('mousedown', function(e) {
-                            var target = $(e.target);
-                            if (e.target instanceof HTMLImageElement) {
-                                if (!target.data('resizable')) {
-                                    target.resizable({
-                                        aspectRatio: e.target.width / e.target.height,
-                                    });
-                                    target.data('resizable', true);
-
-                                    if (lastResizableImg != null) { //disable previous resizable image
-                                        lastResizableImg.resizable("destroy");
-                                        lastResizableImg.removeData('resizable');
-                                    }
-                                    lastResizableImg = target;
-                                }
-                            }
-                        })
-                        .on('click', function(e) {
-                            if (lastResizableImg != null && !(e.target instanceof HTMLImageElement)) {
-                                destroyResizable();
-                            }
-                        })
-                        .on('keydown', function() {
-                            destroyResizable();
-                        });
-                }
-                enableImageResize();
-
-            }
-        });
-        $("#editor1").blur(function() {
-            $("#artcontent").val($("#editor1").text());
-            console.log($("#artcontent").val($("#editor1").text()));
-        });
-    </script>
     <%- include('footer') %>

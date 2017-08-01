@@ -1,3 +1,4 @@
+//用户相关
 var mysql = require('mysql');
 var DB_NAME= 'nodedb';
 //创建连接池 createPool(Object)

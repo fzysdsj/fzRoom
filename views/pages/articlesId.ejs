@@ -1,4 +1,164 @@
 <%- include('header') %>
-    <h1>
-    </h1>
-    <%- include('footer') %>
+    <link rel="stylesheet" href="/css/article.css" />
+    <link rel="stylesheet" href="/css/articleA.css" />
+    <div class="body">
+        <i class="icon-pencil"></i>
+        <div class="container">
+            <div class="col-group">
+                <div class="col-9 col-mb-12">
+                    <section class="as-article-section one-section white section">
+                        <div class="article-head">
+                            <h2>
+                                <%= datas[0].artTitle %>
+                            </h2>
+                        </div>
+                        <div class="article-meta small text">
+                            <span class="span-item"><%= datas[0].artStartTime %></span>
+                            <span class="span-item">|</span>
+                            <span class="span-item">9999999999999999次阅读</span>
+                            <span class="span-item">999999999999999次评论</span>
+                            <span class="span-item">13亿 人喜欢</span>
+                            <span class="span-item">|</span>
+                            <span class="span-item">
+							分类: <a href="../category/scgf.htm" class="gray"><%= datas[0].artCategory %></a>
+						</span>
+                        </div>
+                        <div class="article-body">
+                            <div class="article-content plain paper">
+                                <div class="protect">
+                                    <div class="copyright-box">
+                                        <div>
+                                            <span>作者：<a href="" target="_blank"><%= datas[0].artUid %>></a></span>
+                                            <span>∙ 文章来源：<a href="/">fzRoom</a></span>
+                                        </div>
+                                        <div>
+                                            <i class="ri ri-copyright"></i>此文版权归fzRoom作者所有，转载请注明来源fzRoom、作者及原文链接。
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="content">
+                                    <%= datas[0].artContent %>
+                                </div>
+                                <img src="/uploads/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
+                                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <div class="copyright-box">
+                                    <div>
+                                        <span>作者：<a href="" target="_blank"><%= anthors[0].userNick %></a></span>
+                                        <span>∙ 文章来源：<a href="/">fzRoom</a></span>
+                                        <span>∙ 历程:丁酉，方丈阁二年</span>
+                                    </div>
+                                    <div>
+                                        <i class="ri ri-copyright"></i>此文版权归fzRoom所有，转载请注明来源fzRoom、作者及原文链接。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-actions">
+                                <div class="like-action">
+                                    <div class="like left">
+                                        <a href="javascript:;" class="ui pop rg-button do-like" action="https://wenxue.ruogoo.cn/article/7609/like" data-content="喜欢就喜欢吧">
+                                            <i class=""></i> 喜欢 <i class=""></i>
+                                            <!-- ri ri-heart-o -->
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
+                                    <a class="social-share-icon icon-weibo" href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;pic=&amp;appkey=3076188672"
+                                        target="_blank"></a>
+                                    <a class="social-share-icon icon-qq" href="http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;source=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;desc=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;pics="
+                                        target="_blank"></a>
+                                    <a class="social-share-icon icon-qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;desc=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;summary=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;site=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99"
+                                        target="_blank"></a>
+                                    <a class="social-share-icon icon-wechat" href="javascript:;" tabindex="-1">
+                                        <div class="wechat-qrcode">
+                                            <h4>微信扫一扫分享</h4>
+                                            <div class="qrcode"><img src="data:image/png;base64,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"></div>
+                                            <div class="help">
+                                                <p>微信里点“发现”，扫一下</p>
+                                                <p>二维码便可将本文分享至朋友圈。</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="social-share-icon icon-tencent" href="http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;pic="
+                                        target="_blank"></a>
+                                    <a class="social-share-icon icon-douban" href="http://shuo.douban.com/!service/share?href=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;name=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;text=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;image=&amp;starid=0&amp;aid=0&amp;style=11"
+                                        target="_blank"></a>
+                                </div> -->
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="article-reply reply">
+                            <% if(user){ %>
+                                <div class="reply-header gray text">评论</div>
+                                <div class="reply-area">
+                                    <textarea id="articleReplyEditor" class="rg-textarea" rows="4" placeholder="这里输入评论内容"></textarea>
+                                    <a href="javascript:void(0);" class="rg-button do-reply right"> 发布评论</a>
+                                    <div class="reply-unlogin one-row">
+
+                                    </div>
+                                    <% }else{ %>
+                                        <div class="reply-header gray text">评论请</div>
+                                        <div class="reply-area">
+                                            <a href="javascript:void(0);" class="rg-button do-reply right" data-toggle="modal" data-target="#signinModal"> 登录</a>
+                                            <div class="reply-unlogin one-row">
+
+                                            </div>
+                                            <% }%>
+                                        </div>
+                                        <div class="reply-list">
+                                            <ul>
+                                            </ul>
+                                        </div>
+                                </div>
+                    </section>
+                    </div>
+                    <div class="col-3 col-mb-12">
+                        <section class="as-sidebar-section sidebar one-section white section">
+
+                            <div class="user-block ui tint blur" data-image="https://o.ruogoo.cn/user/2d804a9864129d9c2c4713c5555715ab.jpg">
+                                <a href="" class="ui circular image user-avatar">
+                                <img src="/uploads/<%= anthors[0].userAvatar %>"  class="" alt="方丈遗少" width="80" height="80"> </a>
+
+                                <p class="user-name big text">
+                                    <a href="">方丈遗少</a>
+                                </p>
+
+                                <p class="user-level">
+                                    <a href="" class="rg-label small level" style="background-color: #803DE2;">大炎皇帝</a>
+                                    <a href="" class="rg-label small level" style="background-color: #AE46B5;">方丈阁主</a>
+                                </p>
+                            </div>
+                            <div class="goto-write center" style="padding: 10px;">
+                                <a href="" class="ui fluid teal button" target="_blank">写新文章</a>
+                            </div>
+                            <div class="rg-board">
+                                <div class="rg-board-head">
+                                    <p class="title">所属文集</p>
+                                </div>
+                                <div class="rg-board-body">
+                                    <div class="ui list">
+                                        <div class="item">
+                                            <a href="" class="ui tiny image">
+                                                <img src="../../static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/cover/8655473fadf6c766fa59afa31d796c48.jpg@!cover-90" alt="《雨梦集》">
+                                            </a>
+                                            <div class="top aligned content">
+                                                <a href="../collection/15.htm" class="big title">《方丈录》</a>
+                                                <div class="content">
+                                                    <a href="" class=" small gray text ">方丈遗少</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="" class="ui basic tiny button ">登录后收录到我的文集</a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('footer') %>

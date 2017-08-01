@@ -1,3 +1,4 @@
+//文章相关
 var mysql = require('mysql');
 var DB_NAME = 'nodedb';
 //创建连接池 createPool(Object)
@@ -17,7 +18,7 @@ function Article(article) {
   this.artTitle = article.artTitle;
   this.artContent = article.artContent;
   this.artSaw = article.artSaw;
-  this.artCagetary = article.artCagetary;
+  this.artCategory = article.artCategory;
   this.artKeyWords = article.artKeyWords;
   this.artKeyWords = article.artKeyWords;
   this.artStartTime = article.artStartTime;
@@ -33,15 +34,15 @@ Article.prototype.articleSave = function save(callback) {
     artTitle: this.artTitle,
     artContent: this.artContent,
     artSaw: this.artSaw,
-    artCagetary: this.artCagetary,
+    artCategory: this.artCategory,
     artKeyWords: this.artKeyWords,
     artStartTime: this.artStartTime,
     artUp: this.artUp,
     artDown: this.artDown
   };
-  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCAGETARY,ARTKEYWORDS,ARTSTARTTIME,ARTUP,ARTDOWN) VALUES (0,?,?,?,?,?,?,?,?,?)";
+  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCATEGORY,ARTKEYWORDS,ARTSTARTTIME,ARTUP,ARTDOWN) VALUES (0,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function (err, connection) {
-    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCagetary,article.artKeyWords,article.artStartTime,article.artUp,article.artDown], function (err, result) {
+    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCategory,article.artKeyWords,article.artStartTime,article.artUp,article.artDown], function (err, result) {
       if (err) {
         console.log("INSERT_ARTICLE Error: " + err.message);
         return;
@@ -73,7 +74,7 @@ Article.prototype.articleInfo = function (callback) {
     artTitle: this.artTitle,
     artContent: this.artContent,
     artSaw: this.artSaw,
-    artCagetary: this.artCagetary,
+    artCategory: this.artCategory,
     artKeyWords: this.artKeyWords,
     artStartTime: this.artStartTime,
     artUp: this.artUp,

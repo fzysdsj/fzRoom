@@ -277,6 +277,13 @@ a:focus {
     line-height: 23px;
 }
 
+.navbar-nav>li.fzRoom>a:hover {
+    font-size: 20px;
+    font-family: "华文行楷";
+    line-height: 23px;
+    text-shadow: 1px 1px 5px #E8E8E8 !important;
+}
+
 .jumbotron {
     margin-bottom: 0;
 }

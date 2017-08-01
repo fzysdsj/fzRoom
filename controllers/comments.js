@@ -1,25 +1,25 @@
 
 var express = require('express');
 var db = require("../config/db");
-var Article = require("../models/articles.js");
+var Article = require("../models/comments.js");
 var fs = require('fs');
 var path = require('path');
-var formidable = require('formidable');
+// var formidable = require('formidable');
 var router = express.Router();
 router.get("/",function(req,res,next){
-        db.query("select * from article", function (err, rows) {
+        db.query("select * from comment", function (err, rows) {
         if (err) {
-            res.render("articleList", { title: "用户列表", datas: [] });
+            res.render("commentList", { title: "评论列表", datas: [] });
         } else {
-            res.render("articleList", { title: "用户列表", datas: rows});
+            res.render("commentList", { title: "评论列表", datas: rows});
         }
     });
 })
-router.get("/art/:id", function (req, res, next) {
+router.get("/com/:id", function (req, res, next) {
     var id = req.params.id;
     var anthor = "";
     console.log(id);
-    var sql = "select * from article where artId = " + id;
+    var sql = "select * from comment where comId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -41,7 +41,7 @@ router.get("/art/:id", function (req, res, next) {
     });
 });
 
-//添加文章
+//添加用户
 router.get("/create", function (req, res, next) {
     res.render("artAdd");
 });
