@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="/css/article.css" />
     <link rel="stylesheet" href="/css/articleA.css" />
     <div class="body">
-        <i class="icon-pencil"></i>
         <div class="container">
             <div class="col-group">
                 <div class="col-9 col-mb-12">
@@ -86,7 +85,7 @@
                                         target="_blank"></a>
                                     <a class="social-share-icon icon-douban" href="http://shuo.douban.com/!service/share?href=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;name=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;text=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;image=&amp;starid=0&amp;aid=0&amp;style=11"
                                         target="_blank"></a>
-                                </div> -->
+                                </div>  -->
 
                             </div>
                         </div>
@@ -95,33 +94,54 @@
                             <% if(user){ %>
                                 <div class="reply-header gray text">评论</div>
                                 <div class="reply-area">
-                                    <textarea id="articleReplyEditor" class="rg-textarea" rows="4" placeholder="这里输入评论内容"></textarea>
-                                    <a href="javascript:void(0);" class="rg-button do-reply right"> 发布评论</a>
-                                    <div class="reply-unlogin one-row">
+                                    <form method="POST" action="/comments/create">
+                                        <label for="comaid"></label>
+                                        <input type="text" name="comaid" id="comaid" class="hidden" value="<%= datas[0].artId %>">
+                                        <label for="comcontent"></label>
+                                        <input type="text" name="comcontent" id="comcontent" class="hidden">
+                                        <textarea id="comment" class="rg-textarea " rows="4 " placeholder="这里输入评论内容 " value="getValue()"></textarea>
+                                        <!-- <a href="javascript:void(0); " class="rg-button do-reply right "></a> -->
+                                        <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论">
+                                    </form>
+                                    <div class="reply-unlogin one-row ">
 
                                     </div>
                                     <% }else{ %>
-                                        <div class="reply-header gray text">评论请</div>
-                                        <div class="reply-area">
-                                            <a href="javascript:void(0);" class="rg-button do-reply right" data-toggle="modal" data-target="#signinModal"> 登录</a>
-                                            <div class="reply-unlogin one-row">
+                                        <div class="reply-header gray text ">评论请</div>
+                                        <div class="reply-area ">
+                                            <a href="javascript:void(0); " class="rg-button do-reply right " data-toggle="modal " data-target="#signinModal "> 登录</a>
+                                            <div class="reply-unlogin one-row ">
 
                                             </div>
                                             <% }%>
                                         </div>
-                                        <div class="reply-list">
-                                            <ul>
-                                            </ul>
+                                        <div class="reply-header gray text">评论内容</div>
+                                        <div class="reply-list ">
+                                            <% for(var i=0;i< comment.length;i++){ %>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                        <img class="media-object" src="/uploads/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
+                                            </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">
+                                                            <%= comer[i].userNick %>
+                                                        </h4>
+                                                        <%= comment[i].comContent %>
+                                                    </div>
+                                                </div>
+                                                <% } %>
                                         </div>
                                 </div>
                     </section>
                     </div>
-                    <div class="col-3 col-mb-12">
-                        <section class="as-sidebar-section sidebar one-section white section">
+                    <div class="col-3 col-mb-12 ">
+                        <section class="as-sidebar-section sidebar one-section white section ">
 
-                            <div class="user-block ui tint blur" data-image="https://o.ruogoo.cn/user/2d804a9864129d9c2c4713c5555715ab.jpg">
-                                <a href="" class="ui circular image user-avatar">
-                                <img src="/uploads/<%= anthors[0].userAvatar %>"  class="" alt="方丈遗少" width="80" height="80"> </a>
+                            <div class="user-block ui tint blur " data-image="https://o.ruogoo.cn/user/2d804a9864129d9c2c4713c5555715ab.jpg ">
+                                <a href="/users/toSelect/<%= anthors[0].userId %>" class="ui circular image user-avatar">
+                                        <img src="/uploads/<%= anthors[0].userAvatar %>" class="" alt="方丈遗少" width="80" height="80"> </a>
 
                                 <p class="user-name big text">
                                     <a href="">方丈遗少</a>
@@ -133,7 +153,7 @@
                                 </p>
                             </div>
                             <div class="goto-write center" style="padding: 10px;">
-                                <a href="" class="ui fluid teal button" target="_blank">写新文章</a>
+                                <a href="/articles/create" class="ui fluid teal button" target="_blank">写新文章</a>
                             </div>
                             <div class="rg-board">
                                 <div class="rg-board-head">
@@ -161,4 +181,12 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(function() {
+                $("#comment").change(function() {
+                    $("#comcontent")[0].value = $("#comment").val();
+                    console.log($("#comcontent")[0].value);
+                });
+            });
+        </script>
         <%- include('footer') %>
