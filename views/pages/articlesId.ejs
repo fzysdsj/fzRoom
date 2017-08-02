@@ -92,7 +92,7 @@
                         <hr>
                         <div class="article-reply reply">
                             <% if(user){ %>
-                                <div class="reply-header gray text">评论</div>
+                                <div class="reply-header gray text" id="comcon">评论</div>
                                 <div class="reply-area">
                                     <form method="POST" action="/comments/create">
                                         <label for="comaid"></label>
@@ -101,15 +101,15 @@
                                         <input type="text" name="comcontent" id="comcontent" class="hidden">
                                         <textarea id="comment" class="rg-textarea " rows="4 " placeholder="这里输入评论内容 " value="getValue()"></textarea>
                                         <!-- <a href="javascript:void(0); " class="rg-button do-reply right "></a> -->
-                                        <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论">
+                                        <div class="reply-unlogin one-row ">
+                                            <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论">
+                                        </div>
                                     </form>
-                                    <div class="reply-unlogin one-row ">
 
-                                    </div>
                                     <% }else{ %>
                                         <div class="reply-header gray text ">评论请</div>
                                         <div class="reply-area ">
-                                            <a href="javascript:void(0); " class="rg-button do-reply right " data-toggle="modal " data-target="#signinModal "> 登录</a>
+                                            <a href="javascript:void(0);" class="rg-button do-reply right " data-toggle="modal " data-target="#signinModal "> 登录</a>
                                             <div class="reply-unlogin one-row ">
 
                                             </div>
@@ -117,21 +117,39 @@
                                         </div>
                                         <div class="reply-header gray text">评论内容</div>
                                         <div class="reply-list ">
-                                            <% for(var i=0;i< comment.length;i++){ %>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <a href="#">
-                                                        <img class="media-object" src="/uploads/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
+                                            <% if(comment.length==0){ %>
+                                                <h4 class="text-center red">还无人评论，快来抢第一把交椅!</h4>
+                                                <% } else{for(var i=0;i< comment.length;i++){ %>
+                                                    <div class="media">
+                                                        <div class="media-left">
+                                                            <a href="javascript:void(0);" id="comeravatar<%= i %>">
+                                                        <img class="media-object img-circle" src="/uploads/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
                                             </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                <span><%= comer[i].userNick %></span> &nbsp;&nbsp;
+                                                                <a href="/wenRoom/know" class="rg-label small level" style="background-color: #B0B0B0;">
+                                                                        方丈阁卫
+                                                                    </a>
+                                                            </h4>
+                                                            <h6>
+
+                                                                <%= comment[i].comContent %>
+                                                            </h6>
+                                                            <h6>
+                                                                <%= comment[i].comStartTime%>
+
+                                                                    <a href="#comcon">回复</a>
+                                                                    <% if(comer[i].userClass>1000){ %>
+                                                                        <a href="/comments/del/<%= comment[i].comId %>">删除</a>
+                                                                        <% }else{ %>
+                                                                            <a href="/comments/del/<%= comment[i].comId %>">举报</a>
+                                                                            <% } %>
+                                                            </h6>
+                                                        </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">
-                                                            <%= comer[i].userNick %>
-                                                        </h4>
-                                                        <%= comment[i].comContent %>
-                                                    </div>
-                                                </div>
-                                                <% } %>
+                                                    <% } }%>
                                         </div>
                                 </div>
                     </section>
@@ -187,6 +205,15 @@
                     $("#comcontent")[0].value = $("#comment").val();
                     console.log($("#comcontent")[0].value);
                 });
+                $(".media").on('click', function() {
+                    var g = $(this).children()[1];
+                    var gg = $(g).children()[0];
+                    var ggg = $(gg).children()[0];
+                    var s = "@" + $(ggg).text().trim();
+                    $("#comment").val(s);
+
+                });
+
             });
         </script>
         <%- include('footer') %>

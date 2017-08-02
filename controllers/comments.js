@@ -81,4 +81,14 @@ router.post("/create", function (req, res, next) {
         }
     });
 });
+router.get("/del/:id", function (req, res) {
+    var id = req.params.id;
+    db.query("delete from comment where comid = " + id, function (err, rows) {
+        if (err) {
+            res.send("删除失败" + err);
+        } else {
+            return res.redirect("back");
+        }
+    });
+});
 module.exports = router;

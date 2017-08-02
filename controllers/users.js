@@ -284,7 +284,7 @@ router.post("/signin", function (req, res) {
         if (req.session.user) {
             if (req.session.user.userName == username) {
                 req.flash('error', '用户已登录');
-                return res.redirect('/users/signin');
+                return res.redirect('/wenRoom');
             }
             else {
                 req.flash('error', '已有用户登录，请先退出当前用户');

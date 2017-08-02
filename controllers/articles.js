@@ -39,6 +39,8 @@ router.get("/art/:id", function (req, res, next) {
                             console.log("ssssssss");
                         }
                         else {
+                            if(comment.length!=0){
+
                             for (var i = 0; i < comment.length; i++) {
                                 var SELECT_USER = "select * from userinfo where userId = " + comment[i].comUid;
                                 db.query(SELECT_USER, function (err, user) {
@@ -56,6 +58,9 @@ router.get("/art/:id", function (req, res, next) {
                                         }
                                     }
                                 });
+                            }
+                            }else{
+            res.render("articlesId", { datas: rows, anthors: row, comment: comment,comer:userArray});
                             }
 
 
@@ -114,7 +119,7 @@ router.post("/create", function (req, res, next) {
                 res.send("新增失败" + err);
             } else {
                 console.log("插入成功");
-                res.redirect("/articles");
+                res.redirect("/articles/art"+artId);
             }
         });
     });
