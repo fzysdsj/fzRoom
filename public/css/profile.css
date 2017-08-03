@@ -1,3 +1,31 @@
+.goto-top,
+.input-noborder,
+.input-text,
+.pagination li,
+.rg-button,
+.rg-button-small,
+.rg-select,
+a.user-head img,
+a.user-head-square img,
+textarea.input-textarea,
+textarea.rg-textarea {
+    transition: all .3s ease-in-out
+}
+
+#confirm-dialog:after,
+#message-box .action:after,
+.avatar-show:after,
+.clearfix:after,
+.emoji-list:after,
+.emoji-panel:after,
+.home-side-section .fan-block ul:after,
+.home-side-section .visitor-block ul:after,
+.rg-board .rg-board-head:after,
+.tab-panel .tab-content:after,
+.tab:after {
+    clear: both
+}
+
 a,
 a.gray,
 a.text,
@@ -11,21 +39,6 @@ a:hover {
     text-shadow: 1px 1px 5px #E8E8E8
 }
 
-a.user-head img,
-a.user-head-square img {
-    -webkit-transition: all .3s ease-in-out
-}
-
-#sentence-box .action,
-.clearfix,
-.rg-board .rg-board-head,
-.sidebar .hotnode .hotnode-list,
-.tab,
-.tag-list,
-.uploader-list {
-    zoom: 1
-}
-
 .center,
 .rg-form-panel .rg-panel-head,
 .rg-label,
@@ -37,13 +50,7 @@ i.icon {
 .overflow-tail,
 .text.one-line,
 .title.one-line {
-    overflow: hidden
-}
-
-.file-item .info,
-.overflow-tail,
-.text.one-line,
-.title.one-line {
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis
 }
@@ -54,17 +61,6 @@ li,
 ol,
 ul {
     list-style: none
-}
-
-#sentence-box .action:after,
-.clearfix:after,
-.rg-board .rg-board-head:after,
-.sidebar .hotnode .hotnode-list:after,
-.tab:after,
-.tag-list:after,
-.uploader-list:after,
-.writer-section .normal-writer:after {
-    clear: both
 }
 
 .m-zero {
@@ -114,6 +110,10 @@ ul {
 
 .noradius {
     border-radius: 0
+}
+
+.clearfix {
+    zoom: 1
 }
 
 .clearfix:after,
@@ -240,8 +240,7 @@ a.user-head-square {
 
 a.user-head img {
     border-radius: 50%;
-    border: 1px solid #DDD;
-    transition: all .3s ease-in-out
+    border: 1px solid #DDD
 }
 
 a.user-head img:hover {
@@ -249,20 +248,17 @@ a.user-head img:hover {
     box-shadow: 0 0 2px #935A46
 }
 
-a.user-head-square img {
-    border-radius: 4px;
-    padding: 1px;
-    border: 1px solid #DDD;
-    transition: all .3s ease-in-out
-}
-
 .rg-button,
 .rg-button-small {
     line-height: 1;
-    -webkit-transition: all .3s ease-in-out;
     display: inline-block;
-    cursor: pointer;
-    transition: all .3s ease-in-out
+    cursor: pointer
+}
+
+a.user-head-square img {
+    border-radius: 4px;
+    padding: 1px;
+    border: 1px solid #DDD
 }
 
 a.user-head-square img:hover {
@@ -295,12 +291,6 @@ a.user-head-square img:hover {
     background-color: #fff;
     border-radius: 2px;
     border: 1px solid #935A46
-}
-
-.input-round,
-.input-text {
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
 }
 
 .rg-button-small:hover {
@@ -336,17 +326,7 @@ a.user-head-square img:hover {
     border: 1px solid #DDD;
     border-radius: 16px;
     padding-left: 16px;
-    padding-right: 16px
-}
-
-.input-noborder,
-.pagination li,
-.rg-select {
-    -webkit-transition: all .3s ease-in-out
-}
-
-.input-noborder,
-.pagination li {
+    padding-right: 16px;
     transition: all .3s ease-in-out
 }
 
@@ -514,8 +494,7 @@ a.user-head-square img:hover {
     font-size: 14px;
     line-height: 32px;
     border: 1px solid #ccc;
-    background: #fff;
-    transition: all .3s ease-in-out
+    background: #fff
 }
 
 .tab .tab-item,
@@ -537,7 +516,8 @@ a.user-head-square img:hover {
 .tab {
     width: 100%;
     border-bottom: 1px solid #DDD;
-    font-size: 16px
+    font-size: 16px;
+    zoom: 1
 }
 
 .tab .tab-item {
@@ -598,6 +578,7 @@ a.user-head-square img:hover {
 }
 
 .rg-board .rg-board-head {
+    zoom: 1;
     border-bottom: 1px solid #DDD
 }
 
@@ -659,15 +640,13 @@ textarea.rg-textarea {
     line-height: 1.4;
     vertical-align: middle;
     resize: none;
-    -webkit-transition: all .3s ease-in-out;
     outline: 0
 }
 
 textarea.rg-textarea {
     font-size: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: all .3s ease-in-out
+    border-radius: 4px
 }
 
 textarea.rg-textarea:focus {
@@ -677,13 +656,7 @@ textarea.rg-textarea:focus {
 
 textarea.input-textarea {
     font-size: 14px;
-    border: 1px solid #ccc;
-    transition: all .3s ease-in-out
-}
-
-.goto-top,
-.nav-bar {
-    -webkit-transition: all .3s ease-in-out
+    border: 1px solid #ccc
 }
 
 textarea.input-textarea:focus {
@@ -739,13 +712,8 @@ i[class^=icon-] {
 
 @font-face {
     font-family: iconfont;
-    src: url("../font/font_1440858889_4797332.eot")/*tpa=https://at.alicdn.com/t/font_1440858889_4797332.eot*/
-    ;
-    src: url("../font/font_1440858889_4797332.eot-#iefix")/*tpa=https://at.alicdn.com/t/font_1440858889_4797332.eot?#iefix*/
-    format('embedded-opentype'), url("../font/font_1440858889_4797332.woff")/*tpa=https://at.alicdn.com/t/font_1440858889_4797332.woff*/
-    format('woff'), url("../font/font_1440858889_4797332.ttf")/*tpa=https://at.alicdn.com/t/font_1440858889_4797332.ttf*/
-    format('truetype'), url("../font/font_1440858889_4797332.svg#iconfont")/*tpa=https://at.alicdn.com/t/font_1440858889_4797332.svg#iconfont*/
-    format('svg')
+    src: url(../font/font_1440858889_4797332.eot);
+    src: url(../font/font_1440858889_4797332.eot?#iefix) format('embedded-opentype'), url(../font/font_1440858889_4797332.woff) format('woff'), url(../font/font_1440858889_4797332.ttf) format('truetype'), url(../font/font_1440858889_4797332.svg#iconfont) format('svg')
 }
 
 .icon-rss-o:before {
@@ -808,13 +776,8 @@ i[class^=icon-] {
 
 @font-face {
     font-family: semantic-icon;
-    src: url("../fonts/ruogu-font.eot-n9ct8k")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.eot?n9ct8k*/
-    ;
-    src: url("../fonts/ruogu-font.eot-#iefixn9ct8k")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.eot?#iefixn9ct8k*/
-    format('embedded-opentype'), url("../fonts/ruogu-font.ttf-n9ct8k")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.ttf?n9ct8k*/
-    format('truetype'), url("../fonts/ruogu-font.woff-n9ct8k")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.woff?n9ct8k*/
-    format('woff'), url("../fonts/ruogu-font.svg-n9ct8k#ruogu-font")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.svg?n9ct8k#ruogu-font*/
-    format('svg');
+    src: url(../font/ruogu-font.eot-n9ct8k);
+    src: url(../font/ruogu-font.eot-#iefixn9ct8k) format('embedded-opentype'), url(../font/ruogu-font.ttf-n9ct8k) format('truetype'), url(../font/ruogu-font.woff-n9ct8k) format('woff'), url(../font/ruogu-font.svg-n9ct8k#ruogu-font) format('svg');
     font-weight: 400;
     font-style: normal
 }
@@ -844,13 +807,8 @@ i.icon.close:before {
 
 @font-face {
     font-family: ruogu-font;
-    src: url("../font/ruogu-font.eot-pavl5c")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.eot?pavl5c*/
-    ;
-    src: url("../font/ruogu-font.eot-pavl5c#iefix")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.eot?pavl5c#iefix*/
-    format('embedded-opentype'), url("../font/ruogu-font.ttf-pavl5c")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.ttf?pavl5c*/
-    format('truetype'), url("../font/ruogu-font.woff-pavl5c")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.woff?pavl5c*/
-    format('woff'), url("../font/ruogu-font.svg-pavl5c#ruogu-font")/*tpa=https://static.ruogoo.cn/fonts/ruogu-font.svg?pavl5c#ruogu-font*/
-    format('svg');
+    src: url(../font/ruogu-font.eot-pavl5c);
+    src: url(../font/ruogu-font.eot-pavl5c#iefix) format('embedded-opentype'), url(../font/ruogu-font.ttf-pavl5c) format('truetype'), url(../font/ruogu-font.woff-pavl5c) format('woff'), url(../font/ruogu-font.svg-pavl5c#ruogu-font) format('svg');
     font-weight: 400;
     font-style: normal
 }
@@ -1281,8 +1239,7 @@ hr {
 }
 
 .pull-right,
-.right,
-.social-login {
+.right {
     float: right
 }
 
@@ -1344,12 +1301,6 @@ section.white.section {
     margin-bottom: 10px
 }
 
-.empty-view,
-.notice {
-    margin-top: 20px;
-    margin-bottom: 20px
-}
-
 .level,
 .verify {
     color: #fff
@@ -1371,7 +1322,7 @@ body {
 }
 
 body {
-    font-family: 'Hiragino Sans GB', 'Open Sans', consolas, 'Microsoft YaHei', '微软雅黑', STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif, tahoma;
+    font-family: 'Hiragino Sans GB', 'Open Sans', consolas, 'Microsoft YaHei', 'å¾®è½¯é›…é»‘', STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif, tahoma;
     background-color: #F7F7F7
 }
 
@@ -1390,8 +1341,7 @@ body {
     right: 20px;
     bottom: 30px;
     cursor: pointer;
-    display: none;
-    transition: all .3s ease-in-out
+    display: none
 }
 
 .goto-top .icon {
@@ -1399,6 +1349,8 @@ body {
 }
 
 .notice {
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
     background-color: #E8E8E8
 }
@@ -1411,6 +1363,14 @@ body {
 .notice.success {
     color: #fff;
     background-color: #1FCFC6
+}
+
+.notice-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #ECC97D;
+    padding: 10px 20px
 }
 
 .editor-style p,
@@ -1426,6 +1386,8 @@ body {
 
 .empty-view {
     min-height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 14px;
     text-align: center;
     line-height: 60px
@@ -1519,7 +1481,6 @@ body {
 
 .my-mfp-slide-bottom.mfp-bg {
     opacity: .01;
-    -webkit-transition: opacity .3s ease-out;
     transition: opacity .3s ease-out
 }
 
@@ -1739,7 +1700,6 @@ body.pushable>.pusher {
     margin-right: 8px;
     border-radius: 50%;
     border: 2px solid #DDD;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
@@ -1766,7 +1726,6 @@ body.pushable>.pusher {
     width: 120px;
     line-height: 36px;
     text-align: center;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
@@ -1857,7 +1816,6 @@ body.pushable>.pusher {
     height: 380px;
     margin: auto;
     border-radius: 5px;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
@@ -1889,7 +1847,6 @@ body.pushable>.pusher {
     font-size: 14px;
     border: 0;
     outline: 0;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
@@ -1915,7 +1872,6 @@ body.pushable>.pusher {
 .login-section .error-notice {
     margin-left: 10px;
     color: #FF3239;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
@@ -1929,6 +1885,10 @@ body.pushable>.pusher {
 
 .login-section .captcha input {
     width: 120px!important
+}
+
+.social-login {
+    float: right
 }
 
 .social-login .social-login-item i {
@@ -1969,6 +1929,15 @@ body.pushable>.pusher {
     margin-left: auto;
     margin-right: auto;
     font-size: 12px
+}
+
+.tweet-body .rg-pic,
+.tweet-body .tweet-pic,
+.tweet-list .tweet-body .tweet-content a.tweet-pic .pic,
+.tweet-reply .rg-pic,
+.tweet-reply .tweet-pic {
+    max-width: 220px;
+    box-shadow: 0 0 8px #AAA
 }
 
 .footer .site {
@@ -2016,14 +1985,6 @@ body.pushable>.pusher {
     display: inline-block
 }
 
-.sidebar .hotnode .hotnode-list:after,
-.sidebar .hotnode .hotnode-list:before,
-.tag-list:after,
-.tag-list:before {
-    display: table;
-    content: ""
-}
-
 .footer .platform-list .platform-item .icon {
     font-size: 24px;
     margin: 0 auto
@@ -2045,12 +2006,6 @@ body.pushable>.pusher {
     color: #FF905A
 }
 
-.sidebar .user-block .user-name a,
-.tag-list .active,
-.tag-list .tag-item:hover a {
-    color: #fff
-}
-
 @media only screen and (max-width:767px) {
     .footer .about,
     .footer .site {
@@ -2062,664 +2017,408 @@ body.pushable>.pusher {
     }
 }
 
-.sidebar .user-block {
-    height: 240px;
-    text-align: center
-}
-
-.sidebar .user-block .user-avatar {
-    margin: 30px 10px 10px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.sidebar .user-block .user-avatar:hover {
-    box-shadow: 0 0 4px #CC7030
-}
-
-.sidebar .user-introduction {
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #F5F5F5
-}
-
-.sidebar .hotnode .hotnode-list .hotnode-item {
-    float: left;
-    padding: 2px 8px;
-    background-color: #F5F5F5;
-    border: 1px solid #DDD;
-    margin: 5px;
-    border-radius: 4px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.sidebar .hotnode .hotnode-list .hotnode-item.see-all {
-    padding-left: 16px;
-    padding-right: 16px
-}
-
-.sidebar .hotnode .hotnode-list .hotnode-item:hover {
-    background-color: #E8E8E8
-}
-
-.tag-list {
-    margin-top: 5px;
-    margin-bottom: 5px
-}
-
-.tag-list .tag-item {
-    float: left;
-    min-width: 32px;
-    height: 24px;
-    line-height: 20px;
-    padding: 0 10px;
-    margin: 5px;
-    text-align: center;
-    border: 1px solid #DDD;
-    border-radius: 12px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.tag-list .active,
-.tag-list .tag-item:hover {
-    background-color: #CC7030;
-    border: 1px solid #CC7030
-}
-
-.writter-stamp {
-    position: absolute;
-    right: -2px;
-    bottom: -2px;
-    width: 24px;
-    height: 24px;
-    z-index: 50;
-    background-size: contain;
-    background-image: url("../image/writter_stamp.png")/*tpa=https://static.ruogoo.cn/image/writter_stamp.png*/
-}
-
-.recommend-section {
-    height: 400px
-}
-
-.recommend-section .background-overlay {
-    width: 100%;
-    height: 400px;
-    position: absolute;
-    overflow: hidden
-}
-
-.recommend-section .recommend-container {
+.tweet-list {
     position: relative;
-    height: 400px
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px
 }
 
-.recommend-section .recommend-detail {
+.tweet-list .line {
     position: absolute;
-    left: 60px;
-    bottom: 60px;
-    width: 400px;
-    height: 200px;
-    color: #fff;
-    text-align: center
+    margin-top: 50px;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    z-index: 1;
+    display: block;
+    width: 4px;
+    content: "";
+    background-color: #F3F3F3
 }
 
-.recommend-section .recommend-detail .see-more {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #DDD;
-    background-color: transparent;
-    border: 2px solid #DDD
-}
-
-.recommend-section .recommend-detail .see-more:hover {
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff
-}
-
-.recommend-section .recommend-show {
-    position: absolute;
-    right: 480px;
-    top: 40px;
-    width: 240px;
-    height: 320px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.recommend-section .recommend-show .current {
-    box-shadow: 0 0 10px #555
-}
-
-.recommend-section .recommend-list {
-    position: absolute;
-    right: 0;
-    top: 47px;
-    width: 460px;
-    height: 306px;
-    padding: 10px;
-    background: rgba(0, 0, 0, .1)
-}
-
-.recommend-section .recommend-list .recommend-item {
-    float: left;
-    margin: 5px;
+.tweet-list .tweet-item {
+    margin: 20px 20px 20px 50px;
     position: relative
 }
 
-.recommend-section .recommend-list .recommend-item .title {
+.tweet-list .tweet-item .user-head {
     position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-    line-height: 1;
-    color: #fff;
-    padding: 5px 2px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
+    z-index: 10;
+    left: -64px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #fff
 }
 
-.recommend-section .recommend-list .recommend-item .active .title {
-    border-bottom: 2px solid #CC7030;
-    background-color: rgba(0, 0, 0, .5)
+.tweet-list .tweet-item .user-head img {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #DDD;
+    background-color: #DDD
 }
 
-.notice-section {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #fff;
-    background-color: #ECC97D;
-    padding: 10px 20px
-}
-
-.nice-section .nicewithpic-item {
+.tweet-list .tweet-body {
     position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 110px;
-    height: 150px
+    border: 1px solid #DDD;
+    border-radius: 4px
 }
 
-.nice-section .nicewithpic-item .nice-cover {
+.tweet-list .tweet-body .arrow {
+    position: absolute;
+    top: 12px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right: 10px solid #DDD;
+    z-index: 998
+}
+
+.tweet-list .tweet-body .arrow em {
+    position: absolute;
+    top: -10px;
+    left: -9px;
+    width: 0;
+    height: 0;
+    border: 10px dashed transparent;
+    border-right: 10px solid #FFF
+}
+
+.tweet-list .tweet-body .tweet-main {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.tweet-list .tweet-body .tweet-content {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #555;
+    word-wrap: break-word
+}
+
+.tweet-list .tweet-body .tweet-content a.tweet-pic {
+    display: inline-block;
+    line-height: 0
+}
+
+.tweet-list .tweet-body .tweet-meta {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #AAA
+}
+
+.tweet-list .tweet-body .has-liked {
+    color: #FD8D8D
+}
+
+.tweet-reply .tweet-reply-area p,
+.tweet-reply .tweet-reply-item .reply-meta {
+    color: #AAA
+}
+
+.tweet-body .rg-face,
+.tweet-body .tweet-face,
+.tweet-reply .rg-face,
+.tweet-reply .tweet-face {
+    vertical-align: middle;
+    margin-left: 2px;
+    margin-right: 2px
+}
+
+.tweet-reply {
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD
+}
+
+.tweet-reply .tweet-reply-item {
+    position: relative;
+    font-size: 12px;
+    padding: 10px 20px 10px 60px;
+    background-color: #FDFCFA;
+    border-bottom: 1px dashed #DDD
+}
+
+.tweet-reply .tweet-reply-item .reply-user-head {
+    position: absolute;
+    display: block;
+    line-height: 0;
+    left: 10px
+}
+
+.tweet-reply .tweet-reply-item .reply-user-head img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #DDD
+}
+
+.tweet-reply .tweet-reply-item .reply-content {
+    word-wrap: break-word
+}
+
+.tweet-reply .tweet-reply-area {
+    position: relative;
+    padding: 4px 20px
+}
+
+.tweet-reply .tweet-reply-area .tweet-reply-face {
     position: absolute;
     left: 10px;
     top: 10px
 }
 
-.nice-section .nicewithpic-item .cover {
-    width: 90px;
-    height: 120px;
-    box-shadow: 2px 2px 4px #AAA
+.tweet-reply .tweet-reply-area .tweet-reply-face .icon {
+    font-size: 16px
 }
 
-.nice-section .nicewithpic-item .summary {
-    height: 76px;
-    line-height: 1.6;
-    overflow: hidden
+.tweet-reply .tweet-reply-area input {
+    font-size: 13px;
+    padding-left: 20px;
+    padding-right: 30px
 }
 
-.nice-section .nice-list .nice-item {
-    line-height: 2.4;
-    padding-left: 10px;
-    padding-right: 10px
-}
-
-.collection-section .collection-list .collection-item {
-    float: left;
-    margin: 10px;
-    width: 128px;
-    text-align: center
-}
-
-.collection-section .collection-list .collection-item .collection-cover {
-    overflow: hidden
-}
-
-.collection-section .collection-list .collection-item .cover {
-    width: 120px;
-    height: 160px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.collection-section .collection-list .collection-item .cover:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2)
-}
-
-.topic-section {
-    margin-top: 20px;
-    margin-bottom: 20px
-}
-
-.topic-section .topic {
-    overflow: hidden;
-    text-align: center
-}
-
-.topic-section .topic .label {
-    position: absolute
-}
-
-.topic-section .topic img {
-    box-shadow: 0 0 4px #999;
-    border-radius: 4px
-}
-
-.latest-list .article-item,
-.top-list .article-item {
-    height: 32px
-}
-
-.latest-list .article-no,
-.top-list .article-no {
-    display: inline-block;
-    width: 20px;
-    text-align: right
-}
-
-.writer-section .writer-card {
-    height: 160px;
-    box-shadow: 0 0 4px #E8E8E8;
-    position: relative;
-    padding: 10px 10px 10px 180px;
-    margin-top: 5px;
-    margin-bottom: 5px
-}
-
-.writer-section .writer-card .avatar {
+.tweet-reply .tweet-reply-area .do-reply {
     position: absolute;
-    left: 0;
+    float: right;
     top: 0;
-    overflow: hidden
-}
-
-.writer-section .writer-card .avatar img {
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out
-}
-
-.writer-section .writer-card .avatar img:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2)
-}
-
-.writer-section .writer-card .detail {
-    padding-top: 10px;
-    padding-bottom: 10px
-}
-
-.writer-section .normal-writer {
-    zoom: 1;
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-.writer-section .normal-writer:after,
-.writer-section .normal-writer:before {
-    content: "";
-    display: table
-}
-
-.writer-section .normal-writer .writer-item {
-    float: left;
-    position: relative;
-    overflow: hidden
-}
-
-.writer-section .normal-writer .writer-item .hover-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .6)
-}
-
-.writer-section .normal-writer .writer-item .hover-overlay .name {
-    position: absolute;
-    color: #fff;
-    width: 100%;
-    padding: 5px;
-    line-height: 2;
+    right: 0;
+    width: 32px;
+    height: 36px;
+    line-height: 36px;
     text-align: center
 }
 
-@media only screen and (max-width:767px) {
-    .topic-section .topic {
-        padding: 10px
+@media screen and (max-width:445px) {
+    .rg-pic,
+    .tweet-pic {
+        max-width: 100%!important
     }
 }
 
-.al-article-section .article-list .article-item {
-    position: relative;
-    padding: 20px 80px 20px 10px;
-    border-bottom: 1px dashed #DDD
+@media only screen and (max-width:767px) {
+    .tweet-list {
+        padding-left: 20px
+    }
+    .tweet-list .line {
+        left: 25px
+    }
+    .tweet-list .tweet-item {
+        margin: 10px 10px 10px 40px
+    }
+    .tweet-list .tweet-item .user-head {
+        left: -54px
+    }
 }
 
-.al-article-section .article-list .article-item .user-head-square {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -30px
+.editor-tools {
+    height: 32px;
+    float: left
 }
 
-.al-article-section .article-list .article-item .user-head-square img {
-    width: 60px
-}
-
-.al-article-section .article-list .article-item .summary {
-    margin-top: 4px;
-    margin-bottom: 4px
-}
-
-.as-article-section .article-head {
-    text-align: center;
-    padding: 17px;
-    color: #555
-}
-
-.as-article-section .article-meta {
-    text-align: center;
-    color: #AAA;
-    background-color: #F5F5F5;
-    padding-top: 2px;
-    padding-bottom: 2px;
+.editor-tools .emoji-face-action,
+.editor-tools .pic-action {
+    display: inline-block;
     position: relative
 }
 
-.as-article-section .article-meta .nice-stamp {
+.editor-tools .emoji-face-action input[type=file],
+.editor-tools .pic-action input[type=file] {
     position: absolute;
-    right: 0;
-    top: -76px;
-    width: 104px;
-    height: 104px;
-    background-image: url("../image/ruogujingpin.png")/*tpa=https://static.ruogoo.cn/image/ruogujingpin.png*/
-    ;
-    background-size: 104px
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer
 }
 
-.as-article-section .article-body {
-    padding: 20px;
-    color: #555
+.editor-tools .icon-face,
+.editor-tools .icon-picture {
+    font-size: 24px
 }
 
-.as-article-section .copyright-box {
-    border: 2px dashed #DDD;
-    background: #F9FAFC;
-    padding: 10px;
-    text-align: center
+.face-box {
+    max-width: 266px!important
 }
 
-.as-article-section .article-actions {
-    font-size: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px
+.emoji-panel {
+    zoom: 1
 }
 
-.as-article-section .like-action {
-    display: table;
-    margin-left: auto;
-    margin-right: auto
-}
-
-.as-article-section .award .do-award,
-.as-article-section .award .do-like,
-.as-article-section .like .do-award,
-.as-article-section .like .do-like {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 10px 16px;
-    color: #FF5F3E;
-    border: 1px solid #FF5F3E
-}
-
-.as-article-section .award .do-award:hover,
-.as-article-section .award .do-like:hover,
-.as-article-section .like .do-award:hover,
-.as-article-section .like .do-like:hover {
-    color: #fff;
-    background-color: #FF5F3E
-}
-
-.as-article-section .article-reply {
-    padding: 20px
-}
-
-.as-article-section .article-reply .reply-header {
-    background-color: #F5F5F5;
-    margin: 0 -20px;
-    padding: 10px 20px
-}
-
-.as-article-section .article-reply .reply-area .reply-unlogin {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #F5F5F5;
-    text-align: center
-}
-
-.as-article-section .article-reply .reply-item {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    position: relative;
-    padding-left: 100px;
-    border-bottom: 1px dashed #DDD
-}
-
-.as-article-section .article-reply .user-avatar {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    text-align: center
-}
-
-.as-article-section .article-reply .reply-detail .content {
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
-.as-article-section .article-reply .reply-tool .reply-simple {
-    width: 100%
-}
-
-.as-sidebar-section .belong-list .belong-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
-}
-
-.pic-box {
-    text-align: center;
-    padding: 30px;
-    border: 1px dashed #DDD
-}
-
-.pic-box .upload-pic {
-    border: 1px solid #935A46;
-    margin-top: 30px;
-    margin-bottom: 30px
-}
-
-.uploader-list:after,
-.uploader-list:before {
+.emoji-panel:after,
+.emoji-panel:before {
     content: "";
     display: table
 }
 
-.uploader-list .file-item {
-    float: left
-}
-
-.uploader-list .file-item img {
-    width: 100px;
-    height: 100px
-}
-
-.file-item {
-    margin: 10px;
-    padding: 4px;
-    border: 1px solid #DDD;
-    border-radius: 4px;
-    position: relative;
-    line-height: 0
-}
-
-.file-item img {
-    max-width: 100%;
-    min-width: 100px;
-    min-height: 100px
-}
-
-.file-item .progress {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 20px;
-    line-height: 20px;
-    margin-top: -10px;
-    background: rgba(0, 0, 0, .6);
+.emoji-panel .emoji-panel-head {
     text-align: center
 }
 
-.file-item .delete,
-.file-item .info {
-    position: absolute;
-    height: 20px;
-    line-height: 20px;
-    right: 4px
+.emoji-panel .emoji-panel-head .emoji-tab-list {
+    display: inline-block
 }
 
-.file-item .progress span {
-    display: block;
-    max-width: 100%;
-    height: 20px;
-    background-color: green;
-    color: #fff
-}
-
-.file-item .info {
-    left: 4px;
-    bottom: 4px;
-    text-indent: 5px;
-    background: rgba(0, 0, 0, .6);
-    color: #fff;
-    overflow: hidden;
-    z-index: 10
-}
-
-.file-item .delete {
-    font-size: 20px;
-    width: 20px;
-    top: 4px;
-    display: none;
+.emoji-panel .emoji-panel-head .emoji-tab-list .emoji-tab-item {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #AAA;
     cursor: pointer
 }
 
-.file-item .delete:hover {
-    color: #fff
+.emoji-panel .emoji-panel-head .emoji-tab-list .emoji-tab-item.active {
+    color: #555
 }
 
-.file-item:hover .delete {
-    display: block
+.emoji-list {
+    zoom: 1
 }
 
-form label {
-    font-size: 14px
+.emoji-list:after,
+.emoji-list:before {
+    content: "";
+    display: table
 }
 
-.input-title {
-    width: 100%
+.emoji-list li {
+    float: left;
+    padding: 5px;
+    cursor: pointer
 }
 
-.cs-head-section {
-    position: relative;
-    min-height: 160px;
-    padding-left: 120px
-}
-
-.cs-head-section .cover {
-    position: absolute;
-    left: 0;
-    top: 0
-}
-
-.cs-head-section .collection-body {
-    padding: 10px 20px
-}
-
-.cs-head-section .collection-description {
-    min-height: 4rem;
-    overflow: hidden
-}
-
-.cs-main-section .article-item,
-.cs-main-section .uneffect-article-item,
-.ts-main-section .article-item,
-.ts-main-section .uneffect-article-item {
-    position: relative;
-    padding: 10px 80px 10px 52px;
-    border-bottom: 1px dashed #DDD
-}
-
-.cs-main-section .article-item:last-child,
-.cs-main-section .uneffect-article-item:last-child,
-.ts-main-section .article-item:last-child,
-.ts-main-section .uneffect-article-item:last-child {
-    border: 0
-}
-
-.cs-main-section .article-item .article-check,
-.cs-main-section .article-item .article-no,
-.cs-main-section .uneffect-article-item .article-check,
-.cs-main-section .uneffect-article-item .article-no,
-.ts-main-section .article-item .article-check,
-.ts-main-section .article-item .article-no,
-.ts-main-section .uneffect-article-item .article-check,
-.ts-main-section .uneffect-article-item .article-no {
-    position: absolute;
-    display: block;
-    left: 10px;
-    color: #fff;
-    background-color: #CC7030;
-    width: 32px;
-    height: 32px;
-    line-height: 30px;
-    text-align: center;
-    border: 1px solid #CC7030;
-    border-radius: 50%
-}
-
-.cs-main-section .article-item .user-head-square,
-.cs-main-section .uneffect-article-item .user-head-square,
-.ts-main-section .article-item .user-head-square,
-.ts-main-section .uneffect-article-item .user-head-square {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -30px
-}
-
-.cs-main-section .article-item .article-meta,
-.cs-main-section .uneffect-article-item .article-meta,
-.ts-main-section .article-item .article-meta,
-.ts-main-section .uneffect-article-item .article-meta {
-    color: #AAA
-}
-
-.cs-main-section .uneffect-article-item,
-.ts-main-section .uneffect-article-item {
+.emoji-list li:hover {
     background-color: #F5F5F5
 }
 
-.ci-main-section .collection-list .collection-item {
+.tweet {
+    position: relative;
+    background-color: #F5F7F9;
+    padding: 20px 20px 20px 70px
+}
+
+.tweet .do-tweet {
+    float: right;
+    padding: 8px 16px
+}
+
+.tweet .user-head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px
+}
+
+.tweet .tweet-box {
+    margin-bottom: 10px
+}
+
+.tweet .action {
+    height: 32px
+}
+
+.tweet .action .send {
+    float: right
+}
+
+.tweet #pic-list {
+    display: none
+}
+
+.tweet #pic-list .pic-item {
+    max-width: 320px;
+    padding: 4px;
+    border: 1px dashed #DDD;
+    display: inline-block;
+    position: relative
+}
+
+.tweet #pic-list .pic-item .thumb {
+    max-width: 100%
+}
+
+.tweet #pic-list .pic-item .pic-item-container {
+    position: relative
+}
+
+.tweet #pic-list .pic-item .mask {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    width: 0;
+    height: 100%;
+    top: 0
+}
+
+.tweet #pic-list .pic-item .mask .info {
+    text-align: center;
+    color: #fff;
+    font-size: 24px
+}
+
+.tweet #pic-list .pic-item .mask .delete {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px
+}
+
+.tweet #pic-list .pic-item .mask .delete .ri {
+    font-size: 20px
+}
+
+.tweet #pic-list .pic-item:hover .mask .delete {
+    display: block
+}
+
+#confirm-dialog:after,
+#confirm-dialog:before,
+.tab-panel .tab-content:after,
+.tab-panel .tab-content:before {
+    display: table;
+    content: ""
+}
+
+.tweet .show-pic {
+    height: 30px
+}
+
+.webui-popover i.icon-refresh {
+    background: url(/image/loading.gif) no-repeat
+}
+
+#confirm-dialog {
+    padding: 20px 30px;
+    text-align: center;
+    max-width: 480px;
+    min-height: 100px;
+    margin: auto;
+    border-radius: 5px;
+    zoom: 1;
+    transition: all .3s ease-in-out
+}
+
+#confirm-dialog .confirm-text,
+.collection-list .collection-item {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+#confirm-dialog .rg-button {
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.collection-list .collection-item {
     position: relative;
     padding-left: 130px;
     height: 162px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     border: 1px solid #DDD;
     border-radius: 4px;
     box-shadow: 1px 1px 2px #E8E8E8;
@@ -2727,123 +2426,95 @@ form label {
     overflow: hidden
 }
 
-.ci-main-section .collection-list .collection-item .collection-cover {
+.collection-list .collection-item .collection-cover {
     position: absolute;
     left: 0
 }
 
-.ci-main-section .collection-list .collection-item .collection-cover img {
+.collection-list .collection-item .collection-cover img {
     box-shadow: 2px 0 4px #E8E8E8
 }
 
-.ci-main-section .collection-list .collection-item .collection-detail {
+.collection-list .collection-item .collection-detail {
     padding: 5px 10px
 }
 
-.ci-main-section .collection-list .collection-item .collection-detail .description {
+.collection-list .collection-item .collection-detail .description {
     height: 100px;
     overflow: hidden
 }
 
-@media screen and (max-width:479px) {
-    .cs-head-section {
-        height: auto;
-        padding-left: 0
-    }
-    .cs-head-section .cover {
-        position: relative;
-        display: block;
-        margin: 0 auto
-    }
-    .cs-main-section .article-item {
-        padding-right: 10px
-    }
-    .cs-main-section .article-item .user-head-square {
-        display: none
-    }
+.tab-panel {
+    margin-bottom: 20px
 }
 
-.si-body-section .sentence-toolbar {
-    position: relative
+.tab-panel .tab-item {
+    width: auto
 }
 
-.si-body-section .sentence-toolbar .create-sentence {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -17px
+.tab-panel .tab-content {
+    zoom: 1
 }
 
-.si-body-section .sentence-list {
-    padding-left: 10px;
-    padding-right: 10px
+.home-header-section {
+    height: 320px
 }
 
-.si-body-section .sentence-list .sentence-item {
-    padding: 10px 10px 10px 60px;
+.home-header-section .user-detail {
     position: relative;
-    border-bottom: 1px dashed #DDD
+    bottom: -120px
 }
 
-.si-body-section .sentence-list .sentence-item.current {
-    background-color: #F5F5F5;
-    margin-left: -10px;
-    margin-right: -10px;
-    padding-left: 70px;
-    padding-right: 20px
-}
-
-.si-body-section .sentence-list .sentence-item.current .like-block {
-    left: 20px
-}
-
-.si-body-section .sentence-list .sentence-item.current .title {
-    font-weight: 700
-}
-
-.si-body-section .sentence-list .sentence-item p {
-    margin-bottom: .6em
-}
-
-.si-body-section .like-block {
+.home-header-section .avatar-block {
     position: absolute;
-    top: 50%;
-    left: 10px;
-    margin-top: -28px;
-    font-size: 12px
+    bottom: 20px;
+    left: 20px;
+    border-radius: 50%;
+    border: 4px solid #DDD;
+    line-height: 0;
+    overflow: hidden
 }
 
-.si-body-section .like-block .do-like,
-.si-body-section .like-block .has-liked {
-    color: #FF5F3E;
+.home-header-section .avatar-block.editable .change-head-tip {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 160px;
+    height: 44px;
+    font-size: 20px;
+    line-height: 32px;
     text-align: center;
-    width: 32px;
-    height: 32px;
-    padding: 8px 0;
-    border: 1px solid #FF5F3E;
-    border-radius: 50%
+    background-color: rgba(255, 255, 255, .8)
 }
 
-.si-body-section .like-block .do-like:hover {
-    color: #fff;
-    background-color: #FF5F3E
+.home-header-section .avatar-block .change-avatar,
+.home-header-section .avatar-block.editable:hover .change-head-tip {
+    display: block
 }
 
-.si-body-section .like-block .has-liked {
-    cursor: default
+.home-header-section .info-block {
+    height: 200px;
+    padding: 40px 40px 40px 220px
 }
 
-.si-body-section .like-block .has-liked:hover {
-    color: #FF5F3E;
-    background-color: #fff
+.home-header-section .info-block .gender,
+.home-header-section .info-block .level {
+    margin-left: 5px;
+    margin-right: 5px
 }
 
-.si-body-section .like-block .like-count {
-    text-align: center;
-    color: #FF5F3E
+.home-header-section .info-block .count {
+    line-height: 60px
 }
 
-#sentence-box {
+.home-header-section .action-block {
+    float: right;
+    position: relative;
+    top: -40px;
+    right: 20px
+}
+
+#message-box {
     background: #fff;
     padding: 20px 30px;
     text-align: left;
@@ -2851,44 +2522,548 @@ form label {
     height: 200px;
     margin: auto;
     border-radius: 5px;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
 
-#sentence-box .action,
-#sentence-box .textbox {
+#message-box .action,
+#message-box .textbox {
     margin-top: 10px;
     margin-bottom: 10px
 }
 
-#sentence-box .box-head {
+#message-box .message-head {
     margin-top: 10px;
     color: #555
 }
 
-#sentence-box .action:after,
-#sentence-box .action:before {
+#message-box .action {
+    zoom: 1
+}
+
+.home-side-section .attention-block,
+.home-side-section .fan-block,
+.home-side-section .intro-block,
+.home-side-section .visitor-block {
+    margin-bottom: 20px
+}
+
+#message-box .action:after,
+#message-box .action:before {
     content: "";
     display: table
 }
 
-#sentence-box .action .action-send {
+#message-box .action .action-send {
     float: right;
     font-size: 12px
 }
 
-.ts-side-section .submit-button {
-    text-align: center;
-    height: 60px;
-    padding: 12px;
+@media screen and (max-width:767px) {
+    .home-header-section .avatar-block {
+        top: -80px;
+        bottom: initial;
+        left: 50%;
+        margin-left: -80px
+    }
+    .home-header-section .info-block {
+        padding: 100px 20px 0
+    }
+    .home-header-section .info-block .count {
+        line-height: inherit
+    }
+}
+
+.home-side-section .count-block {
+    margin-bottom: 20px;
+    font-size: 13px
+}
+
+.home-side-section .attention-block ul li {
+    display: table;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
     border-bottom: 1px dashed #DDD
 }
 
-@media screen and (max-width:479px) {
-    .ts-main-section .article-item {
-        padding-right: 10px
+.home-side-section .attention-block .user-head {
+    float: left
+}
+
+.home-side-section .attention-block .user-head img {
+    border-radius: 0;
+    padding: 1px;
+    width: 40px;
+    height: 40px
+}
+
+.home-side-section .attention-block .user-name {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.home-side-section .fan-block ul,
+.home-side-section .visitor-block ul {
+    zoom: 1;
+    margin-left: -10px;
+    margin-right: -10px
+}
+
+.home-side-section .fan-block ul:after,
+.home-side-section .fan-block ul:before,
+.home-side-section .visitor-block ul:after,
+.home-side-section .visitor-block ul:before {
+    content: "";
+    display: table
+}
+
+.home-side-section .fan-block ul li,
+.home-side-section .visitor-block ul li {
+    float: left;
+    width: 56px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.home-side-section .fan-block .user-head,
+.home-side-section .visitor-block .user-head {
+    display: block
+}
+
+.home-side-section .fan-block .user-head img,
+.home-side-section .visitor-block .user-head img {
+    width: 40px;
+    height: 40px
+}
+
+.attention-list .attention-item .attention-inner,
+.attention-list .fan-item .fan-inner,
+.fan-list .attention-item .attention-inner,
+.fan-list .fan-item .fan-inner {
+    position: relative;
+    padding-left: 90px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 160px;
+    border-bottom: 1px dashed #DDD
+}
+
+.attention-list .attention-item .attention-inner .user-head,
+.attention-list .fan-item .fan-inner .user-head,
+.fan-list .attention-item .attention-inner .user-head,
+.fan-list .fan-item .fan-inner .user-head {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -30px
+}
+
+.attention-list .attention-item .attention-inner .user-head img,
+.attention-list .fan-item .fan-inner .user-head img,
+.fan-list .attention-item .attention-inner .user-head img,
+.fan-list .fan-item .fan-inner .user-head img {
+    width: 60px;
+    height: 60px
+}
+
+.attention-list .attention-item .attention-inner .attention-body .attention-remove,
+.attention-list .attention-item .attention-inner .attention-body .fan-remove,
+.attention-list .attention-item .attention-inner .fan-body .attention-remove,
+.attention-list .attention-item .attention-inner .fan-body .fan-remove,
+.attention-list .fan-item .fan-inner .attention-body .attention-remove,
+.attention-list .fan-item .fan-inner .attention-body .fan-remove,
+.attention-list .fan-item .fan-inner .fan-body .attention-remove,
+.attention-list .fan-item .fan-inner .fan-body .fan-remove,
+.fan-list .attention-item .attention-inner .attention-body .attention-remove,
+.fan-list .attention-item .attention-inner .attention-body .fan-remove,
+.fan-list .attention-item .attention-inner .fan-body .attention-remove,
+.fan-list .attention-item .attention-inner .fan-body .fan-remove,
+.fan-list .fan-item .fan-inner .attention-body .attention-remove,
+.fan-list .fan-item .fan-inner .attention-body .fan-remove,
+.fan-list .fan-item .fan-inner .fan-body .attention-remove,
+.fan-list .fan-item .fan-inner .fan-body .fan-remove {
+    font-size: 11px
+}
+
+.attention-list .attention-item .attention-inner .attention-body p,
+.attention-list .attention-item .attention-inner .fan-body p,
+.attention-list .fan-item .fan-inner .attention-body p,
+.attention-list .fan-item .fan-inner .fan-body p,
+.fan-list .attention-item .attention-inner .attention-body p,
+.fan-list .attention-item .attention-inner .fan-body p,
+.fan-list .fan-item .fan-inner .attention-body p,
+.fan-list .fan-item .fan-inner .fan-body p {
+    font-size: 12px
+}
+
+.attention-list .attention-item .attention-inner .attention-body .introduction,
+.attention-list .attention-item .attention-inner .attention-body .signature,
+.attention-list .attention-item .attention-inner .fan-body .introduction,
+.attention-list .attention-item .attention-inner .fan-body .signature,
+.attention-list .fan-item .fan-inner .attention-body .introduction,
+.attention-list .fan-item .fan-inner .attention-body .signature,
+.attention-list .fan-item .fan-inner .fan-body .introduction,
+.attention-list .fan-item .fan-inner .fan-body .signature,
+.fan-list .attention-item .attention-inner .attention-body .introduction,
+.fan-list .attention-item .attention-inner .attention-body .signature,
+.fan-list .attention-item .attention-inner .fan-body .introduction,
+.fan-list .attention-item .attention-inner .fan-body .signature,
+.fan-list .fan-item .fan-inner .attention-body .introduction,
+.fan-list .fan-item .fan-inner .attention-body .signature,
+.fan-list .fan-item .fan-inner .fan-body .introduction,
+.fan-list .fan-item .fan-inner .fan-body .signature {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.attentions-paginate,
+.fans-paginate {
+    overflow: auto
+}
+
+.event-list .event-item {
+    position: relative;
+    min-height: 70px;
+    padding: 10px 10px 10px 60px;
+    border-bottom: 1px dashed #DDD
+}
+
+.event-list .event-item .user-head {
+    position: absolute;
+    left: 10px;
+    top: 15px
+}
+
+.event-list .event-item .thing {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+
+.event-list .event-item .thing.follow {
+    line-height: 40px
+}
+
+.event-list .event-item .tweet-content {
+    float: left;
+    background-color: #EFF5FC;
+    padding: 5px 10px;
+    position: relative;
+    border-radius: 10px
+}
+
+.event-list .event-item .tweet-content:before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 20px;
+    top: -5px;
+    background-color: #EFF5FC;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: ''
+}
+
+.avatar-upload__shell,
+.avatar-upload__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.article-list .article-item:hover,
+.article-list .post-item:hover,
+.post-list .article-item:hover,
+.post-list .post-item:hover,
+.reply-list .reply-item:hover {
+    background-color: #F5F5F5
+}
+
+.event-list .event-item .reply-content {
+    padding-left: 10px;
+    border-left: 5px solid #DDD
+}
+
+.article-list .article-item,
+.article-list .post-item,
+.post-list .article-item,
+.post-list .post-item {
+    padding: 10px;
+    border-bottom: 1px dashed #DDD;
+    transition: all .3s ease-in-out
+}
+
+.reply-list .reply-item {
+    padding: 10px;
+    border-bottom: 1px dashed #DDD;
+    font-size: 13px
+}
+
+.reply-list .reply-item .icon {
+    float: left;
+    position: relative;
+    color: #DDD
+}
+
+.reply-list .reply-item .main {
+    margin-left: 20px
+}
+
+.reply-list .reply-item .reference a {
+    color: #555
+}
+
+.reply-list .reply-item .reference a:hover {
+    color: #CC7030
+}
+
+.reply-list .reply-item .content {
+    padding-left: 10px;
+    border-left: 4px solid #DDD
+}
+
+.notify-list {
+    font-size: 13px
+}
+
+.notify-list .unread-notify-item .notification-content,
+.notify-list .unread-notify-item .notification-title {
+    color: #555
+}
+
+.notify-list .notify-item {
+    border-bottom: 1px dashed #DDD;
+    margin: 4px
+}
+
+.notify-list .notify-item .notify-action,
+.notify-list .notify-item .readed-tip {
+    font-size: 10px
+}
+
+.notify-list .notification-head {
+    padding: 4px;
+    height: 36px
+}
+
+.notify-list .notification-content {
+    padding: 4px 4px 4px 10px;
+    margin-left: 8px;
+    border-left: 5px solid #DDD;
+    background-color: #F5F7F9
+}
+
+#save-avatar-form,
+.avatar-show {
+    padding: 20px
+}
+
+.avatar-tip {
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+.avatar-show {
+    zoom: 1
+}
+
+.avatar-show:after,
+.avatar-show:before {
+    content: "";
+    display: table
+}
+
+.avatar-show .avatar-arrow {
+    float: left;
+    margin: 38px;
+    line-height: 0
+}
+
+.avatar-show .user-avatar {
+    width: 128px;
+    height: 128px;
+    float: left;
+    overflow: hidden;
+    border: 4px solid #DDD
+}
+
+.avatar-show .user-avatar img {
+    width: 120px;
+    height: 120px
+}
+
+.avatar-show .user-avatar-round {
+    float: left
+}
+
+.avatar-show .user-avatar-round img {
+    border-radius: 50%;
+    border: 4px solid #DDD
+}
+
+.avatar-upload__wrapper {
+    overflow: hidden
+}
+
+.avatar-upload__wrapper input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0
+}
+
+.avatar-upload__image-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0
+}
+
+.avatar-upload__wrapper img {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+.avatar-upload__image-wrapper img {
+    width: 200px
+}
+
+.avatar-upload__progress-wrapper {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 2.2em;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .7)
+}
+
+.avatar-upload__faded-image {
+    opacity: .3
+}
+
+.avatar-upload--complete .avatar-upload__image-wrapper {
+    width: 100%
+}
+
+.avatar-upload--complete .avatar-upload__faded-image,
+.avatar-upload--complete .avatar-upload__progress-wrapper {
+    display: none
+}
+
+.profile {
+    font-size: 12px
+}
+
+.profile .profile-row {
+    padding: 10px 10px 10px 100px;
+    border-bottom: 1px dashed #DDD;
+    position: relative
+}
+
+.profile .profile-row .profile-key {
+    float: left;
+    width: 80px;
+    line-height: 45px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 10px
+}
+
+.profile .profile-row .profile-value {
+    color: #333;
+    min-height: 2rem
+}
+
+.set-content,
+.set-menus .menu-list {
+    min-height: 200px
+}
+
+.profile .input-name {
+    width: auto
+}
+
+.profile .input-weibo {
+    width: 300px
+}
+
+.profile .input-introduction,
+.profile .input-signature {
+    width: 100%
+}
+
+.profile .profile-action {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.profile .profile-action .save-button {
+    margin-right: 10px
+}
+
+.set-board {
+    position: relative;
+    padding-left: 100px!important
+}
+
+.set-menus {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 32px
+}
+
+.set-menus .menu-list .menu-item {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.set-menus .menu-list .menu-item.current {
+    font-weight: 700
+}
+
+.set-content {
+    border-left: 1px solid #DDD;
+    padding: 10px 0 10px 20px
+}
+
+@media screen and (max-width:767px) {
+    .set-board {
+        padding-left: 80px!important
     }
-    .ts-main-section .article-item .user-head-square {
-        display: none
+    .set-menus {
+        padding-left: 0;
+        padding-right: 0;
+        position: static
+    }
+    .set-menus .menu-list {
+        min-height: 60px
+    }
+    .set-menus .menu-list .menu-item {
+        float: left
+    }
+    .set-content {
+        padding-left: 10px
     }
 }

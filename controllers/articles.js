@@ -39,29 +39,35 @@ router.get("/art/:id", function (req, res, next) {
                             console.log("ssssssss");
                         }
                         else {
-                            if(comment.length!=0){
+                            var UPDATE_PV = "update article set artsaw = artsaw+1 where artid = " + id;
+                            console.log("UPDATE_PV:"+UPDATE_PV);
+                            db.query(UPDATE_PV, function (err, user) {
+                                if (err) {
+                                    console.log("更新失败");
+                                } else {
 
-                            for (var i = 0; i < comment.length; i++) {
-                                var SELECT_USER = "select * from userinfo where userId = " + comment[i].comUid;
-                                db.query(SELECT_USER, function (err, user) {
-                                    if (err) {
-                                        console.log("查询失败");
-                                    } else {
-                                        console.log("user:"+user[0].userAvatar);
-                                        userArray.push(user[0]);
-                                        console.log(userArray.length);
-                                        console.log(row);
-                                        if(userArray.length ==comment.length){
-                                            console.log(userArray);
-                                            console.log("用户名："+userArray[0].userAvatar);
-            res.render("articlesId", { datas: rows, anthors: row, comment: comment,comer:userArray});
+                                    if (comment.length != 0) {
+
+                                        for (var i = 0; i < comment.length; i++) {
+                                            var SELECT_USER = "select * from userinfo where userId = " + comment[i].comUid;
+                                            db.query(SELECT_USER, function (err, user) {
+                                                if (err) {
+                                                    console.log("查询失败");
+                                                } else {
+                                                    userArray.push(user[0]);
+                                                    if (userArray.length == comment.length) {
+                                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray });
+                                                    }
+                                                }
+                                            });
                                         }
                                     }
-                                });
-                            }
-                            }else{
-            res.render("articlesId", { datas: rows, anthors: row, comment: comment,comer:userArray});
-                            }
+                                    else {
+                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray });
+                                    }
+                                }
+                            });
+
 
 
                             // res.redirect("/articles/art/" + comaid);
@@ -73,7 +79,7 @@ router.get("/art/:id", function (req, res, next) {
                     });
                 }
             });
-           
+
         }
     });
 });
@@ -113,13 +119,15 @@ router.post("/create", function (req, res, next) {
         date.getMinutes() < 10 ? (mi = "0" + date.getMinutes()) : (mi = date.getMinutes());
         date.getSeconds() < 10 ? (s = "0" + date.getSeconds()) : (s = date.getSeconds());
         var artstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
-        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "')", function (err, rows) {
+        var artsaw = 0;
+        var artup = 0;
+        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
                 res.send("新增失败" + err);
             } else {
                 console.log("插入成功");
-                res.redirect("/articles/art"+artId);
+                res.redirect("back");
             }
         });
     });

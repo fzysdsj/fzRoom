@@ -304,7 +304,7 @@ router.post("/signin", function (req, res) {
                 console.log("userid:" + user.userId);
                 req.session.user = user;//保存用户session信息
                 //等级大于1000的，为管理员，直接进入后台页面
-                if (result[0]['userClass'] > 1000) {
+                if (result[0]['userClass']=="方丈阁主") {
                     res.redirect('/users/backend');
                 } else {
                     res.redirect('/wenRoom/know');

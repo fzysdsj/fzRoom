@@ -14,9 +14,11 @@
                         <div class="article-meta small text">
                             <span class="span-item"><%= datas[0].artStartTime %></span>
                             <span class="span-item">|</span>
-                            <span class="span-item">9999999999999999次阅读</span>
-                            <span class="span-item">999999999999999次评论</span>
-                            <span class="span-item">13亿 人喜欢</span>
+                            <span class="span-item"><%= datas[0].artSaw %>次阅读</span>
+                            <span class="span-item"><%= comment.length %>次评论</span>
+                            <span class="span-item"><span id="spanLike"><%= datas[0].artUp%></span>人喜欢</span>
+                            <label for="peopleLike"></label>
+                            <input type="text" name="peopleLike" id="peopleLike" class="hidden">
                             <span class="span-item">|</span>
                             <span class="span-item">
 							分类: <a href="../category/scgf.htm" class="gray"><%= datas[0].artCategory %></a>
@@ -57,14 +59,13 @@
                             <div class="article-actions">
                                 <div class="like-action">
                                     <div class="like left">
-                                        <a href="javascript:;" class="ui pop rg-button do-like" action="https://wenxue.ruogoo.cn/article/7609/like" data-content="喜欢就喜欢吧">
-                                            <i class=""></i> 喜欢 <i class=""></i>
-                                            <!-- ri ri-heart-o -->
+                                        <a href="javascript:;" id="like" class="ui pop rg-button do-like" data-content="喜欢就喜欢吧">
+                                            <i class="ri ri-heart-o"></i> 喜欢 <i class="ri ri-heart-o"></i>
                                         </a>
                                     </div>
                                 </div>
 
-                                <!-- <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
+                                <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
                                     <a class="social-share-icon icon-weibo" href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;pic=&amp;appkey=3076188672"
                                         target="_blank"></a>
                                     <a class="social-share-icon icon-qq" href="http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;title=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;source=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;desc=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;pics="
@@ -85,7 +86,7 @@
                                         target="_blank"></a>
                                     <a class="social-share-icon icon-douban" href="http://shuo.douban.com/!service/share?href=https%3A%2F%2Fwenxue.ruogoo.cn%2Farticle%2F7609&amp;name=%E5%BF%86%E7%A7%A6%E5%A8%A5%20%E8%A7%85%E6%98%A5%20%7C%20%E8%8B%A5%E5%8F%A4%20%7C%20%E6%9C%80%E4%BC%98%E7%A7%80%E7%9A%84%E5%8F%A4%E9%A3%8E%E6%96%87%E5%AD%A6%E7%BD%91%E7%AB%99%20%7C%20%E5%8F%A4%E9%A3%8E%E7%BD%91%E7%AB%99&amp;text=%20%20%E9%9D%92%E5%B1%B1%E5%AF%82%EF%BC%8C%E6%9E%97%E9%97%B4%E6%9E%AF%E6%9C%A8%E9%80%A2%E7%A7%8B%E9%9B%A8%E3%80%82%E9%80%A2%E7%A7%8B%E9%9B%A8%EF%BC%8C%E5%8F%B6%E9%BB%84%E8%89%B2%E6%B7%A1%EF%BC%8C%E4%BA%86%E7%84%B6%E6%98%A5%E6%88%8F%E3%80%82%0A%E9%9B%80%E9%B8%A6%E8%BF%98%E5%94%B1%E8%8A%B1%E5%BC%80%E5%8F%A5%EF%BC%8C%E5%AB%A9%E8%8A%BD%E5%BD%92%E5%8E%BB%E6%AE%8B%E6%A0%B9%E8%A7%85%E3%80%82%E6%AE%8B%E6%A0%B9%E8%A7%85%EF%BC%8C%E8%A5%BF%E9%A3%8E%E5%90%B9%E7%9A%B1%EF%BC%8C%E7%89%87%E6%97%B6%E8%8E%BA%E8%AF%AD%E3%80%82%20%20&amp;image=&amp;starid=0&amp;aid=0&amp;style=11"
                                         target="_blank"></a>
-                                </div>  -->
+                                </div>
 
                             </div>
                         </div>
@@ -107,9 +108,9 @@
                                     </form>
 
                                     <% }else{ %>
-                                        <div class="reply-header gray text ">评论请</div>
+                                        <div class="reply-header gray text ">评论请登录！</div>
                                         <div class="reply-area ">
-                                            <a href="javascript:void(0);" class="rg-button do-reply right " data-toggle="modal " data-target="#signinModal "> 登录</a>
+                                            <a href="javascript:void(0);" class="rg-button do-reply right" data-toggle="modal" data-target="#signinModal"> 登录</a>
                                             <div class="reply-unlogin one-row ">
 
                                             </div>
@@ -159,12 +160,12 @@
 
                             <div class="user-block ui tint blur " data-image="https://o.ruogoo.cn/user/2d804a9864129d9c2c4713c5555715ab.jpg ">
                                 <a href="/users/toSelect/<%= anthors[0].userId %>" class="ui circular image user-avatar">
-                                        <img src="/uploads/<%= anthors[0].userAvatar %>" class="" alt="方丈遗少" width="80" height="80"> </a>
-
+                                        <img src="/uploads/<%= anthors[0].userAvatar %>" class="" alt="<%= anthors[0].userNick %>" width="80" height="80"> </a>
                                 <p class="user-name big text">
-                                    <a href="">方丈遗少</a>
+                                    <a href="" style="color:#FC9;">
+                                        <%= anthors[0].userNick %>
+                                    </a>
                                 </p>
-
                                 <p class="user-level">
                                     <a href="" class="rg-label small level" style="background-color: #803DE2;">大炎皇帝</a>
                                     <a href="" class="rg-label small level" style="background-color: #AE46B5;">方丈阁主</a>
@@ -211,6 +212,13 @@
                     var ggg = $(gg).children()[0];
                     var s = "@" + $(ggg).text().trim();
                     $("#comment").val(s);
+
+                });
+                var s = 0;
+                var g = <%= datas[0].artUp %>
+                $("#like").on('click', function() {
+                    g++;
+                    $("#peopleLike").val(g);
 
                 });
 

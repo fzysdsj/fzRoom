@@ -20975,12 +20975,12 @@ Version: 0.1.0
 
 @font-face {
     font-family: socialshare;
-    src: url("../fonts/iconfont.eot")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.eot*/
+    src: url("../font/iconfont.eot")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.eot*/
     ;
-    src: url("../fonts/iconfont.eot-#iefix")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.eot?#iefix*/
-    format("embedded-opentype"), url("../fonts/iconfont.woff")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.woff*/
-    format("woff"), url("../fonts/iconfont.ttf")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.ttf*/
-    format("truetype"), url("../fonts/iconfont.svg#iconfont")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.svg#iconfont*/
+    src: url("../font/iconfont.eot-#iefix")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.eot?#iefix*/
+    format("embedded-opentype"), url("../font/iconfont.woff")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.woff*/
+    format("woff"), url("../font/iconfont.ttf")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.ttf*/
+    format("truetype"), url("../font/iconfont.svg#iconfont")/*tpa=https://static.ruogoo.cn/static/lib/fonts/iconfont.svg#iconfont*/
     format("svg")
 }
 
