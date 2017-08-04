@@ -19,8 +19,8 @@ function Article(article) {
   this.artContent = article.artContent;
   this.artSaw = article.artSaw;
   this.artCategory = article.artCategory;
-  this.artKeyWords = article.artKeyWords;
-  this.artKeyWords = article.artKeyWords;
+  this.artGood = article.artGood;
+  this.artPush = article.artPush;
   this.artStartTime = article.artStartTime;
   this.artUp = article.artUp;
   this.artDown = article.artDown;
@@ -35,14 +35,15 @@ Article.prototype.articleSave = function save(callback) {
     artContent: this.artContent,
     artSaw: this.artSaw,
     artCategory: this.artCategory,
-    artKeyWords: this.artKeyWords,
+    artGood: this.artGood,
     artStartTime: this.artStartTime,
     artUp: this.artUp,
-    artDown: this.artDown
+    artDown: this.artDown,
+    artPush: this.artPush
   };
-  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCATEGORY,ARTKEYWORDS,ARTSTARTTIME,ARTUP,ARTDOWN) VALUES (0,?,?,?,?,?,?,?,?,?)";
+  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCATEGORY,artGOOD,ARTSTARTTIME,ARTUP,ARTDOWN,ARTPUSH) VALUES (0,?,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function (err, connection) {
-    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCategory,article.artKeyWords,article.artStartTime,article.artUp,article.artDown], function (err, result) {
+    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCategory,article.artGood,article.artStartTime,article.artUp,article.artDown,article.Push], function (err, result) {
       if (err) {
         console.log("INSERT_ARTICLE Error: " + err.message);
         return;
@@ -75,10 +76,11 @@ Article.prototype.articleInfo = function (callback) {
     artContent: this.artContent,
     artSaw: this.artSaw,
     artCategory: this.artCategory,
-    artKeyWords: this.artKeyWords,
+    artGood: this.artGood,
     artStartTime: this.artStartTime,
     artUp: this.artUp,
-    artDown: this.artDown
+    artDown: this.artDown,
+    artPush: this.artPush
   };
   var SELECT_LOGIN = "SELECT * FROM ARTICLE WHERE ARTTITLE = ?";
   pool.getConnection(function (err, connection) {

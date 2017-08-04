@@ -87,7 +87,7 @@ router.get("/del/:id", function (req, res) {
         if (err) {
             res.send("删除失败" + err);
         } else {
-            return res.redirect("back");
+            return res.redirect("comments");
         }
     });
 });

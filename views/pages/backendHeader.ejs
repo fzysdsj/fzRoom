@@ -362,241 +362,662 @@
                 <li class="active">
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> 网站概况 </span>
+                        <span class="menu-text"> fzRoom概况</span>
                     </a>
                 </li>
 
+
                 <li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">
-                            <i class="icon-user"></i>
-                            <span class="menu-text"> 用户管理 </span>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-user"></i>
+                        <span class="menu-text"> 用户管理 </span>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="/users">
-                                    <i class="icon-double-angle-right"></i> 用户信息管理
-                                </a>
-                            </li>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/users">
+                                <i class="icon-double-angle-right"></i> 用户信息管理
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="buttons.html">
-                                    <i class="icon-double-angle-right"></i> 按钮 &amp; 图表
-                                </a>
-                            </li>
+                        <li>
+                            <a href="/users/add">
+                                <i class="icon-double-angle-right"></i> 用户信息添加
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="treeview.html">
-                                    <i class="icon-double-angle-right"></i> 树菜单
-                                </a>
-                            </li>
+                        <li>
+                            <a href="/user/search">
+                                <i class="icon-double-angle-right"></i> 用户信息查询
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="jquery-ui.html">
-                                    <i class="icon-double-angle-right"></i> jQuery UI
-                                </a>
-                            </li>
+                        <li>
+                            <a href="">
+                                <i class="icon-double-angle-right"></i> 用户信息分析
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="nestable-list.html">
-                                    <i class="icon-double-angle-right"></i> 可拖拽列表
-                                </a>
-                            </li>
+                        <li>
+                            <a href="nestable-list.html">
+                                <i class="icon-double-angle-right"></i> 用户消息收集
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="icon-double-angle-right"></i> 三级菜单
-                                    <b class="arrow icon-angle-down"></b>
-                                </a>
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 违规用户信息
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
 
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="icon-leaf"></i> 第一级
-                                        </a>
-                                    </li>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i>
+                                    </a>
+                                </li>
 
-                                    <li>
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="icon-pencil"></i> 第四级
-                                            <b class="arrow icon-angle-down"></b>
-                                        </a>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 第四级
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
 
-                                        <ul class="submenu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-plus"></i> 添加产品
-                                                </a>
-                                            </li>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 添加产品
+                                            </a>
+                                        </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-eye-open"></i> 查看商品
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 查看商品
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-book"></i>
+                        <span class="menu-text"> 文章管理 </span>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle">
-                            <i class="icon-book"></i>
-                            <span class="menu-text"> 文章管理 </span>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/articles">
+                                <i class="icon-double-angle-right"></i> 文章信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/articles/create">
+                                <i class="icon-double-angle-right"></i> 文章信息添加
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/articles/search">
+                                <i class="icon-double-angle-right"></i> 文章信息查询
+                            </a>
+                        </li>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="elements.html">
-                                    <i class="icon-double-angle-right"></i> 组件
-                                </a>
-                            </li>
+                        <li>
+                            <a href="/articles/search">
+                                <i class="icon-double-angle-right"></i>文学信息分析
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="buttons.html">
-                                    <i class="icon-double-angle-right"></i> 按钮 &amp; 图表
-                                </a>
-                            </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 各类文章
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
 
-                            <li>
-                                <a href="treeview.html">
-                                    <i class="icon-double-angle-right"></i> 树菜单
-                                </a>
-                            </li>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 推荐文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                            <li>
-                                <a href="jquery-ui.html">
-                                    <i class="icon-double-angle-right"></i> jQuery UI
-                                </a>
-                            </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 精品文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                            <li>
-                                <a href="nestable-list.html">
-                                    <i class="icon-double-angle-right"></i> 可拖拽列表
-                                </a>
-                            </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 新品文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
 
-                            <li>
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="icon-double-angle-right"></i> 三级菜单
-                                    <b class="arrow icon-angle-down"></b>
-                                </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="icon-leaf"></i> 第一级
-                                        </a>
-                                    </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-book"></i>
+                        <span class="menu-text"> 评论管理 </span>
 
-                                    <li>
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="icon-pencil"></i> 第四级
-                                            <b class="arrow icon-angle-down"></b>
-                                        </a>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
 
-                                        <ul class="submenu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-plus"></i> 添加产品
-                                                </a>
-                                            </li>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/comments">
+                                <i class="icon-double-angle-right"></i> 评论信息管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/comments/create">
+                                <i class="icon-double-angle-right"></i> 评论信息添加
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/comments/search">
+                                <i class="icon-double-angle-right"></i> 评论信息查询
+                            </a>
+                        </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-eye-open"></i> 查看商品
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">
-                            <i class="icon-group"></i>
-                            <span class="menu-text"> 论坛管理 </span>
+                        <li>
+                            <a href="/comments/search">
+                                <i class="icon-double-angle-right"></i>评论信息分析
+                            </a>
+                        </li>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 各类文章
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="elements.html">
-                                    <i class="icon-double-angle-right"></i> 组件
-                                </a>
-                            </li>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 推荐文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                            <li>
-                                <a href="buttons.html">
-                                    <i class="icon-double-angle-right"></i> 按钮 &amp; 图表
-                                </a>
-                            </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 精品文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                            <li>
-                                <a href="treeview.html">
-                                    <i class="icon-double-angle-right"></i> 树菜单
-                                </a>
-                            </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle">
+                                        <i class="icon-pencil"></i> 新品文章
+                                        <b class="arrow icon-angle-down"></b>
+                                    </a>
 
-                            <li>
-                                <a href="jquery-ui.html">
-                                    <i class="icon-double-angle-right"></i> jQuery UI
-                                </a>
-                            </li>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-plus"></i> 历史
+                                            </a>
+                                        </li>
 
-                            <li>
-                                <a href="nestable-list.html">
-                                    <i class="icon-double-angle-right"></i> 可拖拽列表
-                                </a>
-                            </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 美文
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 技术
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 轶事
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 体育
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 两性
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-eye-open"></i> 其他
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-group"></i>
+                        <span class="menu-text"> 论坛管理 </span>
 
-                            <li>
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="icon-double-angle-right"></i> 三级菜单
-                                    <b class="arrow icon-angle-down"></b>
-                                </a>
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
 
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="icon-leaf"></i> 第一级
-                                        </a>
-                                    </li>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/">
+                                <i class="icon-double-angle-right"></i> 帖子信息管理
+                            </a>
+                        </li>
 
-                                    <li>
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="icon-pencil"></i> 第四级
-                                            <b class="arrow icon-angle-down"></b>
-                                        </a>
+                        <li>
+                            <a href="buttons.html">
+                                <i class="icon-double-angle-right"></i> 帖子信息添加
+                            </a>
+                        </li>
 
-                                        <ul class="submenu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-plus"></i> 添加产品
-                                                </a>
-                                            </li>
+                        <li>
+                            <a href="treeview.html">
+                                <i class="icon-double-angle-right"></i> 帖子信息搜索
+                            </a>
+                        </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="icon-eye-open"></i> 查看商品
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+                        <li>
+                            <a href="jquery-ui.html">
+                                <i class="icon-double-angle-right"></i> 帖子信息分析
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 帖子分类
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 英雄贴
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 招贤贴
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 议事贴
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 求援贴
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 觅美贴
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 攻略贴
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-group"></i>
+                        <span class="menu-text"> 副本管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="/">
+                                <i class="icon-double-angle-right"></i> 副本信息管理
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="buttons.html">
+                                <i class="icon-double-angle-right"></i> 副本信息添加
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="treeview.html">
+                                <i class="icon-double-angle-right"></i> 副本信息搜索
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="jquery-ui.html">
+                                <i class="icon-double-angle-right"></i> 副本信息分析
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 副本分类
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 普通副本
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 精英副本
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 王者副本
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 传奇副本
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 公会副本
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 随机副本
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-group"></i>
+                        <span class="menu-text"> 任务管理 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="/">
+                                <i class="icon-double-angle-right"></i> 任务信息管理
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="buttons.html">
+                                <i class="icon-double-angle-right"></i> 任务信息添加
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="treeview.html">
+                                <i class="icon-double-angle-right"></i> 任务信息搜索
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="jquery-ui.html">
+                                <i class="icon-double-angle-right"></i> 任务信息分析
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i> 任务分类
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 经验类任务
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 财富类任务
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 荣誉类任务
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 人气类任务
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i>公会类任务
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-leaf"></i> 随机副本
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li>
                         <a href="#" class="dropdown-toggle">
                             <i class="icon-list"></i>
                             <span class="menu-text"> 表格 </span>
@@ -771,7 +1192,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
             </ul>
             <!-- /.nav-list -->
 

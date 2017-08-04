@@ -714,7 +714,8 @@ i[class^=icon-] {
 }
 
 .rg-label.small {
-    font-size: 10px
+    font-size: 10px;
+    color: #fff;
 }
 
 .rg-label-primary {

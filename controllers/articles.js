@@ -121,16 +121,30 @@ router.post("/create", function (req, res, next) {
         var artstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
         var artsaw = 0;
         var artup = 0;
-        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "')", function (err, rows) {
+        var artdown = 0;
+        var artgood = 0;
+        var artpush = 0;
+        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artdown,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup +"','" + artdown +"','" + artgood +"','" + artpush + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
                 res.send("新增失败" + err);
             } else {
                 console.log("插入成功");
-                res.redirect("back");
+                res.redirect("/wenRoom");
             }
         });
     });
 
 });
+router.get("/del/:id", function (req, res) {
+    var id = req.params.id;
+    db.query("delete from article where artid = " + id, function (err, rows) {
+        if (err) {
+            res.send("删除失败" + err);
+        } else {
+            res.redirect("/articles");
+        }
+    });
+});
+
 module.exports = router;

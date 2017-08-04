@@ -24,11 +24,11 @@
                                             <th class="hidden-480">题目</th>
 
                                             <th>
-                                                <i>内容</i>
+                                                <i>推荐值</i>
                                             </th>
                                             <th><i>阅读量</i></th>
                                             <th><i>分类</i></th>
-                                            <th><i>关键词</i></th>
+                                            <th><i>精品值</i></th>
                                             <th><i>发布时间</i></th>
                                             <th><i>点赞数</i></th>
                                             <th><i>操作</i></th>
@@ -56,7 +56,7 @@
                                                     <%= datas[i].artTitle %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artContent %>
+                                                    <%= datas[i].artPush %>
                                                 </td>
                                                 <td>
                                                     <%= datas[i].artSaw %>
@@ -65,7 +65,7 @@
                                                     <%= datas[i].artCategory %>
                                                 </td>
                                                 <td>
-                                                    <%= datas[i].artKeyWords %>
+                                                    <%= datas[i].artGood %>
                                                 </td>
                                                 <td class="hidden-480">
                                                     <span class="label label-sm label-warning"><%= datas[i].artStartTime %></span>
@@ -83,7 +83,7 @@
                                                             <i class="icon-pencil bigger-130"></i>
                                                         </a>
 
-                                                        <a class="red" href="/users/del/<%= datas[i].userId %>">
+                                                        <a class="red" href="/articles/del/<%= datas[i].artId %>">
                                                             <i class="icon-trash bigger-130"></i>
                                                         </a>
                                                         <a class="yellow" href="/users/add">

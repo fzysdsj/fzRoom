@@ -63,6 +63,11 @@
                                             <i class="ri ri-heart-o"></i> 喜欢 <i class="ri ri-heart-o"></i>
                                         </a>
                                     </div>
+                                    <div class="award right">
+                                        <a href="javascript:;" class="ui pop rg-button do-award" action="https://wenxue.ruogoo.cn/article/3125/award" data-content="奖励作者 1 枚若古币,可以得到10经验值" data-variation="inverted" data-position="bottom center">
+                                            <i class="ri ri-gift"></i> 奖励 <i class="ri ri-gift"></i>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
@@ -130,9 +135,9 @@
                                                         <div class="media-body">
                                                             <h4 class="media-heading">
                                                                 <span><%= comer[i].userNick %></span> &nbsp;&nbsp;
-                                                                <a href="/wenRoom/know" class="rg-label small level" style="background-color: #B0B0B0;">
-                                                                        方丈阁卫
-                                                                    </a>
+                                                                <a href="/wenRoom/know" class="rg-label small level">
+                                                                    <%= comer[i].userClass %>
+                                                                </a>
                                                             </h4>
                                                             <h6>
 
@@ -142,7 +147,7 @@
                                                                 <%= comment[i].comStartTime%>
 
                                                                     <a href="#comcon">回复</a>
-                                                                    <% if(comer[i].userClass>1000){ %>
+                                                                    <% if(comer[i].userClass>100000){ %>
                                                                         <a href="/comments/del/<%= comment[i].comId %>">删除</a>
                                                                         <% }else{ %>
                                                                             <a href="/comments/del/<%= comment[i].comId %>">举报</a>
@@ -167,8 +172,9 @@
                                     </a>
                                 </p>
                                 <p class="user-level">
-                                    <a href="" class="rg-label small level" style="background-color: #803DE2;">大炎皇帝</a>
-                                    <a href="" class="rg-label small level" style="background-color: #AE46B5;">方丈阁主</a>
+                                    <a href="" class="rg-label small level">
+                                        <%= anthors[0].userClass %>
+                                    </a>
                                 </p>
                             </div>
                             <div class="goto-write center" style="padding: 10px;">
@@ -224,4 +230,5 @@
 
             });
         </script>
+        <script src="/js/level.js"></script>
         <%- include('footer') %>
