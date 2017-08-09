@@ -24,7 +24,7 @@ router.get("/add", function (req, res, next) {
 router.post("/add", function (req, res, next) {
 
     // console.log(name);
-    
+
     var form = new formidable.IncomingForm();
     //设置编辑
     form.encoding = 'utf-8';
@@ -46,12 +46,12 @@ router.post("/add", function (req, res, next) {
         var sex = fields.usersex;
         var avatar = path.basename(files.useravatar.path);
         db.query("insert into userinfo(userId,userName,userPwd,userNick,userEmail,userPhone,userHome,userClass,userSex,userAvatar) values('" + id + "','" + name + "','" + pwd + "','" + nick + "','" + email + "','" + phone + "','" + home + "','" + uclass + "','" + sex + "','" + avatar + "')", function (err, rows) {
-        if (err) {
-            res.send("新增失败" + err);
-        } else {
-            res.redirect("/users");
-        }
-    });
+            if (err) {
+                res.send("新增失败" + err);
+            } else {
+                res.redirect("/users");
+            }
+        });
     });
 });
 
@@ -116,6 +116,57 @@ router.post("/update", function (req, res, next) {
     });
 });
 //查看用户信息(用户信息页)
+router.get("/toSelect/:id/profile", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    console.log(fans.length);
+                    res.render("select", { datas: rows, fans: fans });
+                }
+            });
+        }
+    });
+});
+router.get("/toSelect/:id/article", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            var artSql = "select * from article where artUid = " + id;
+            db.query(artSql, function (err, row) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var user = req.session.user;
+                    var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+                    db.query(SELECT_FOLLOWER, function (err, fans) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fans.length);
+                            res.render("wenzhang", { datas: rows, articles: row, fans: fans });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
 router.get("/toSelect/:id", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -125,7 +176,120 @@ router.get("/toSelect/:id", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-            res.render("select", { datas: rows });
+           var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    console.log(fans.length);
+                    res.render("withme", { datas: rows, fans: fans });
+                }
+            });
+        }
+    });
+});
+router.get("/toSelect/:id/followed", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var FANNUMBER = "select * from followedandfans where fanUserId = "+id;
+                    console.log(FANNUMBER)
+                     db.query(FANNUMBER, function (err, follower) {
+                        if(err){
+                            res.send("出错啦！");
+                        }else{
+                        console.log(fans.length);
+                        console.log(follower);
+                        db.query('select * from userinfo', function (err, users) {
+                            if(err){
+                                res.send("出错啦！"+err);
+                            }else{
+                                console.log(users);
+                    res.render("followed", { datas: rows, fans: fans,follower:follower,users:users});
+                            }
+                        });
+                        }
+                     });
+                }
+            });
+        }
+    });
+});
+router.get("/toSelect/:id/post", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    console.log(fans.length);
+                    res.render("tiezi", { datas: rows, fans: fans });
+                }
+            });
+        }
+    });
+});
+router.get("/toSelect/:id/collection", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    console.log(fans.length);
+                    res.render("wenji", { datas: rows, fans: fans });
+                }
+            });
+        }
+    });
+});
+router.get("/toSelect/:id/notification", function (req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    var sql = "select * from userinfo where userid = " + id;
+    console.log(sql);
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+           var user = req.session.user;
+            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+            db.query(SELECT_FOLLOWER, function (err, fans) {
+                if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    console.log(fans.length);
+                    res.render("xiaoxi", { datas: rows, fans: fans });
+                }
+            });
         }
     });
 });
@@ -304,7 +468,7 @@ router.post("/signin", function (req, res) {
                 console.log("userid:" + user.userId);
                 req.session.user = user;//保存用户session信息
                 //等级大于1000的，为管理员，直接进入后台页面
-                if (result[0]['userClass']=="方丈阁主") {
+                if (result[0]['userClass'] == "方丈阁主") {
                     res.redirect('/users/backend');
                 } else {
                     res.redirect('/wenRoom/know');

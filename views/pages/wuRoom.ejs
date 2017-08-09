@@ -1,4 +1,519 @@
-<%- include('header') %>
-    <h1>欢迎来到武阁!
-    </h1>
-    <%- include('footer') %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>小学毕业考题泄露，测测你能拿多少分？</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="/css/common.css" rel="stylesheet" />
+    <link href="/css/style1.css" rel="stylesheet">
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <img src='/images/title.jpg' />
+    </div>
+    <script>
+        var UA = function() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            return {
+                ipad: (/ipad/i).test(userAgent),
+                iphone: (/iphone/i).test(userAgent),
+                android: (/android/i).test(userAgent),
+                weixin: (/micromessenger/i).test(userAgent)
+            };
+        };
+        var ua = UA();
+    </script>
+</head>
+
+<body>
+    <div id="mask"></div>
+    <div id="tips">
+        <img src="/images/tips.png">
+    </div>
+    <div class="wrap">
+        <div class="qr1"></div>
+        <div class="qr2"></div>
+        <div class="global">
+            <div id="load">
+                <div class="text">0%</div>
+                <img class="tblogo" src="/images/TBLOGO.png">
+            </div>
+            <div class="text-main0 hide">
+                <div class="text-title first-action">
+                    <img src="/images/q0/img1.png">
+                </div>
+                <div class="begin-icon first-action"></div>
+            </div>
+            <div class="text-main1 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q1/qt1.png">
+                </div>
+                <ul class="key-menu1">
+                    <li class="n key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="y key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main2 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q2/qt2.png">
+                </div>
+                <ul class="key-menu2">
+                    <li class="n key key1 key-action"></li>
+                    <li class="y key key2 key-action2"></li>
+                    <li class="n key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main3 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q3/qt3.png">
+                </div>
+                <ul class="key-menu3">
+                    <li class="n key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="y key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main4 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q4/qt4.png">
+                </div>
+                <ul class="key-menu4">
+                    <li class="n key key1 key-action"></li>
+                    <li class="y key key2 key-action2"></li>
+                    <li class="n key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main5 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q5/qt5.png">
+                </div>
+                <ul class="key-menu5">
+                    <li class="y key key1 key-action ai"></li>
+                    <li class="n key key2 key-action2 bi"></li>
+                    <li class="n key key3 key-action3 ci"></li>
+                </ul>
+            </div>
+            <div class="text-main6 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q6/qt6.png">
+                </div>
+                <ul class="key-menu6">
+                    <li class="y key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="n key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main7 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q7/qt7.png">
+                </div>
+                <ul class="key-menu7">
+                    <li class="n key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="n key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main8 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q8/qt8.png">
+                </div>
+                <ul class="key-menu8">
+                    <li class="n key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="y key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main9 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q9/qt9.png">
+                </div>
+                <ul class="key-menu9 dress">
+                    <li class="texts hide"></li>
+                    <li class="y key key1 key-action"></li>
+                    <li class="n key key2 key-action2"></li>
+                    <li class="n key key3 key-action3"></li>
+                </ul>
+            </div>
+            <div class="text-main10 hide">
+                <div class="question-text">
+                    <img class="question-act" src="/images/q10/qt10.png">
+                </div>
+                <ul class="key-menu10">
+                    <li class="y key key1 key-action ai"></li>
+                    <li class="y key key2 key-action2 bi"></li>
+                    <li class="y key key3 key-action3 ci"></li>
+                </ul>
+            </div>
+            <div class="text-main11 hide">
+
+                <div class="grades">
+                    <div class="grades-n"></div>
+                    <div class="grades-f"></div>
+                </div>
+                <a href="javascript:;" class="study-text">
+                    <img src="/images/q11/text1.png">
+                </a>
+                <ul class="icon-menu">
+                    <li class="icon1"></li>
+                    <li class="icon2"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="music-icon hide"></div>
+        <div class="share-menu hide">
+            <div class="share-title"></div>
+        </div>
+        <audio id="music" src="/images/h5.mp3" loop></audio>
+
+        <div class="top-menu hide">
+            <div class="top-icon"></div>
+            <a class="top-download" href="http://www.toubei168.com/Home/Reg"></a>
+        </div>
+
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/loading.js"></script>
+    <script src="/js/baiduStat.js"></script>
+    <script src="/js/21459.js"></script>
+    <script>
+        var yes = 0;
+        var lengths = 1;
+        var change = true;
+        var music = false;
+
+        function firstMenu() {
+            $(".begin-icon").click(function() {
+                $(".begin-icon").addClass("left-action");
+                $(".text-title").addClass("right-action");
+                $(".text-main0").css("background-image", 'url("/images/q0/bg2.jpg")');
+                setTimeout(function() {
+                    $(".key").html("");
+                    $(".text-main0").addClass("hide");
+                    $(".text-main1").removeClass("hide");
+                }, 1300);
+            })
+        }
+
+        function musicIcon() {
+            $(".music-icon").click(function() {
+                if (music == true) {
+                    $(this).css("background-image", ' url("/images/micon2.png")');
+                    music = false;
+                    document.getElementById('music').pause();
+                    return false;
+                } else if (music == false) {
+                    $(this).css("background-image", ' url("/images/micon1.png")');
+                    music = true;
+                    document.getElementById('music').play();
+                    return false;
+                }
+            })
+        }
+
+        function lastIcon() {
+            $(".study-icon,.study-icon").click(function() {
+                statPid('activities/kkdict/h5download', '活动/快快查字典/语文100字典下载');
+                if (ua.weixin && ua.android) {
+                    $("#mask,#tips").show();
+                } else {
+                    document.location = locurl;
+                }
+            });
+            $(".icon2").click(function() {
+                yes = 0;
+                lengths = 1;
+                $(".music-icon").removeClass("hide");
+                $(".music-icon").css("background-image", ' url("/images/micon1.png")');
+                $(".text-main11").addClass("hide");
+                $(".text-main0").removeClass("hide");
+                $(".text-title").addClass("first-action");
+                $(".begin-icon").addClass("first-action");
+                $(".text-title").removeClass("right-action");
+                $(".begin-icon").removeClass("left-action");
+                $(".text-main0").css("background-image", 'url("/images/q0/bg1.jpg")');
+                document.getElementById('music').play();
+                return false;
+            });
+            $(".icon1").click(function() {
+                statPid('activities/kkdict/h5share', '活动/快快查字典/语文100分享');
+                $(".share-menu").removeClass("hide");
+            });
+            $(".share-menu").click(function() {
+                $(this).addClass("hide");
+            })
+        }
+        /**
+         * 答题
+         */
+        function setTime() {
+            $(".text-main9").find(".key1").css("background-image", 'url("/images/q9/a-1.png")');
+            $(".text-main9").find(".key2").css("background-image", 'url("/images/q9/b-1.png")');
+            $(".text-main9").find(".key3").css("background-image", 'url("/images/q9/c-1.png")');
+            $(".texts").addClass("hide");
+            $('.text-main' + lengths + '').addClass("hide");
+            $('.text-main' + lengths + '').css("background-image", 'url("/images/q' + lengths + '/bg1.jpg")');
+            lengths++;
+            $('.text-main' + lengths + '').removeClass("hide");
+            change = true;
+        }
+
+        function answerClick(a, b, c, d, e, f) {
+            $(a).find("li").click(function() {
+                if (change == true) {
+                    change = false;
+                    var html = "";
+                    if ($(this).hasClass("y")) {
+                        html = "<div class='yes-icon'></div>";
+                        if ($(this).hasClass("ai")) {
+                            $(".text-main" + lengths + "").css("background-image", d);
+                        } else if ($(this).hasClass("bi")) {
+                            $(".text-main" + lengths + "").css("background-image", e);
+
+                        } else if ($(this).hasClass("ci")) {
+                            $(".text-main" + lengths + "").css("background-image", f);
+
+                        } else {
+                            $(".text-main" + lengths + "").css("background-image", b);
+                        }
+
+                        if ($(this).parent().hasClass("dress")) {
+                            $(".texts").removeClass("hide");
+                            $(this).parent().find(".key1").css("background-image", d);
+                            $(this).parent().find(".key2").css("background-image", e);
+                            $(this).parent().find(".key3").css("background-image", f);
+
+                        }
+                        $(this).append(html);
+                        yes++;
+                        setTimeout(setTime, 2200);
+                    } else if ($(this).hasClass("n")) {
+                        html = "<div class='no-icon'></div>";
+                        if ($(this).hasClass("ai")) {
+                            $(".text-main" + lengths + "").css("background-image", d);
+
+                        } else if ($(this).hasClass("bi")) {
+                            $(".text-main" + lengths + "").css("background-image", e);
+
+                        } else if ($(this).hasClass("ci")) {
+                            $(".text-main" + lengths + "").css("background-image", f);
+
+                        } else {
+                            $(".text-main" + lengths + "").css("background-image", c);
+                        }
+                        if ($(this).parent().hasClass("dress")) {
+                            $(".texts").removeClass("hide");
+                            $(this).parent().find(".key1").css("background-image", d);
+                            $(this).parent().find(".key2").css("background-image", e);
+                            $(this).parent().find(".key3").css("background-image", f);
+
+                        }
+                        $(this).append(html);
+                        setTimeout(setTime, 2200);
+                    }
+                    if (lengths >= 10) {
+                        $(".grades-n").css("background-image", 'url("/images/q11/f' + yes + '.png")');
+                        $(".music-icon").addClass("hide");
+
+                        if (yes > 0 && yes <= 5) {
+                            $(".text-main11").css("background-image", 'url("/images/q11/bg1.jpg")');
+                            $(".study-text").html('<img src="/images/q11/text1.png">');
+
+                        } else if (yes > 5 && yes <= 8) {
+                            $(".text-main11").css("background-image", 'url("/images/q11/bg2.jpg")');
+                            $(".study-text").html('<img src="/images/q11/text2.png">');
+                        } else if (yes == 9) {
+                            $(".text-main11").css("background-image", 'url("/images/q11/bg3.jpg")');
+                            $(".study-text").html('<img src="/images/q11/text3.png">');
+                        }
+                        $("title").text("我的小学语文成绩只有" + yes + "0" + "分，老师让朋友圈签字....");
+                        setTimeout(function() {
+                            $(".top-menu").removeClass("hide");
+                            document.getElementById('music').pause();
+                            return false;
+                        }, 2500);
+
+                    }
+                }
+            });
+        }
+        firstMenu();
+        lastIcon();
+        musicIcon();
+        answerClick(".key-menu1", 'url("/images/q1/bg2.jpg")', 'url("/images/q1/bg3.jpg")');
+        answerClick(".key-menu2", 'url("/images/q2/bg2.jpg")', 'url("/images/q2/bg3.jpg")');
+        answerClick(".key-menu3", 'url("/images/q3/bg2.jpg")', 'url("/images/q3/bg3.jpg")');
+        answerClick(".key-menu4", 'url("/images/q4/bg2.jpg")', 'url("/images/q4/bg2.jpg")');
+        answerClick(".key-menu5", '', '', 'url("/images/q5/bg2.jpg")', 'url("/images/q5/bg3.jpg")', 'url("/images/q5/bg4.jpg")');
+        answerClick(".key-menu6", 'url("/images/q6/bg2.jpg")', 'url("/images/q6/bg2.jpg")');
+        answerClick(".key-menu7", 'url("/images/q7/bg2.jpg")', 'url("/images/q7/bg2.jpg")');
+        answerClick(".key-menu8", 'url("/images/q8/bg2.jpg")', 'url("/images/q8/bg2.jpg")');
+        answerClick(".key-menu9", '', '', 'url("/images/q9/a-2.png")', 'url("/images/q9/b-2.png")', 'url("/images/q9/c-2.png")');
+        answerClick(".key-menu10", '', '', 'url("/images/q10/bg2.jpg")', 'url("/images/q10/bg3.jpg")', 'url("/images/q10/bg4.jpg")');
+
+
+        /**
+         * 预加载
+         * @type {Load}
+         */
+
+        var load = new Load(function(p) {
+            var text = $("#load .text");
+            text.html(parseInt(p * 100) + "%");
+            if ($(".text").text() == "100%") {
+                $("#load").addClass("hide");
+                $(".text-main0").removeClass("hide");
+                $(".music-icon").removeClass("hide");
+                document.getElementById('music').play();
+                return false;
+            }
+        }, (function() {}), [
+            "/images/q0/bg1.jpg",
+            "/images/q0/bg2.jpg",
+            "/images/q0/icon.png",
+            "/images/q0/img1.png",
+            "/images/q1/bg1.jpg",
+            "/images/q1/bg2.jpg",
+            "/images/q1/bg3.jpg",
+            "/images/q1/a.png",
+            "/images/q1/b.png",
+            "/images/q1/c.png",
+            "/images/q1/qt1.png",
+            "/images/q2/bg1.jpg",
+            "/images/q2/bg2.jpg",
+            "/images/q2/bg3.jpg",
+            "/images/q2/a.png",
+            "/images/q2/b.png",
+            "/images/q2/c.png",
+            "/images/q2/qt2.png",
+            "/images/q3/bg1.jpg",
+            "/images/q3/bg2.jpg",
+            "/images/q3/bg3.jpg",
+            "/images/q3/a.png",
+            "/images/q3/b.png",
+            "/images/q3/c.png",
+            "/images/q3/qt3.png",
+            "/images/q4/bg1.jpg",
+            "/images/q4/bg2.jpg",
+            "/images/q4/a.png",
+            "/images/q4/b.png",
+            "/images/q4/c.png",
+            "/images/q4/qt4.png",
+            "/images/q5/bg1.jpg",
+            "/images/q5/bg2.jpg",
+            "/images/q5/bg3.jpg",
+            "/images/q5/bg4.jpg",
+            "/images/q5/a.png",
+            "/images/q5/b.png",
+            "/images/q5/c.png",
+            "/images/q5/qt5.png",
+            "/images/q6/bg1.jpg",
+            "/images/q6/bg2.jpg",
+            "/images/q6/a.png",
+            "/images/q6/b.png",
+            "/images/q6/c.png",
+            "/images/q6/qt6.png",
+            "/images/q7/bg1.jpg",
+            "/images/q7/bg2.jpg",
+            "/images/q7/a.png",
+            "/images/q7/b.png",
+            "/images/q7/c.png",
+            "/images/q7/qt7.png",
+            "/images/q8/bg1.jpg",
+            "/images/q8/bg2.jpg",
+            "/images/q8/a.png",
+            "/images/q8/b.png",
+            "/images/q8/c.png",
+            "/images/q8/qt8.png",
+            "/images/q9/bg1.jpg",
+            "/images/q9/a-1.png",
+            "/images/q9/a-2.png",
+            "/images/q9/b-1.png",
+            "/images/q9/b-1.png",
+            "/images/q9/c-1.png",
+            "/images/q9/c-2.png",
+            "/images/q9/text.png",
+            "/images/q9/qt9.png",
+            "/images/q10/bg1.jpg",
+            "/images/q10/bg2.jpg",
+            "/images/q10/bg3.jpg",
+            "/images/q10/bg4.jpg",
+            "/images/q10/a.png",
+            "/images/q10/b.png",
+            "/images/q10/c.png",
+            "/images/q10/qt10.png",
+            "/images/q11/bg1.jpg",
+            "/images/q11/bg2.jpg",
+            "/images/q11/bg3.jpg",
+            "/images/q11/f.png",
+            "/images/q11/f1.png",
+            "/images/q11/f2.png",
+            "/images/q11/f3.png",
+            "/images/q11/f4.png",
+            "/images/q11/f5.png",
+            "/images/q11/f6.png",
+            "/images/q11/f7.png",
+            "/images/q11/f8.png",
+            "/images/q11/f9.png",
+            "/images/q11/icon1.png",
+            "/images/q11/icon2.png",
+            "/images/bg.jpg",
+            "/images/no.png",
+            "/images/yes.png",
+            "/images/fxbg.png",
+            "/images/fximg.png",
+            "/images/micon1.png",
+            "/images/micon2.png",
+            "/images/q11/text1.png",
+            "/images/q11/text2.png",
+            "/images/q11/text3.png"
+        ], 36);
+        score = 0;
+        changing = true;
+
+        var indexs = 0;
+
+        $(function() {
+            load.Start();
+        });
+        /*
+            var UA = function(){
+                var userAgent = navigator.userAgent.toLowerCase();
+                return {
+                    ipad: (/ipad/i).test(userAgent),
+                    iphone: (/iphone/i).test(userAgent),
+                    android: (/android/i).test(userAgent),
+                    weixin: (/micromessenger/i).test(userAgent)
+                };
+            };
+            var ua = UA();
+        */
+        if (ua.weixin || ua.android || ua.ipad || ua.iphone) {
+            $(".qr1").addClass("hide");
+            $(".qr2").addClass("hide");
+        }
+
+        if (ua.ipad || ua.iphone) {
+            $(".top-icon").css("background-image", 'url("/images/logo2.png")');
+        }
+
+        // $(".top-download").bind('touchend',function(){
+        //     if(ua.weixin && ua.android) {
+        //         $("#mask,#tips").show();
+        //     }
+        // });
+        $("#mask,#tips").bind('touchend', function() {
+            $("#mask,#tips").hide();
+        });
+
+        function statPid() {
+
+        }
+    </script>
+</body>
+
+</html>

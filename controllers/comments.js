@@ -14,32 +14,7 @@ router.get("/", function (req, res, next) {
             res.render("commentList", { title: "评论列表", datas: rows });
         }
     });
-})
-// router.get("/com/:id", function (req, res, next) {
-//     var id = req.params.id;
-//     console.log(id);
-//     var sql = "select * from comment where comId = " + id;
-//     console.log(sql);
-//     db.query(sql, function (err, rows) {
-//         if (err) {
-//             res.send("查看页面跳转失败");
-//         } else {
-//             console.log(rows[0].comUid);
-//             console.log(rows[0].comAid);
-//             var sqll = "select * from userinfo where userId = " + rows[0].comUid;
-//             db.query(sqll, function (err, row) {
-//                 if (err) {
-//                     console.log("ffffff");
-//                 }
-//                 else {
-//                     console.log(row);
-//                     res.render("articlesId", { comments: rows, sayer: row });
-//                 }
-//             })
-//         }
-//     });
-// });
-
+});
 //添加用户
 router.get("/create", function (req, res, next) {
     res.render("articlesId");
@@ -76,7 +51,16 @@ router.post("/create", function (req, res, next) {
         } else {
             console.log(rows);
             console.log("插入成功");
+    var UPDATE_SAYNUMBER = "update article set artsaynumber = artsaynumber +1 where artid = " + comaid;
+    db.query(UPDATE_SAYNUMBER,function(err,row){
+        if(err){
+            console.log("更新失败");
+        }else{
+            console.log(row);
+            console.log("更新成功");
             res.redirect("/articles/art/" + comaid);
+        }
+    });
 
         }
     });
@@ -87,7 +71,7 @@ router.get("/del/:id", function (req, res) {
         if (err) {
             res.send("删除失败" + err);
         } else {
-            return res.redirect("comments");
+            return res.redirect("back");
         }
     });
 });

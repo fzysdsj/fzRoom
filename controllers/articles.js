@@ -15,6 +15,384 @@ router.get("/", function (req, res, next) {
         }
     });
 })
+router.get("/article", function (req, res, next) {
+    db.query("select * from article order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("article", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/article/recommend", function (req, res, next) {
+    db.query("select * from article where artpush>0 order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artRecommend", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artRecommend", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/article/nice", function (req, res, next) {
+    db.query("select * from article where artgood > 0 order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artNice", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artNice", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/lishi", function (req, res, next) {
+    db.query("select * from article where artcategory ='历史' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artLishi", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artLishi", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/meiwen", function (req, res, next) {
+    db.query("select * from article where artcategory ='美文' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artMeiwen", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artMeiwen", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/jishu", function (req, res, next) {
+    db.query("select * from article where artcategory ='技术' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artJishu", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artJishu", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/yishi", function (req, res, next) {
+    db.query("select * from article where artcategory ='轶事' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artYishi", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artYishi", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/tiyu", function (req, res, next) {
+    db.query("select * from article where artcategory ='体育' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artTiyu", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artTiyu", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
+router.get("/category/liangxing", function (req, res, next) {
+    db.query("select * from article where artcategory ='两性' order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("artLiangxing", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                            return res.render("artLiangxing", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
+});
 router.get("/art/:id", function (req, res, next) {
     var id = req.params.id;
     var anthor = "";
@@ -40,7 +418,7 @@ router.get("/art/:id", function (req, res, next) {
                         }
                         else {
                             var UPDATE_PV = "update article set artsaw = artsaw+1 where artid = " + id;
-                            console.log("UPDATE_PV:"+UPDATE_PV);
+                            console.log("UPDATE_PV:" + UPDATE_PV);
                             db.query(UPDATE_PV, function (err, user) {
                                 if (err) {
                                     console.log("更新失败");
@@ -67,19 +445,10 @@ router.get("/art/:id", function (req, res, next) {
                                     }
                                 }
                             });
-
-
-
-                            // res.redirect("/articles/art/" + comaid);
-                            // res.render("articlesId", {comments: row, sayer: user });
-                            // console.log("渲染成功");
-
                         }
-
                     });
                 }
             });
-
         }
     });
 });
@@ -121,16 +490,16 @@ router.post("/create", function (req, res, next) {
         var artstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
         var artsaw = 0;
         var artup = 0;
-        var artdown = 0;
+        var artsaynumber = 0;
         var artgood = 0;
         var artpush = 0;
-        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artdown,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup +"','" + artdown +"','" + artgood +"','" + artpush + "')", function (err, rows) {
+        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artsaynumber,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "','" + artsaynumber + "','" + artgood + "','" + artpush + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
                 res.send("新增失败" + err);
             } else {
                 console.log("插入成功");
-                res.redirect("/wenRoom");
+                res.redirect("/");
             }
         });
     });

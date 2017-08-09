@@ -7,13 +7,31 @@
             <div class="background-overlay"></div>
             <div class="container recommend-container">
                 <div class="recommend-detail">
+                    <!-- <p>
+                        精品：
+                        <%= userGood[0].userNick %>
+                            <%= good[0].artTitle %>
+                    </p>
+                    <p>
+                        最新：
+                        <%= userNew[0].userNick %>
+                            <%= news[0].artTitle %>
+                    </p>
+                    <p>
+                        最受欢迎：
+                        <%= userPop[0].userNick %>
+                            <%= pops[0].artTitle %>
+                    </p> -->
                     <h2>
-                        <a href="article/7356.htm" class="white title extra">笑苍生</a>
+                        <a href="articles/art/<%= datas[0].artId %>" class="white title extra">
+                            <%= datas[0].artTitle %>
+                        </a>
                     </h2>
                     <h4>
-                        <a href="javascript:if(confirm('https://user.ruogoo.cn/390 ')))window.location='https://user.ruogoo.cn/390'" tppabs="https://user.ruogoo.cn/390" class="white title author">百媚生丶红沐</a>
+                        <a href="javascript:if(confirm('https://user.ruogoo.cn/390 ')))window.location='https://user.ruogoo.cn/390'" tppabs="https://user.ruogoo.cn/390" class="white title author">
+                            <%= users[0].userNick %>></a>
                     </h4>
-                    <a href="article/recommend.htm" class="rg-button see-more ">更多推荐</a>
+                    <a href="/articles/article/recommend" class="rg-button see-more ">更多推荐</a>
                 </div>
 
                 <div class="recommend-show ">
@@ -23,54 +41,14 @@
                 </div>
 
                 <ul class="recommend-list ">
-                    <li class="recommend-item ">
-                        <a href="articles/art/47 " class="image recommend-article " data-title="测试文章 " data-author="方丈遗少" data-author-url="/articles/art/47">
-                            <img src="/uploads/upload_ba311a1fe97e94daab3ea510e66a6c27.jpg" width="100 ">
-                            <p class="title small one-line ">测试文章一</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/48 " class="image recommend-article " data-title="归字谣·雨碎为江南 " data-author="君狸辛ぃ " data-author-url="https://user.ruogoo.cn/9805 ">
-                            <img src="/uploads/upload_724c3348ad3c7f5bfcefc3e607304f89.jpg" width="100 " height="133.33">
-                            <p class="title small one-line ">测试文章二</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/49 " class="image recommend-article " data-title="卜算子·故里雨 " data-author="君狸辛ぃ " data-author-url="https://user.ruogoo.cn/9805 ">
-                            <img src="/uploads/upload_acb15e23c798df19c0620c83c7bd15bb.png" width="100" height="133.33">
-                            <p class="title small one-line ">测试文章三</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/50 " class="image recommend-article " data-title="咏玉兰 " data-author="吾悦 " data-author-url="https://user.ruogoo.cn/1367 ">
-                            <img src="/uploads/upload_dc440030d77f2bdad4bf4f78edae9272.png" width="100" height="133.33">
-                            <p class="title small one-line ">测试文章四</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/51 " class="image recommend-article " data-title="《浮光掠影》序——春色如许 " data-author="陌上桃夭 " data-author-url="https://user.ruogoo.cn/565 ">
-                            <img src="/uploads/upload_dcf9503f41fd86c42ec50df8754a7d64.jpg" width="100" height="133.33">
-                            <p class="title small one-line ">测试文章五</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/41" class="image recommend-article " data-title="半盏花开 " data-author="碎樱如梦，听风雨 " data-author-url="https://user.ruogoo.cn/2309 ">
-                            <img src="/images/2dc7b29cdb9c3d27f2f4170b4b062956.jpg " width="100 ">
-                            <p class="title small one-line ">测试文章六</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/42 " class="image recommend-article " data-title="东风十八叹（一） " data-author="江阴士子 " data-author-url="https://user.ruogoo.cn/5240 ">
-                            <img src="/images/f1654884c5edf3c340cfacd14e8ea004.jpg " width="100 ">
-                            <p class="title small one-line ">测试文章七</p>
-                        </a>
-                    </li>
-                    <li class="recommend-item ">
-                        <a href="articles/art/43 " class="image recommend-article " data-title="《飞花三月过秋千》 " data-author="水寒真 " data-author-url="https://user.ruogoo.cn/7630 ">
-                            <img src="/images/bd11b1448b7ef8357809dad96874a4c3.jpg " width="100 ">
-                            <p class="title small one-line ">测试文章八</p>
-                        </a>
-                    </li>
+                    <% for(let i = 0;i< 8;i++){ %>
+                        <li class="recommend-item ">
+                            <a href="articles/art/<%= datas[i].artId %> " class="image recommend-article " data-title="<%= datas[i].artTitle %> " data-author="<%= users[i].userNick %>" data-author-url="/articles/art/<%= datas[i].artId %>">
+                                <img src="/uploads/<%= datas[i].artPic %>" width="100" height="133.33">
+                                <p class="title small one-line "><%= datas[i].artTitle %></p>
+                            </a>
+                        </li>
+                        <% } %>
                 </ul>
             </div>
         </div>
@@ -78,482 +56,211 @@
             <div class="rg-board one-section white section">
                 <div class="rg-board-head">
                     <p class="title">精品文章</p>
-                    <a href="https://wenxue.ruogoo.cn/article/nice" class="more"> 更多 &gt;&gt;</a>
+                    <a href="/articles/article/nice" class="more"> 更多 &gt;&gt;</a>
                 </div>
                 <div class="rg-board-body">
                     <div class="col-group">
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7622" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/5db0729cff38ab5ab08d99699da63f46.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/5db0729cff38ab5ab08d99699da63f46.jpg@!cover-90" class="cover" alt="西江月.酷暑长">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7622">西江月.酷暑长</a>
+                        <% for(let i = 0;i<6;i++){ %>
+                            <div class="col-4 col-mb-12">
+                                <div class="nicewithpic-item">
+                                    <a href="articles/art/<%= good[i].artId %>" class="nice-cover image">
+                                        <img src="/uploads/<%= good[i].artPic %>" data-original="/uploads/<%= good[i].artPic %>" class="cover" alt="<%= good[i].artTitle %>">
+                                    </a>
+                                    <div class="big title one-line">
+                                        <a href="articles/art/<%= good[i].artId %>">
+                                            <%= good[i].artTitle %>
+                                        </a>
+                                    </div>
+                                    <p class="small text gray summary">
+                                        <%= good[i].artContent %>
+                                    </p>
+                                    <p class="author">作者:
+                                        <a href="/users/toSelect/<%= userGood[i].userId %>">
+                                            <%= userGood[i].userNick %>
+                                        </a>
+                                    </p>
                                 </div>
-                                <p class="small text gray summary">常问清风解意？迟迟不过我裳。花柔柳困酷暑长。日午觉醒倚窗。自摇蒲扇逐凉，闲听虫蛙喧嚷。身闲心远梦彷徨，梦醒梦醉皆殇。</p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/2">雨梦幽隐</a>
-                                </p>
                             </div>
-                        </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7603" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/68563869f5f8c86c02cab9049005af17.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/68563869f5f8c86c02cab9049005af17.jpg@!cover-90" class="cover" alt="钗头凤·步陆游（唐婉）韵">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7603">钗头凤·步陆游（唐婉）韵</a>
-                                </div>
-                                <p class="small text gray summary">《钗头凤·步陆游韵》 芊芊手，慵提酒，月明人醉风扶柳。心情恶，书笺薄，满怀思绪，断章求索。错，错，错。 人非旧，冰蟾瘦，暗将心事微微透。琴音落，书香阁，秋眸
-                                </p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/390">百媚生丶红沐</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7596" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/03250b519f94572cbffd834968d14ca2.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/03250b519f94572cbffd834968d14ca2.jpg@!cover-90" class="cover" alt="无你">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7596">无你</a>
-                                </div>
-                                <p class="small text gray summary">谷雨无你，恁他芬芳遍地仍无需记起； 立夏无你，绚烂繁华怎及我寒心所依； 小满无你，他人相逢却不及你我分离； 芒种无你，情花采撷情种又何人怜惜； 夏至无你，初阳炙热便烤我心思难续； 小暑无你，
-
-                                </p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/10125">潇湘夜雨愁</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7579" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/ef2df92776608065567c66fd412d1094.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/ef2df92776608065567c66fd412d1094.jpg@!cover-90" class="cover" alt="题落花">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7579">题落花</a>
-                                </div>
-                                <p class="small text gray summary">其一 锦绣簇新枝，暖风几处知。 今朝游苑去，昨夜数莺啼。 忽见馀花点，惊觉暮雨急。 人间恍若梦，春意却别离。 其二 细雨落重檐，斜风画满天。 葱茏芳草地，烂漫暮春颜。 清泪珠帘下，香魂花冢前。 多情尤
-                                </p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/8747">宸妃</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7577" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/58874ccfaa91fdf279254dc623452d17.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/58874ccfaa91fdf279254dc623452d17.jpg@!cover-90" class="cover" alt="摸鱼儿">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7577">摸鱼儿</a>
-                                </div>
-                                <p class="small text gray summary">《摸鱼儿·因事有感》 望云天、落霞西下，昏鸦啼血飞去。几时还醉风尘卧，不认眼前归路。残酒煮，冷粥热、依稀将就填空肚。泪花飞舞，鬓角脸相揉，泣啼醉语，愿得忘愁楚。
-                                </p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/390">百媚生丶红沐</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nicewithpic-item">
-                                <a href="https://wenxue.ruogoo.cn/article/7575" class="nice-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/a1c991571b23348269a3080ecd58a334.jpg@!cover-90" data-original="https://i.ruogoo.cn/cover/a1c991571b23348269a3080ecd58a334.jpg@!cover-90" class="cover" alt="临江仙·夏林漫游">
-                                </a>
-                                <div class="big title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/article/7575">临江仙·夏林漫游</a>
-                                </div>
-                                <p class="small text gray summary">清露晨曦拂绿叶，浅红淡紫零星。叶间光影碎轻盈，微风正起，远黛恰方晴。 天朗鹤啼随欲去，蝉鸣山涧空灵。何堪浊世旧林情，醉中之意，尽作水泠泠。
-                                </p>
-                                <p class="author">作者:
-                                    <a href="https://user.ruogoo.cn/3197">公子扶苏</a>
-                                </p>
-                            </div>
-                        </div>
+                            <% } %>
                     </div>
 
                     <div class="nice-list col-group">
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7623" class="title"> 鹧鸪天 </a> /
-                                <a href="https://user.ruogoo.cn/2205" class="gray"> 逍遥道君</a>
+                        <% for(let i =6;i<18;i++){ %>
+                            <div class="col-3 col-mb-12">
+                                <div class="nice-item text one-line">
+                                    <a href="/articles/article" class="gray">
+                                        [<%= good[i].artCategory %>]
+                                    </a>
+                                    <a href="/articles/art/<%= good[i].artId %>" class="title">
+                                        <%= good[i].artTitle %>
+                                    </a> /
+                                    <a href="/users/toSelect/<%= userGood[i].userId %>" class="gray">
+                                        <%= userGood[i].userNick %>
+                                    </a>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="rg-board collection-section one-section white section">
+                <div class="rg-board-head">
+                    <p class="title">推荐文集</p>
+                    <a href="https://wenxue.ruogoo.cn/collection" class="more">更多 &gt;&gt;</a>
+                </div>
+                <div class="rg-board-body">
+                    <div class="collection-list clearfix col-group">
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/436" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" class="cover" alt="苍苍蒹葭">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/436">苍苍蒹葭</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7609" class="title"> 忆秦娥 觅春  </a> /
-                                <a href="https://user.ruogoo.cn/2205" class="gray"> 逍遥道君</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/434" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" class="cover" alt="忆枫文集">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/434">忆枫文集</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7608" class="title"> 入定 </a> /
-                                <a href="https://user.ruogoo.cn/136" class="gray"> 江南唐韵瓷</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/433" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" class="cover" alt="青春">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/433">青春</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7605" class="title"> 七言·雾中游坝头 </a> /
-                                <a href="https://user.ruogoo.cn/8383" class="gray"> 沾染罗香为君妆</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/429" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" class="cover" alt="君狸辛诗集">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/429">君狸辛诗集</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7601" class="title"> 樱桃园游 </a> /
-                                <a href="https://user.ruogoo.cn/6781" class="gray"> 王子娴</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/428" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" class="cover" alt="灯鬼">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/428">灯鬼</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7586" class="title"> 将进酒（五） </a> /
-                                <a href="https://user.ruogoo.cn/6339" class="gray"> 川江居士/擎渊行者</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/417" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" class="cover" alt="清幽">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/417">清幽</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/sgsw" class="gray">[散文]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7585" class="title"> 阳光落地 </a> /
-                                <a href="https://user.ruogoo.cn/6339" class="gray"> 川江居士/擎渊行者</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/411" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" class="cover" alt="烟雨书话">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/411">烟雨书话</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7576" class="title"> 《古道策马两相望》 </a> /
-                                <a href="https://user.ruogoo.cn/9905" class="gray"> 梧桐渡枫桥堤梦中若相思</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/410" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" class="cover" alt="烟雨词话">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/410">烟雨词话</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7574" class="title"> 有美一人，见之不忘。 </a> /
-                                <a href="https://user.ruogoo.cn/8383" class="gray"> 沾染罗香为君妆</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/406" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" class="cover" alt="那一世">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/406">那一世</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7573" class="title"> 随笔/海 </a> /
-                                <a href="https://user.ruogoo.cn/2309" class="gray"> 樰枂碸樺</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" class="cover" alt="繁华浮梦">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7572" class="title"> 农村晚上停电 </a> /
-                                <a href="https://user.ruogoo.cn/10028" class="gray"> 忘忧草</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/392" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" class="cover" alt="漱玉随笔">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/392">漱玉随笔</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-4 col-mb-12">
-                            <div class="nice-item text one-line">
-                                <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                <a href="https://wenxue.ruogoo.cn/article/7567" class="title"> 如梦令·雨至 </a> /
-                                <a href="https://user.ruogoo.cn/8383" class="gray"> 沾染罗香为君妆</a>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/382" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" class="cover" alt="尘缘过客">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/382">尘缘过客</a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <section class="article-section container">
             <div class="col-group">
                 <div class="col-8 col-mb-12">
                     <div class="rg-board one-section white section">
                         <div class="rg-board-head">
                             <p class="title">最新文章</p>
-                            <a href="https://wenxue.ruogoo.cn/article" class="more"> 更多 &gt;&gt;</a>
+                            <a href="/articles/article" class="more"> 更多 &gt;&gt;</a>
                         </div>
                         <div class="rg-board-body">
                             <div class="col-group">
                                 <ul class="latest-list">
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/xsgs" class="gray">[小说]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7628">许你春风  独守风霜冷</a> -
-                                            <a href="https://user.ruogoo.cn/8999" class="small text gray">顾尔锦时</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7627">风兮</a> -
-                                            <a href="https://user.ruogoo.cn/8747" class="small text gray">宸妃</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7626">采莲</a> -
-                                            <a href="https://user.ruogoo.cn/8999" class="small text gray">顾尔锦时</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/default" class="gray">[默认]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7625">思君（二）</a> -
-                                            <a href="https://user.ruogoo.cn/1367" class="small text gray">吾悦</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7624">西江月.晨兴夜梦</a> -
-                                            <a href="https://user.ruogoo.cn/2" class="small text gray">雨梦幽隐</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7623">鹧鸪天</a> -
-                                            <a href="https://user.ruogoo.cn/2205" class="small text gray">逍遥道君</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7622">西江月.酷暑长</a> -
-                                            <a href="https://user.ruogoo.cn/2" class="small text gray">雨梦幽隐</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7621">霜天晓角</a> -
-                                            <a href="https://user.ruogoo.cn/5240" class="small text gray">江阴士子</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7620">五绝•夜读</a> -
-                                            <a href="https://user.ruogoo.cn/5240" class="small text gray">江阴士子</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7619">百宜娇.感秋</a> -
-                                            <a href="https://user.ruogoo.cn/525" class="small text gray">逸云先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7618">平生小志</a> -
-                                            <a href="https://user.ruogoo.cn/136" class="small text gray">江南唐韵瓷</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/sgsw" class="gray">[散文]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7617">醉红尘</a> -
-                                            <a href="https://user.ruogoo.cn/10143" class="small text gray">love-Kobe安落枢</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/sgsw" class="gray">[散文]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7616">恨不相逢韶华时</a> -
-                                            <a href="https://user.ruogoo.cn/10143" class="small text gray">love-Kobe安落枢</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7615">虞美人</a> -
-                                            <a href="https://user.ruogoo.cn/10143" class="small text gray">love-Kobe安落枢</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7614">《忘了吗？》卷五</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7613">《忘了吗？》卷四</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7612">《忘了吗？》卷三</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7611">《忘了吗？》卷二</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7610">《忘了吗？》卷一</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7609">忆秦娥 觅春 </a> -
-                                            <a href="https://user.ruogoo.cn/2205" class="small text gray">逍遥道君</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7608">入定</a> -
-                                            <a href="https://user.ruogoo.cn/136" class="small text gray">江南唐韵瓷</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7607">青史·血泪</a> -
-                                            <a href="https://user.ruogoo.cn/136" class="small text gray">江南唐韵瓷</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7606">思君</a> -
-                                            <a href="https://user.ruogoo.cn/1367" class="small text gray">吾悦</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7605">七言·雾中游坝头</a> -
-                                            <a href="https://user.ruogoo.cn/8383" class="small text gray">沾染罗香为君妆</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7604">忆长安七夕夜</a> -
-                                            <a href="https://user.ruogoo.cn/10088" class="small text gray">与子成说</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7603">钗头凤·步陆游（唐婉）韵</a> -
-                                            <a href="https://user.ruogoo.cn/390" class="small text gray">百媚生丶红沐</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7602">三千地狱</a> -
-                                            <a href="https://user.ruogoo.cn/9495" class="small text gray">红颜先生</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7601">樱桃园游</a> -
-                                            <a href="https://user.ruogoo.cn/6781" class="small text gray">王子娴</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/sgsw" class="gray">[散文]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7600">我如此爱你</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/xsgs" class="gray">[小说]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7599">凤傲云霓</a> -
-                                            <a href="https://user.ruogoo.cn/3846" class="small text gray">倚南寄傲</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7598">诗经·神曲·小苹果</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7597">有你</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7596">无你</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7595">四美一字诗</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7594">四平生</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7593">思念是回文</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7592">暇境</a> -
-                                            <a href="https://user.ruogoo.cn/10114" class="small text gray">太行山上的歌</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7591">桃花葬</a> -
-                                            <a href="https://user.ruogoo.cn/10114" class="small text gray">太行山上的歌</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/scgf" class="gray">[诗词]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7590">木兰花</a> -
-                                            <a href="https://user.ruogoo.cn/10125" class="small text gray">潇湘夜雨愁</a>
-                                        </li>
-                                    </div>
-                                    <div class="col-6 col-mb-12">
-                                        <li class="article-item text one-line">
-                                            <a href="https://wenxue.ruogoo.cn/category/gwgd" class="gray">[古微]</a>
-                                            <a href="https://wenxue.ruogoo.cn/article/7587">醉罢阳关   送君千里</a> -
-                                            <a href="https://user.ruogoo.cn/8999" class="small text gray">顾尔锦时</a>
-                                        </li>
-                                    </div>
+                                    <% for(var i=0;i<20;i++){ %>
+                                        <div class="col-6 col-mb-12">
+                                            <li class="article-item text one-line">
+                                                <a href="/articles/article" class="gray">[<%= news[i].artCategory %>]</a>
+                                                <a href="/articles/art/<%= news[i].artId %>">
+                                                    <%= news[i].artTitle %>
+                                                </a> -
+                                                <a href="/users/toSelect/<%= userNew[i].userId %> " class="small text gray">
+                                                    <%= userNew[i].userNick %>
+                                                </a>
+                                            </li>
+                                        </div>
+                                        <% } %>
+
                                 </ul>
                             </div>
                         </div>
@@ -566,106 +273,19 @@
                         </div>
                         <div class="rg-board-body">
                             <ul class="top-list">
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">1. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7477">最是人间留不住</a> -
-                                    <a href="https://user.ruogoo.cn/2" class="small text gray">雨梦幽隐</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">2. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7575">临江仙·夏林漫游</a> -
-                                    <a href="https://user.ruogoo.cn/3197" class="small text gray">公子扶苏</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">3. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7511">石州慢•北望中原，感南宋局势而为</a> -
-                                    <a href="https://user.ruogoo.cn/5240" class="small text gray">江阴士子</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">4. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7501">花为谁落</a> -
-                                    <a href="https://user.ruogoo.cn/10004" class="small text gray">忆枫</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">5. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7574">有美一人，见之不忘。</a> -
-                                    <a href="https://user.ruogoo.cn/8383" class="small text gray">沾染罗香为君妆</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">6. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7567">如梦令·雨至</a> -
-                                    <a href="https://user.ruogoo.cn/8383" class="small text gray">沾染罗香为君妆</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">7. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7572">农村晚上停电</a> -
-                                    <a href="https://user.ruogoo.cn/10028" class="small text gray">忘忧草</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">8. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7503">六言</a> -
-                                    <a href="https://user.ruogoo.cn/9216" class="small text gray">溪斗居士</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">9. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7408">画堂春·雨后初晴有感</a> -
-                                    <a href="https://user.ruogoo.cn/3197" class="small text gray">公子扶苏</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">10. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7498">九张机·妇泣</a> -
-                                    <a href="https://user.ruogoo.cn/9938" class="small text gray">许暮柔</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">11. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7622">西江月.酷暑长</a> -
-                                    <a href="https://user.ruogoo.cn/2" class="small text gray">雨梦幽隐</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">12. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7562">鹧鸪天 </a> -
-                                    <a href="https://user.ruogoo.cn/2205" class="small text gray">逍遥道君</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">13. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7513">明     目</a> -
-                                    <a href="https://user.ruogoo.cn/6339" class="small text gray">川江居士/擎渊行者</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">14. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7547">让我先为你弹奏一曲</a> -
-                                    <a href="https://user.ruogoo.cn/10004" class="small text gray">忆枫</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">15. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7549">慢卷绸.小暑</a> -
-                                    <a href="https://user.ruogoo.cn/525" class="small text gray">逸云先生</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">16. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7522">终南山游冶</a> -
-                                    <a href="https://user.ruogoo.cn/6339" class="small text gray">川江居士/擎渊行者</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">17. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7564">苍苍蒹葭（一）</a> -
-                                    <a href="https://user.ruogoo.cn/3846" class="small text gray">倚南寄傲</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">18. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7539">吾诗两首</a> -
-                                    <a href="https://user.ruogoo.cn/136" class="small text gray">江南唐韵瓷</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">19. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7624">西江月.晨兴夜梦</a> -
-                                    <a href="https://user.ruogoo.cn/2" class="small text gray">雨梦幽隐</a>
-                                </li>
-                                <li class="article-item text one-line">
-                                    <i class="article-no text gray">20. </i>
-                                    <a href="https://wenxue.ruogoo.cn/article/7500">雷阵雨</a> -
-                                    <a href="https://user.ruogoo.cn/10028" class="small text gray">忘忧草</a>
-                                </li>
+                                <% for(let i = 0;i<20;i++){ %>
+                                    <li class="article-item text one-line">
+                                        <i class="article-no text gray"><%= i+1 %>. </i>
+
+
+                                        <a href="articles/art/<%= pops[i].artId %>">
+                                            <%= pops[i].artTitle %>
+                                        </a> -
+                                        <a href="/users/toSelect/<%= userPop[i].userId %>" class="small text gray">
+                                            <%= userPop[i].userNick %>
+                                        </a>
+                                    </li>
+                                    <% } %>
                             </ul>
                         </div>
                     </div>

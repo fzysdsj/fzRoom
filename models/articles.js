@@ -23,7 +23,7 @@ function Article(article) {
   this.artPush = article.artPush;
   this.artStartTime = article.artStartTime;
   this.artUp = article.artUp;
-  this.artDown = article.artDown;
+  this.artSayNumber = article.artSayNumber;
 }
 
 Article.prototype.articleSave = function save(callback) {
@@ -38,12 +38,12 @@ Article.prototype.articleSave = function save(callback) {
     artGood: this.artGood,
     artStartTime: this.artStartTime,
     artUp: this.artUp,
-    artDown: this.artDown,
+    artSayNumber: this.artSayNumber,
     artPush: this.artPush
   };
-  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCATEGORY,artGOOD,ARTSTARTTIME,ARTUP,ARTDOWN,ARTPUSH) VALUES (0,?,?,?,?,?,?,?,?,?,?)";
+  var INSERT_ARTICLE = "INSERT INTO ARTICLE (ARTID,ARTUID,ARTTITLE,ARTCONTENT,ARTSAW,ARTCATEGORY,artGOOD,ARTSTARTTIME,ARTUP,ARTSAYNUMBER,ARTPUSH) VALUES (0,?,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function (err, connection) {
-    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCategory,article.artGood,article.artStartTime,article.artUp,article.artDown,article.Push], function (err, result) {
+    connection.query(INSERT_ARTICLE, [article.artUid, article.artTitle, article.artContent,article.artSaw,article.artCategory,article.artGood,article.artStartTime,article.artUp,article.artSayNumber,article.Push], function (err, result) {
       if (err) {
         console.log("INSERT_ARTICLE Error: " + err.message);
         return;
@@ -79,7 +79,7 @@ Article.prototype.articleInfo = function (callback) {
     artGood: this.artGood,
     artStartTime: this.artStartTime,
     artUp: this.artUp,
-    artDown: this.artDown,
+    artSayNumber: this.artSayNumber,
     artPush: this.artPush
   };
   var SELECT_LOGIN = "SELECT * FROM ARTICLE WHERE ARTTITLE = ?";
