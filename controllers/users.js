@@ -132,12 +132,29 @@ router.get("/toSelect/:id/profile", function (req, res, next) {
                     res.send("查看页面跳转失败");
                 } else {
                     console.log(fans.length);
-                    res.render("select", { datas: rows, fans: fans });
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+
+                                    res.render("select", { datas: rows, fans: fans, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
                 }
             });
         }
     });
 });
+//用户文章页
 router.get("/toSelect/:id/article", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -167,6 +184,7 @@ router.get("/toSelect/:id/article", function (req, res, next) {
         }
     });
 });
+//与我有关页
 router.get("/toSelect/:id", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -176,7 +194,7 @@ router.get("/toSelect/:id", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-           var user = req.session.user;
+            var user = req.session.user;
             var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
             db.query(SELECT_FOLLOWER, function (err, fans) {
                 if (err) {
@@ -189,6 +207,7 @@ router.get("/toSelect/:id", function (req, res, next) {
         }
     });
 });
+//关注页
 router.get("/toSelect/:id/followed", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -204,29 +223,30 @@ router.get("/toSelect/:id/followed", function (req, res, next) {
                 if (err) {
                     res.send("查看页面跳转失败");
                 } else {
-                    var FANNUMBER = "select * from followedandfans where fanUserId = "+id;
+                    var FANNUMBER = "select * from followedandfans where fanUserId = " + id;
                     console.log(FANNUMBER)
-                     db.query(FANNUMBER, function (err, follower) {
-                        if(err){
+                    db.query(FANNUMBER, function (err, follower) {
+                        if (err) {
                             res.send("出错啦！");
-                        }else{
-                        console.log(fans.length);
-                        console.log(follower);
-                        db.query('select * from userinfo', function (err, users) {
-                            if(err){
-                                res.send("出错啦！"+err);
-                            }else{
-                                console.log(users);
-                    res.render("followed", { datas: rows, fans: fans,follower:follower,users:users});
-                            }
-                        });
+                        } else {
+                            console.log(fans.length);
+                            console.log(follower);
+                            db.query('select * from userinfo', function (err, users) {
+                                if (err) {
+                                    res.send("出错啦！" + err);
+                                } else {
+                                    console.log(users);
+                                    res.render("followed", { datas: rows, fans: fans, follower: follower, users: users });
+                                }
+                            });
                         }
-                     });
+                    });
                 }
             });
         }
     });
 });
+//帖子页
 router.get("/toSelect/:id/post", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -249,6 +269,7 @@ router.get("/toSelect/:id/post", function (req, res, next) {
         }
     });
 });
+//文集页
 router.get("/toSelect/:id/collection", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -271,6 +292,7 @@ router.get("/toSelect/:id/collection", function (req, res, next) {
         }
     });
 });
+//消息页
 router.get("/toSelect/:id/notification", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
@@ -280,7 +302,7 @@ router.get("/toSelect/:id/notification", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-           var user = req.session.user;
+            var user = req.session.user;
             var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
             db.query(SELECT_FOLLOWER, function (err, fans) {
                 if (err) {
@@ -352,6 +374,10 @@ router.post('/signup', function (req, res) {
         console.log('checkbox:' + checkbox);
         console.log('useravatar:' + useravatar);
         console.log('usersex:' + usersex);
+        var userbirth = "方丈元年";
+        var userabout = "方丈遗少小弟";
+        var userlogo = "方丈小弟";
+        var usermoney = 0;
         var userclass = 0;
         if (!regExpname.test(username)) {
             req.flash('error', '用户名长度为6-12位，可以有字母，数字组成');
@@ -387,7 +413,11 @@ router.post('/signup', function (req, res) {
                 userHome: userhome,
                 userClass: userclass,
                 userSex: usersex,
-                userAvatar: useravatar
+                userAvatar: useravatar,
+                userBirth: userbirth,
+                userLogo: userlogo,
+                userMoney: usermoney,
+                userAbout: userabout
             });
             //检查用户名是否已经存在
             newUser.userNum(newUser.userName, function (err, results) {
@@ -496,8 +526,126 @@ router.get("/logout", function (req, res, next) {
         res.redirect('/users/signin');
     }
 });
+//后台
 router.get('/backend', function (req, res, next) {
     res.render('backend');
     return;
+});
+//修改用户信息页
+router.get('/toSelect/:id/set/profile', function (req, res, next) {
+    var id = req.params.id;
+    var sql = "select * from userinfo where userid = " + id;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            res.render("setProfile", { datas: rows });
+            return;
+        }
+    })
+});
+router.post('/set/profile', function (req, res, next) {
+    var user = req.session.user;
+    var sex = req.body.sex;
+    var birth = req.body.birth;
+    var home = req.body.home;
+    var phone = req.body.phone;
+    var logo = req.body.logo;
+    var about = req.body.about;
+    var sql = "update userinfo set usersex = '" + sex + "',userbirth = '" + birth + "',userhome = '" + home + "',userphone = '" + phone + "',userlogo = '" + logo + "',userabout = '" + about + "' where userid = " + user.userId;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("修改失败 " + err);
+        } else {
+            res.redirect("/users/toSelect/" + user.userId);
+        }
+    });
+});
+//修改用户昵称
+router.get('/toSelect/:id/set/name', function (req, res, next) {
+    var id = req.params.id;
+    var sql = "select * from userinfo where userid = " + id;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            res.render("setName", { datas: rows });
+            return;
+        }
+    })
+});
+router.post('/set/name', function (req, res, next) {
+    var user = req.session.user;
+    var nick = req.body.nick;
+    console.log("nick:" + nick);
+    var sql = "update userinfo set userNick = '" + nick + "' where userid = " + user.userId;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("修改失败 " + err);
+        } else {
+            res.redirect("/users/toSelect/" + user.userId);
+        }
+    });
+});
+//修改用户邮箱
+router.get('/toSelect/:id/set/email', function (req, res, next) {
+    var id = req.params.id;
+    var sql = "select * from userinfo where userid = " + id;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            res.render("setEmail", { datas: rows });
+            return;
+        }
+    })
+});
+router.post('/set/email', function (req, res, next) {
+    var user = req.session.user;
+    var email = req.body.email;
+    var sql = "update userinfo set userEmail = '" + email + "' where userid = " + user.userId;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("修改失败 " + err);
+        } else {
+            res.redirect("/users/toSelect/" + user.userId);
+        }
+    });
+});
+router.get('/toSelect/:id/set/avatar', function (req, res, next) {
+    var id = req.params.id;
+    var sql = "select * from userinfo where userid = " + id;
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("查看页面跳转失败");
+        } else {
+            res.render("setAvatar", { datas: rows });
+            return;
+        }
+    })
+});
+router.post('/set/avatar', function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    //设置编辑
+    form.encoding = 'utf-8';
+    //设置文件存储路径
+    form.uploadDir = "./public/uploads/";
+    //保留后缀
+    form.keepExtensions = true;
+    //设置单文件大小限制    
+    form.maxFieldsSize = 2 * 1024 * 1024;
+    form.parse(req, function (err, fields, files) {
+        var user = req.session.user;
+        var useravatar = path.basename(files.useravatar.path);
+        var sql = "update userinfo set userAvatar = '" + useravatar + "' where userid = " + user.userId;
+        console.log(sql);
+        db.query(sql, function (err, rows) {
+            if (err) {
+                res.send("修改失败 " + err);
+            } else {
+                res.redirect("/users/toSelect/" + user.userId);
+            }
+        });
+    });
 });
 module.exports = router;

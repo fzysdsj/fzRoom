@@ -166,9 +166,6 @@ router.get('/know', function (req, res, next) {
 
 
 //全站搜索
-router.get('/search', function (req, res, next) {
-  res.render('search');
-});
 
 /*加功能*/
 

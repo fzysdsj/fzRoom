@@ -43,7 +43,10 @@ router.get("/article", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                            var count = 10;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }

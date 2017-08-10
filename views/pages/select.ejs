@@ -12,7 +12,7 @@
                 </div>
                 <div class="user-detail container">
                     <div class="avatar-block editable">
-                        <a href="https://user.ruogoo.cn/10113/avatar" class="change-head">
+                        <a href="/users/toSelect/<%= datas[0].userId %>/set/avatar" class="change-head">
                             <img class="avatar-big" src="/uploads/<%= datas[0].userAvatar %>" data-original="/uploads/<%= datas[0].userAvatar %>" width="160" height="160" alt="<%= datas[0].userNick %>">
                             <div class="change-head-tip">修改头像</div>
                         </a>
@@ -21,36 +21,23 @@
                     <div class="info-block">
                         <div class="info">
                             <span class="name title white extra"><%= datas[0].userNick %></span>
-                            <a href="https://www.ruogoo.cn/life" class="rg-label small level" style="background-color: #B0B0B0;">
+                            <a href="/knowRoom" class="rg-label small level" style="background-color: #B0B0B0;">
                                 <%= datas[0].userClass %>
                             </a>
                             <span class="span-item gender white text">
-							<i class="ri ri-transgender"></i>(距下次升级所需经验 ：<span id="levelValue">9999</span>)
+							<i class="ri ri-transgender"></i>(距下次升级所需经验 ：<span id="levelValue"></span>)
                             </span>
                         </div>
                         <div class="count">
                             <span class="span-item text white attention">
-			关注：<a href="https://user.ruogoo.cn/10113/attentions" class="gray"> 0</a>
+			关注：<a href="https://user.ruogoo.cn/10113/attentions" class="gray"> <%= fansNumber.length %></a>
 		</span>
                             <span class="span-item text white fan">
-			· 粉丝：<a href="https://user.ruogoo.cn/10113/fans" class="gray"> 0</a>
+			· 粉丝：<a href="https://user.ruogoo.cn/10113/fans" class="gray"> <%= followNumber.length %></a>
 		</span>
                         </div>
                         <p class="signature text white">
-
                         </p>
-                        <div class="action-block">
-                            <a href="javascript:void(0);" class="rg-button followed" text="已关注" ontext="取消关注" style="display: none;" action="https://user.ruogoo.cn/7691/unfollow">已关注</a>
-                            <a href="javascript:void(0);" class="rg-button unfollowed" style="" action="https://user.ruogoo.cn/7691/follow">关注</a>
-                        </div>
-                    </div>
-                    <div id="message-box" class="zoom-anim-dialog mfp-hide">
-                        <div class="message-head">发私信给
-                            <%= datas[0].userNick %>：</div>
-                        <textarea class="rg-textarea textbox" placeholder="说点悄悄话~~"></textarea>
-                        <div class="action">
-                            <a href="javascript:void(0);" class="rg-button action-send">发送</a>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -61,15 +48,15 @@
                         <div class="col-12">
                             <div class="ui warning message">
                                 <i class="close icon"></i>
-                                <p class="header">您没有绑定邮箱，绑定邮箱并设置密码后可以使用邮箱登录... <a href="https://user.ruogoo.cn/10113/set/email">点我前往绑定邮箱</a></p>
+                                <p class="header">您没有绑定邮箱，绑定邮箱并设置密码后可以使用邮箱登录... <a href="/users/toSelect/<%= datas[0].userId %>/set/email">点我前往绑定邮箱</a></p>
                             </div>
                         </div>
                         <% }else{ %>
-                            <div class="col-12">
-                                <div class="ui warning message">
-                                    <i class="close icon"></i>
-                                    <p class="header">您已绑定邮箱：
-                                        <%= datas[0].userEmail %><a href="https://user.ruogoo.cn/10113/set/email">点我前往修改绑定邮箱</a>
+                            <div class=" col-12 ">
+                                <div class="ui warning message ">
+                                    <i class="close icon "></i>
+                                    <p class="header ">您已绑定邮箱：
+                                        <%= datas[0].userEmail %><a href="/users/toSelect/<%=datas[0].userId %>/set/email">点我前往修改绑定邮箱</a>
                                     </p>
                                 </div>
                             </div>
@@ -79,8 +66,8 @@
                                         <div class="rg-board white">
                                             <div class="rg-board-head">
                                                 <p class="title">个人资料</p>
-                                                <a href="https://user.ruogoo.cn/10113/set/profile" class="sub-title"><i class="ri ri-edit"></i> 编辑</a>
-                                                <a href="https://user.ruogoo.cn/10113" class="more">我的首页 &gt;</a>
+                                                <a href="/users/toSelect/<%= datas[0].userId %>/set/profile" class="sub-title"><i class="ri ri-edit"></i> 编辑</a>
+                                                <a href="/users/toSelect/<%= datas[0].userId %>" class="more">我的首页 &gt;</a>
                                             </div>
                                             <div class="rg-board-body">
                                                 <div class="profile profile-show">
@@ -91,7 +78,7 @@
                                                             <div class="show">
                                                                 <span class="span-item show-name"><%= datas[0].userNick %></span>
                                                                 <span>
-									<a href="https://user.ruogoo.cn/10113/set/name">修改</a>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/name">修改</a>
 								</span>
                                                             </div>
                                                         </div>
@@ -103,12 +90,12 @@
                                                         <div class="profile-value">
                                                             <% if(datas[0].userEmail==""){ %>
                                                                 <span>
-									<a href="https://user.ruogoo.cn/10113/set/email">绑定邮箱</a>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/email">绑定邮箱</a>
                                 </span>
                                                                 <% }else{ %>
                                                                     <span>
                                                               <%= datas[0].userEmail %>
-									<a href="https://user.ruogoo.cn/10113/set/email">点击修改绑定邮箱</a>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/email">点击修改绑定邮箱</a>
                                 </span>
                                                                     <% } %>
                                                         </div>

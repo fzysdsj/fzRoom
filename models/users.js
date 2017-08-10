@@ -26,6 +26,10 @@ function User(user){
   this.userClass = user.userClass;
   this.userSex = user.userSex;
   this.userAvatar = user.userAvatar;
+  this.userBirth = user.userBirth;
+  this.userAbout = user.userAbout;
+  this.userMoney = user.userMoney;
+  this.userLogo = user.userLogo;
 }
 
 User.prototype.userSave = function save(callback){
@@ -40,12 +44,16 @@ User.prototype.userSave = function save(callback){
     userHome:this.userHome,
     userClass:this.userClass,
     userSex:this.userSex,
-    userAvatar: this.userAvatar
+    userAvatar: this.userAvatar,
+    userLogo:this.userLogo,
+    userMoney:this.userMoney,
+    userAbout:this.userAbout,
+    userBirth:this.userBirth
   };
   console.log(user.userAvatar);
-  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX,USERAVATAR) VALUES (0,?,?,?,?,?,?,?,?,?)";
+  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX,USERAVATAR,USERBIRTH,USERLOGO,USERABOUT,USERMONEY) VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function(err,connection){
-    connection.query(INSERT_USER,[user.userName,user.userPwd,user.userNick,user.userEmail,user.userPhone,user.userHome,user.userClass,user.userSex,user.userAvatar],function(err,result){
+    connection.query(INSERT_USER,[user.userName,user.userPwd,user.userNick,user.userEmail,user.userPhone,user.userHome,user.userClass,user.userSex,user.userAvatar,user.userBirth,user.userLogo,user.userAbout,user.userMoney],function(err,result){
       if(err){
         console.log("INSERT_USER Error: " + err.message);
         return;
@@ -81,7 +89,12 @@ User.prototype.userInfo = function(callback){
     userHome:this.userHome,
     userClass:this.userClass,
     userSex:this.userSex,
-    userAvatar: this.userAvatar
+    userAvatar: this.userAvatar,
+    userLogo:this.userLogo,
+    userMoney:this.userMoney,
+    userAbout:this.userAbout,
+    userBirth:this.userBirth
+
   };
   var SELECT_LOGIN ="SELECT * FROM USERINFO WHERE USERNAME = ?";
   pool.getConnection(function(err,connection){

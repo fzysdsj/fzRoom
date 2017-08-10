@@ -3,6 +3,9 @@ const index = require('../controllers/index');
 const users = require('../controllers/users');
 const wuRoom = require('../controllers/wuRoom');
 const wenRoom = require('../controllers/wenRoom');
+const talk = require('../controllers/talkRoom');
+const search = require('../controllers/searchRoom');
+const know = require('../controllers/knowRoom');
 const articles = require('../controllers/articles');
 const comments = require('../controllers/comments');
 const followedAndFans = require('../controllers/followedAndFans');
@@ -14,4 +17,7 @@ app.use('/users', users);
 app.use('/articles', articles);
 app.use('/comments', comments);
 app.use('/follow', followedAndFans);
+app.use('/talkRoom', talk);
+app.use('/knowRoom', know);
+app.use('/searchRoom', search);
 }
