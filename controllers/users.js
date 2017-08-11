@@ -176,7 +176,22 @@ router.get("/toSelect/:id/article", function (req, res, next) {
                             res.send("查看页面跳转失败");
                         } else {
                             console.log(fans.length);
-                            res.render("wenzhang", { datas: rows, articles: row, fans: fans });
+                            var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                            db.query(FAN_NUMBER, function (err, fansNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    console.log(fansNumber.length)
+                                    var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                                    db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                        if (err) {
+                                            res.send("查看页面跳转失败");
+                                        } else {
+                                            res.render("wenzhang", { datas: rows, fans: fans, articles: row, fansNumber: fansNumber, followNumber: followNumber });
+                                        }
+                                    });
+                                }
+                            })
                         }
                     });
                 }
@@ -201,7 +216,22 @@ router.get("/toSelect/:id", function (req, res, next) {
                     res.send("查看页面跳转失败");
                 } else {
                     console.log(fans.length);
-                    res.render("withme", { datas: rows, fans: fans });
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("withme", { datas: rows, fans: fans, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
                 }
             });
         }
@@ -233,10 +263,25 @@ router.get("/toSelect/:id/followed", function (req, res, next) {
                             console.log(follower);
                             db.query('select * from userinfo', function (err, users) {
                                 if (err) {
-                                    res.send("出错啦！" + err);
+                                    res.send("查看页面跳转失败");
                                 } else {
-                                    console.log(users);
-                                    res.render("followed", { datas: rows, fans: fans, follower: follower, users: users });
+                                    console.log(fans.length);
+                                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                                        if (err) {
+                                            res.send("查看页面跳转失败");
+                                        } else {
+                                            console.log(fansNumber.length)
+                                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                                if (err) {
+                                                    res.send("查看页面跳转失败");
+                                                } else {
+                                                    res.render("followed", { datas: rows, fans: fans, follower: follower, users: users, user: user, fansNumber: fansNumber, followNumber: followNumber });
+                                                }
+                                            });
+                                        }
+                                    })
                                 }
                             });
                         }
@@ -263,7 +308,22 @@ router.get("/toSelect/:id/post", function (req, res, next) {
                     res.send("查看页面跳转失败");
                 } else {
                     console.log(fans.length);
-                    res.render("tiezi", { datas: rows, fans: fans });
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("tiezi", { datas: rows, fans: fans, user: user, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
                 }
             });
         }
@@ -286,7 +346,22 @@ router.get("/toSelect/:id/collection", function (req, res, next) {
                     res.send("查看页面跳转失败");
                 } else {
                     console.log(fans.length);
-                    res.render("wenji", { datas: rows, fans: fans });
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("wenji", { datas: rows, fans: fans, user: user, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
                 }
             });
         }
@@ -309,7 +384,22 @@ router.get("/toSelect/:id/notification", function (req, res, next) {
                     res.send("查看页面跳转失败");
                 } else {
                     console.log(fans.length);
-                    res.render("xiaoxi", { datas: rows, fans: fans });
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("xiaoxi", { datas: rows, fans: fans, user: user, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
                 }
             });
         }
@@ -536,12 +626,26 @@ router.get('/toSelect/:id/set/profile', function (req, res, next) {
     var id = req.params.id;
     var sql = "select * from userinfo where userid = " + id;
     db.query(sql, function (err, rows) {
-        if (err) {
-            res.send("查看页面跳转失败");
-        } else {
-            res.render("setProfile", { datas: rows });
-            return;
-        }
+            if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("setProfile", { datas: rows, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
+                }
     })
 });
 router.post('/set/profile', function (req, res, next) {
@@ -566,12 +670,26 @@ router.get('/toSelect/:id/set/name', function (req, res, next) {
     var id = req.params.id;
     var sql = "select * from userinfo where userid = " + id;
     db.query(sql, function (err, rows) {
-        if (err) {
-            res.send("查看页面跳转失败");
-        } else {
-            res.render("setName", { datas: rows });
-            return;
-        }
+             if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("setName", { datas: rows, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
+                }
     })
 });
 router.post('/set/name', function (req, res, next) {
@@ -595,8 +713,26 @@ router.get('/toSelect/:id/set/email', function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-            res.render("setEmail", { datas: rows });
-            return;
+                 if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("setEmail", { datas: rows, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
+                }
         }
     })
 });
@@ -616,12 +752,26 @@ router.get('/toSelect/:id/set/avatar', function (req, res, next) {
     var id = req.params.id;
     var sql = "select * from userinfo where userid = " + id;
     db.query(sql, function (err, rows) {
-        if (err) {
-            res.send("查看页面跳转失败");
-        } else {
-            res.render("setAvatar", { datas: rows });
-            return;
-        }
+           if (err) {
+                    res.send("查看页面跳转失败");
+                } else {
+                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                        if (err) {
+                            res.send("查看页面跳转失败");
+                        } else {
+                            console.log(fansNumber.length)
+                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                if (err) {
+                                    res.send("查看页面跳转失败");
+                                } else {
+                                    res.render("setAvatar", { datas: rows, fansNumber: fansNumber, followNumber: followNumber });
+                                }
+                            });
+                        }
+                    })
+                }
     })
 });
 router.post('/set/avatar', function (req, res, next) {
@@ -636,8 +786,8 @@ router.post('/set/avatar', function (req, res, next) {
     form.maxFieldsSize = 2 * 1024 * 1024;
     form.parse(req, function (err, fields, files) {
         var user = req.session.user;
-        var useravatar = path.basename(files.useravatar.path);
-        var sql = "update userinfo set userAvatar = '" + useravatar + "' where userid = " + user.userId;
+        var avatar = path.basename(files.avatar.path);
+        var sql = "update userinfo set userAvatar = '" + avatar + "' where userid = " + user.userId;
         console.log(sql);
         db.query(sql, function (err, rows) {
             if (err) {

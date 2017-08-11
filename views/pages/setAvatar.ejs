@@ -8,13 +8,13 @@
                 </div>
                 <div class="rg-board-body">
 
-                    <div class="ui positive message">
+                    <!-- <div class="ui positive message">
                         <i class="close icon"></i>
                         <div class="header">修改头像成功</div>
-                    </div>
+                    </div> -->
 
                     <p class="avatar-tip"> 点击头像选择图片上传 </p>
-                    <div class="avatar-show">
+                    <!-- <div class="avatar-show">
                         <div class="user-avatar">
                             <div class="avatar-upload__shell">
                                 <div class="avatar-upload__wrapper avatar-upload--complete">
@@ -28,13 +28,15 @@
                         <div class="user-avatar-round" style="display: none;">
                             <img src="/uploads/<%= datas[0].userAvatar %>" width="120" height="120" alt="方丈遗少不是杜三贱">
                         </div>
-                    </div>
-                    <form method="POST" action="/users/set/avatar" accept-charset="UTF-8" id="save-avatar-form" style="display: none;"><input name="_token" type="hidden" value="jkmr07DvNY3EUgdkaY12m8dTKH8j2jCcqiNM3Ffa">
-                        <input name="_method" type="hidden" value="PUT">
-                        <div class="">
-                            <input type="hidden" name="avatar">
-                            <input type="submit" class="rg-button" value="保存">
+                    </div> -->
+                    <form method="POST" action="/users/set/avatar" id="createArticleForm" class="ui form" enctype="multipart/form-data"><input name="_token" type="hidden" value="apZEZyLUaH8C2Fbq7Cx6fotpHY3NS35aGL7eMZtn">
+                        <div class="field">
+                            <label for="avatar">选择图片上传</label>
+                            <div class="pic-box">
+                                <input type="file" name="avatar" id="avatar">
+                            </div>
                         </div>
+                        <input class="field rg-button" type="submit" value="保存">
                     </form>
                 </div>
             </div>

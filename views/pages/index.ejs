@@ -6,8 +6,12 @@
         </h1>
 
         <p class="lead hwxk">世间所有的旋律，皆是黑白的交替。 </p>
-        <p><a href="/users/signin" role="button" class="btn btn-lg btn-default btn-getting-started hwxk">文武双阁</a></p>
-        <!-- <a href="/signup" role="button" class="btn btn-lg btn-warning btn-getting-started">同道新进</a><a href="/home" role="button" class="btn btn-lg btn-default btn-getting-started">贵客观摩</a></p>  -->
+        <% if(user){ %>
+            <p><a href="/wenRoom" role="button" class="btn btn-lg btn-default btn-getting-started hwxk">文武双阁</a></p>
+            <% }else{%>
+                <p><a href="/users/signin" role="button" class="btn btn-lg btn-default btn-getting-started hwxk">文武双阁</a></p>
+                <% } %>
+                    <!-- <a href="/signup" role="button" class="btn btn-lg btn-warning btn-getting-started">同道新进</a><a href="/home" role="button" class="btn btn-lg btn-default btn-getting-started">贵客观摩</a></p>  -->
     </header>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug-->
     <div class="benefits container">

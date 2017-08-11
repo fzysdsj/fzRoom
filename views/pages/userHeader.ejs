@@ -110,7 +110,7 @@
                 </div>
                 <div class="user-detail container">
                     <div class="avatar-block editable">
-                        <a href="/users/toSelect/<%= datas[0].userId %>/avatar" class="change-head">
+                        <a href="/users/toSelect/<%= datas[0].userId %>/set/avatar" class="change-head">
                             <img class="avatar-big" src="/uploads/<%= datas[0].userAvatar %>" data-original="/uploads/<%= datas[0].userAvatar %>" width="160" height="160" alt="<%= datas[0].userNick %>">
                             <div class="change-head-tip">修改头像</div>
                         </a>
@@ -128,10 +128,10 @@
                         </div>
                         <div class="count">
                             <span class="span-item text white attention">
-			关注：<a href="/users/toSelect/<%= datas[0].userId %>/attentions" class="gray"> 0</a>
+			关注：<a href="/users/toSelect/<%= datas[0].userId %>/attentions" class="gray"><%= fansNumber.length %></a>
 		</span>
                             <span class="span-item text white fan">
-			· 粉丝：<a href="/users/toSelect/<%= datas[0].userId %>/fans" class="gray"> 0</a>
+			· 粉丝：<a href="/users/toSelect/<%= datas[0].userId %>/fans" class="gray"><%= followNumber.length %></a>
 		</span>
                         </div>
                         <p class="signature text white">

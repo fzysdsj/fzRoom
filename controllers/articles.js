@@ -43,7 +43,7 @@ router.get("/article", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            var count = 10;
+                                            var count = 5;
                                             var currentPage = Math.ceil(rows.length/count);
                                             console.log("currentPage:"+currentPage);
                                             return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
@@ -88,7 +88,10 @@ router.get("/article/recommend", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artRecommend", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                             var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artRecommend", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -130,7 +133,10 @@ router.get("/article/nice", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artNice", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                               var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artNice", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -172,7 +178,10 @@ router.get("/category/lishi", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artLishi", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                           var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artLishi", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -214,7 +223,10 @@ router.get("/category/meiwen", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artMeiwen", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artMeiwen", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -256,7 +268,10 @@ router.get("/category/jishu", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artJishu", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                              var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artJishu", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -298,7 +313,10 @@ router.get("/category/yishi", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artYishi", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                           var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artYishi", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -340,7 +358,10 @@ router.get("/category/tiyu", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artTiyu", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                               var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artTiyu", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }
@@ -382,7 +403,10 @@ router.get("/category/liangxing", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("artLiangxing", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                             var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("artLiangxing", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
                                         }
                                     }
                                 }

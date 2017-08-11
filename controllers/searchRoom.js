@@ -1,8 +1,51 @@
 //索阁模块
 var express = require('express');
+var db = require("../config/db");
+var Article = require("../models/articles.js");
 var router = express.Router();
 router.get('/', function(req, res, next) {
-  res.render('search');
-  return;
+      db.query("select * from article where artpush>0 order by artid desc", function (err, rows) {
+        if (err) {
+            res.render("search", { title: "用户列表", datas: [] });
+        } else {
+            console.log(rows[0].artUid);
+            console.log(rows.length);
+            var userArray = [];
+            var userArrayDemo = [];
+            for (let i = 0; i < rows.length; i++) {
+                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                console.log(select_user);
+                db.query(select_user, function (err, row) {
+                    if (err) {
+                        console.log("读用户列表失败");
+                    } else {
+                        //将文章作者信息写进数组中，渲染给页面调用
+                        console.log("row:");
+                        console.log(rows[0]);
+                        userArray.push(row[0]);
+                        if (userArray.length == rows.length) {
+                            for (let j = 0; j < rows.length; j++) {
+                                var s = 0;
+                                for (let k = 0; k < userArray.length; k++) {
+                                    if (userArray[k].userId == rows[j].artUid && s == 0) {
+                                        userArrayDemo.push(userArray[k]);
+                                        s++;
+                                        if (userArrayDemo.length == rows.length) {
+                                             var count = 5;
+                                            var currentPage = Math.ceil(rows.length/count);
+                                            console.log("currentPage:"+currentPage);
+                                            return res.render("search", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                });
+            }
+
+        }
+    });
 });
 module.exports = router;

@@ -178,7 +178,11 @@
                                 </p>
                             </div>
                             <div class="goto-write center" style="padding: 10px;">
-                                <a href="/articles/create" class="ui fluid teal button" target="_blank">写新文章</a>
+                                <% if(user){ %>
+                                    <a href="/articles/create" class="ui fluid teal button" target="_blank">写新文章</a>
+                                    <% }else{ %>
+                                        <a href="/users/signin" class="ui fluid teal button" target="_blank">写新文章</a>
+                                        <% } %>
                             </div>
                             <div class="rg-board">
                                 <div class="rg-board-head">

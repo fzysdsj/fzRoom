@@ -1,9 +1,9 @@
 <%- include('header') %>
     <link rel="stylesheet" href="/css/lib.css" />
-    <link rel="stylesheet" href="/css/lib.css" />
     <link rel="stylesheet" href="/css/page.css" />
+    <link rel="stylesheet" href="/css/home.css" />
     <div class="col-12">
-        <section class="search-head-section one-section white section">
+        <section class="search-head-section one-section white section" style=" display: block;">
             <div class="col-group">
                 <div class="col-3 col-mb-12"></div>
                 <div class="search col-6 col-mb-12">
@@ -40,186 +40,26 @@
                 </div>
                 <div class="rg-board-body">
                     <ul class="recommend-list">
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7629" class="text">
-			鹧鸪天
-		</a>
-                            </p>
+                        <% for(let i = 0;i<10;i++){ %>
+                            <li class="result-item article-item">
+                                <p class="title" search-hit="false" keyword="">
+                                    <a href="https://wenxue.ruogoo.cn/article/7629" class="text">
+                                        <%= datas[i].artTitle %>
+                                    </a>
+                                </p>
 
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2205" class="gray">
-				<i class="ri ri-user"></i> 逍遥道君
+                                <p class="meta text gray">
+                                    <span class="span-item">
+			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
+				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head" alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
 			</a>
 		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 16小时前
+                                    <span class="span-item">
+			<i class="ri ri-clock-o"></i> <%= datas[i].artStartTime %>
 		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7628" class="text">
-			许你春风  独守风霜冷
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/8999" class="gray">
-				<i class="ri ri-user"></i> 顾尔锦时
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 23小时前
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7625" class="text">
-			思君（二）
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/1367" class="gray">
-				<i class="ri ri-user"></i> 吾悦
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 3天前
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7624" class="text">
-			西江月.晨兴夜梦
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2" class="gray">
-				<i class="ri ri-user"></i> 雨梦幽隐
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月30日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7623" class="text">
-			鹧鸪天
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2205" class="gray">
-				<i class="ri ri-user"></i> 逍遥道君
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月29日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7622" class="text">
-			西江月.酷暑长
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2" class="gray">
-				<i class="ri ri-user"></i> 雨梦幽隐
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月29日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7609" class="text">
-			忆秦娥 觅春 
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2205" class="gray">
-				<i class="ri ri-user"></i> 逍遥道君
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月28日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7608" class="text">
-			入定
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/136" class="gray">
-				<i class="ri ri-user"></i> 江南唐韵瓷
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月27日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7605" class="text">
-			七言·雾中游坝头
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/8383" class="gray">
-				<i class="ri ri-user"></i> 沾染罗香为君妆
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月27日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item article-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://wenxue.ruogoo.cn/article/7603" class="text">
-			钗头凤·步陆游（唐婉）韵
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/390" class="gray">
-				<i class="ri ri-user"></i> 百媚生丶红沐
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月26日
-		</span>
-                            </p>
-                        </li>
+                                </p>
+                            </li>
+                            <% } %>
                     </ul>
                 </div>
             </div>
