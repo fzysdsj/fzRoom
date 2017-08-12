@@ -2182,7 +2182,7 @@ body.pushable>.pusher {
 .search-head-section .search .do-search {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 8px;
     background-color: #935A46;
     color: #fff;
     padding: 7px 10px;

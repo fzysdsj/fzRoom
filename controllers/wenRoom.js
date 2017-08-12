@@ -19,8 +19,6 @@ router.get("/", function (req, res, next) {
             console.log("读用户列表失败");
           } else {
             //将文章作者信息写进数组中，渲染给页面调用
-            console.log("row:");
-            console.log(rows[0]);
             userArray.push(row[0]);
             if (userArray.length == rows.length) {
               for (let j = 0; j < rows.length; j++) {
@@ -60,7 +58,6 @@ router.get("/", function (req, res, next) {
                                               var userArrayNewDemo = [];
                                               for (let i = 0; i < news.length; i++) {
                                                 var select_user2 = 'select * from userinfo where userid = ' + news[i].artUid;
-                                                console.log(select_user2);
                                                 db.query(select_user2, function (err, row) {
                                                   if (err) {
                                                     console.log("读用户列表失败");
@@ -83,7 +80,6 @@ router.get("/", function (req, res, next) {
                                                                   var userArrayPopDemo = [];
                                                                   for (let i = 0; i < pops.length; i++) {
                                                                     var select_user3 = 'select * from userinfo where userid = ' + pops[i].artUid;
-                                                                    console.log(select_user3);
                                                                     db.query(select_user3, function (err, row) {
                                                                       if (err) {
                                                                         console.log("读用户列表失败");

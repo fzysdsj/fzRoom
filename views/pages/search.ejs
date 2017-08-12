@@ -6,28 +6,28 @@
         <section class="search-head-section one-section white section" style=" display: block;">
             <div class="col-group">
                 <div class="col-3 col-mb-12"></div>
-                <div class="search col-6 col-mb-12">
-
-                    <div class="search-box" action="https://www.ruogoo.cn/search">
-                        <input type="text" class="input-text input-search" placeholder="输入关键字搜索" value="">
-                        <a href="javascript:void(0);" class="do-search gray"> 搜 索 </a>
-                    </div>
-                    <div class="option">
-                        <label>
+                <form method="POST" action="/searchRoom/search" id="createArticleForm">
+                    <div class="search col-6 col-mb-12">
+                        <div class="search-box">
+                            <input type="text" class="input-text input-search" placeholder="输入关键字搜索" value="" name="search">
+                            <input type="submit" class="do-search gray" value="搜 索">
+                        </div>
+                        <div class="option">
+                            <label>
 							<input name="type" type="radio" value="article" checked=""> 文章
 						</label>
-                        <label>
+                            <label>
 							<input name="type" type="radio" value="forum"> 论坛
 						</label>
-                        <label>
+                            <label>
 							<input name="type" type="radio" value="tweet"> 泡泡
 						</label>
-                        <label>
+                            <label>
 							<input name="type" type="radio" value="user"> 用户
 						</label>
+                        </div>
                     </div>
-
-                </div>
+                </form>
                 <div class="col-3 col-mb-12"></div>
             </div>
         </section>
@@ -43,7 +43,7 @@
                         <% for(let i = 0;i<10;i++){ %>
                             <li class="result-item article-item">
                                 <p class="title" search-hit="false" keyword="">
-                                    <a href="https://wenxue.ruogoo.cn/article/7629" class="text">
+                                    <a href="/articles/art/<%= datas[i].artId %>" class="text">
                                         <%= datas[i].artTitle %>
                                     </a>
                                 </p>
@@ -51,7 +51,7 @@
                                 <p class="meta text gray">
                                     <span class="span-item">
 			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
-				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head" alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
+				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle" alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
 			</a>
 		</span>
                                     <span class="span-item">

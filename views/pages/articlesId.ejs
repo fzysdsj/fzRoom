@@ -1,6 +1,8 @@
 <%- include('header') %>
     <link rel="stylesheet" href="/css/article.css" />
     <link rel="stylesheet" href="/css/articleA.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/page.css" />
     <div class="body">
         <div class="container">
             <div class="col-group">
@@ -125,7 +127,7 @@
                                         <div class="reply-list ">
                                             <% if(comment.length==0){ %>
                                                 <h4 class="text-center red">还无人评论，快来抢第一把交椅!</h4>
-                                                <% } else{for(var i=0;i< comment.length;i++){ %>
+                                                <% } else{for(var i=comment.length-1;i>=0;i--){ %>
                                                     <div class="media">
                                                         <div class="media-left">
                                                             <a href="javascript:void(0);" id="comeravatar<%= i %>">
@@ -135,7 +137,7 @@
                                                         <div class="media-body">
                                                             <h4 class="media-heading">
                                                                 <span><%= comer[i].userNick %></span> &nbsp;&nbsp;
-                                                                <a href="/wenRoom/know" class="rg-label small level">
+                                                                <a href="/wenRoom/know" class="rg-label small level" id="level<%= comer[i].userClass %>">
                                                                     <%= comer[i].userClass %>
                                                                 </a>
                                                             </h4>
@@ -163,16 +165,16 @@
                     <div class="col-3 col-mb-12 ">
                         <section class="as-sidebar-section sidebar one-section white section ">
 
-                            <div class="user-block ui tint blur " data-image="https://o.ruogoo.cn/user/2d804a9864129d9c2c4713c5555715ab.jpg ">
+                            <div class="user-block ui tint blur " data-image="/uploads/<%= anthors[0].userAvatar %>">
                                 <a href="/users/toSelect/<%= anthors[0].userId %>" class="ui circular image user-avatar">
-                                        <img src="/uploads/<%= anthors[0].userAvatar %>" class="" alt="<%= anthors[0].userNick %>" width="80" height="80"> </a>
+                                    <img class="media-object img-circle" src="/uploads/<%= anthors[0].userAvatar %>" alt="<%= anthors[0].userNick %>" style="width: 80px; height: 80px;"> </a>
                                 <p class="user-name big text">
                                     <a href="" style="color:#FC9;">
                                         <%= anthors[0].userNick %>
                                     </a>
                                 </p>
                                 <p class="user-level">
-                                    <a href="" class="rg-label small level">
+                                    <a href="" class="rg-label small level" id="level<%= anthors[0].userClass %>">
                                         <%= anthors[0].userClass %>
                                     </a>
                                 </p>
@@ -234,5 +236,6 @@
 
             });
         </script>
-        <script src="/js/level.js"></script>
+        <script src="/js/level.js">
+        </script>
         <%- include('footer') %>
