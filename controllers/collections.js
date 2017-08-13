@@ -60,4 +60,10 @@ router.post("/create", function (req, res, next) {
     });
 
 });
+router.get('/collection',function(req,res,next){
+  res.render('collection');
+});
+router.get('/collections',function(req,res,next){
+  res.render('collectionNumber');
+});
 module.exports = router;

@@ -4,7 +4,7 @@
             <div class="rg-board">
                 <div class="rg-board-head">
                     <p class="title">简介</p>
-                    <a href="/users/toSelect/167/profile" class="more">详细资料 &gt;</a>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/profile" class="more">详细资料 &gt;</a>
                 </div>
 
                 <div class="rg-board-body text">
@@ -22,11 +22,11 @@
                 <div class="rg-board-body small text" style="word-wrap: break-word;">
                     <p>邀请码：GJDHSY</p>
 
-                    <p>邀请链接：https://user.ruogoo.cn/invite/GJDHSY</p>
+                    <p>邀请链接：ffff</p>
 
-                    <p class="small gray text">说明：将您的邀请码或邀请链接告诉好友，好友注册成功后，您和受邀好友均获得10若古币，邀请人数没有上限哦。</p>
+                    <p class="small gray text">说明：将您的邀请码或邀请链接告诉好友，好友注册成功后，您和受邀好友均获得10方丈币，邀请人数没有上限哦。</p>
 
-                    <p class="small gray text">快邀请好友来若古社区吧 ~\(^o^)/~</p>
+                    <p class="small gray text">快邀请好友来fzRoom吧 ~\(^o^)/~</p>
                 </div>
             </div>
         </div>
@@ -37,10 +37,12 @@
                     <p class="title">统计</p>
                 </div>
                 <div class="rg-board-body">
-                    <p>若古币：2 文钱</p>
-                    <p>生命：13</p>
+                    <p>方丈币：2 文钱</p>
+                    <p>经验值：
+                        <%= datas[0].userClass %>
+                    </p>
 
-                    <p>真气：11</p>
+                    <p>战力值：11</p>
 
                     <p>访问量：2</p>
 
@@ -48,7 +50,6 @@
 
                     <p>帖子：0</p>
 
-                    <p>冒泡：0</p>
 
                 </div>
             </div>
@@ -57,17 +58,25 @@
         <div class="attention-block one-section white section">
             <div class="rg-board">
                 <div class="rg-board-head">
-                    <p class="title">关注</p>
-                    <a href="/users/toSelect/167/attentions" class="more">更多 &gt;</a>
+                    <p class="title">粉丝</p>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/fans" class="more">详情 &gt;</a>
                 </div>
                 <div class="rg-board-body">
                     <ul>
-                        <li>
-                            <a href="https://user.ruogoo.cn/10143" class="user-head" title="love-Kobe安落枢">
-                                <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢">
-                            </a>
-                            <a href="https://user.ruogoo.cn/10143" class="user-name">love-Kobe安落枢</a>
-                        </li>
+                        <% if(followNumber.length==0){ %>
+                            <li>
+                                <p>还没粉丝哦！</p>
+                            </li>
+                            <% }else{for(let i = 0;i < followNumber.length;i++){ %>
+                                <li>
+                                    <a href="/users/toSelect/<%= followNumber[i].followedUserId %>" class="user-head" title="<%= followNumber[i].followedUserId %>">
+                                        <!-- <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢"> -->
+                                    </a>
+                                    <a href="/users/toSelect/<%= followNumber[i].followedUserId %>" class="user-name">
+                                        用户Id： <%= followNumber[i].fanUserId %>
+                                    </a>
+                                </li>
+                                <% }} %>
                     </ul>
                 </div>
             </div>
@@ -76,11 +85,27 @@
         <div class="fan-block one-section white section">
             <div class="rg-board">
                 <div class="rg-board-head">
-                    <p class="title">粉丝</p>
-                    <a href="/users/toSelect/167/fans" class="more">更多 &gt;</a>
+                    <p class="title">关注</p>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/attention" class="more">详情 &gt;</a>
                 </div>
                 <div class="rg-board-body">
-                    <p> 没有粉丝哦 </p>
+                    <ul>
+                        <% if(fansNumber.length==0){ %>
+                            <li style="width: 86px;">
+                                <p>还没关注任何人哦！</p>
+                            </li>
+                            <% }else{for(let i = 0;i < fansNumber.length;i++){ %>
+                                <li style="width: 86px;">
+                                    <a href="/users/toSelect/<%= fansNumber[i].fansUserId %>" class="user-head" title="<%= fansNumber[i].fansUserId %>">
+                                        <!-- <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢"> -->
+                                    </a>
+
+                                    <a href="/users/toSelect/<%= fansNumber[i].fanUserId %>" class="user-name">
+                                         用户Id: <%= fansNumber[i].followedUserId %>
+                                    </a>
+                                </li>
+                                <% }} %>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -24,19 +24,6 @@
                                 <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
                             </li>
                         </ul>
-                        <% }else{ %>
-                            <ul>
-                                <li class="tab-item ">
-                                    <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
-                                </li>
-                                <li class="tab-item ">
-                                    <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
-                                </li>
-                                <li class="tab-item ">
-                                    <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
-                                </li>
-                            </ul>
-                            <% } %>
                 </div>
                 <div class="tab-content">
                     <div class="followed-events">
@@ -60,7 +47,22 @@
 
                     </div>
                 </div>
+                <% }else{ %>
+                    <ul>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                        </li>
+                    </ul>
             </div>
-        </section>
+            <% } %>
+
+    </div>
+    </section>
     </div>
     <%- include('userFooter') %>

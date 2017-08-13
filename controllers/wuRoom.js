@@ -11,10 +11,5 @@ router.get('/pve', function(req, res, next) {
 router.get('/pvp', function(req, res, next) {
   res.render('pvp');
 });
-router.get('/collection',function(req,res,next){
-  res.render('collection');
-});
-router.get('/collections',function(req,res,next){
-  res.render('collectionNumber');
-});
+
 module.exports = router;
