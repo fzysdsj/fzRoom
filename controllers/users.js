@@ -209,6 +209,9 @@ router.get("/toSelect/:id", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
+            if(!req.session.user){
+                res.redirect("/users/signin");
+            }else{
             var user = req.session.user;
             var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
             db.query(SELECT_FOLLOWER, function (err, fans) {
@@ -223,10 +226,12 @@ router.get("/toSelect/:id", function (req, res, next) {
                         } else {
                             console.log(fansNumber.length)
                             var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                            console.log(FOLLOW_NUMBER);
                             db.query(FOLLOW_NUMBER, function (err, followNumber) {
                                 if (err) {
                                     res.send("查看页面跳转失败");
                                 } else {
+                                    console.log(followNumber.length);
                                     res.render("withme", { datas: rows, fans: fans, fansNumber: fansNumber, followNumber: followNumber });
                                 }
                             });
@@ -234,6 +239,7 @@ router.get("/toSelect/:id", function (req, res, next) {
                     })
                 }
             });
+            }
         }
     });
 });

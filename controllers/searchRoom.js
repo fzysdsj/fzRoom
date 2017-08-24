@@ -62,7 +62,11 @@ router.post('/search', function (req, res, next) {
             if (err) {
                 console.log("查询失败");
             } else {
-                if (rows.length != 0) {
+                console.log(rows.length);
+                if(rows.length==0){
+ return res.render("searchResult", { title: "用户列表", datas: rows,users:[]});
+                }
+               else if (rows.length != 0) {
                     console.log(rows[0].artUid);
                     console.log(rows.length);
                     var userArray = [];

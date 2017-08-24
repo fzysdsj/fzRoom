@@ -520,6 +520,7 @@ router.post("/create", function (req, res, next) {
         var artsaynumber = 0;
         var artgood = 0;
         var artpush = 0;
+        console.log("内容："+artcontent);
         db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artsaynumber,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "','" + artsaynumber + "','" + artgood + "','" + artpush + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")

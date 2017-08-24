@@ -10,6 +10,7 @@ const articles = require('../controllers/articles');
 const comments = require('../controllers/comments');
 const followedAndFans = require('../controllers/followedAndFans');
 const collections = require('../controllers/collections');
+const fposts = require('../controllers/fposts');
 module.exports = function(app){
 app.use('/', index);
 app.use('/wenRoom', wenRoom);
@@ -22,4 +23,5 @@ app.use('/collections',collections);
 app.use('/talkRoom', talk);
 app.use('/knowRoom', know);
 app.use('/searchRoom', search);
+app.use('/fposts', fposts);
 }

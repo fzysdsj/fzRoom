@@ -296,3 +296,9 @@ a.index {
     color: #fff;
     text-decoration: none;
 }
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font: 400 20px/30px "楷体";
+}

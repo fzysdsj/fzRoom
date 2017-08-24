@@ -1,7 +1,7 @@
 
 var express = require('express');
 var db = require("../config/db");
-var Article = require("../models/comments.js");
+var Comments = require("../models/comments.js");
 var fs = require('fs');
 var path = require('path');
 // var formidable = require('formidable');

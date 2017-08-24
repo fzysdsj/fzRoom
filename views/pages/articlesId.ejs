@@ -41,9 +41,11 @@
                                 </div>
 
                                 <div id="content">
+                                    <pre>
                                     <%= datas[0].artContent %>
+                                    </pre>
+                                    <img src="/uploads/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
                                 </div>
-                                <img src="/uploads/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
                                 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                 <div class="copyright-box">
@@ -93,7 +95,8 @@
                                             <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论">
                                         </div>
                                     </form>
-
+                                    <iframe name="formsubmit" style="display:none;">
+    </iframe>
                                     <% }else{ %>
                                         <div class="reply-header gray text ">评论请登录！</div>
                                         <div class="reply-area ">
@@ -352,7 +355,14 @@
             })();
         </script>
         <script src="/js/level.js"></script>
-
+        <script>
+            $(function() {
+                        $("#content").click(function() {
+                            var s = <%= datas[0].artContent %>
+                            alert("ffffffff");
+                            $(this).text(s);
+                        })
+        </script>
 
         <div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;">
             <div id="trans-tooltip">
