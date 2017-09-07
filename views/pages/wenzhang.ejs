@@ -53,9 +53,9 @@
                                                                                     <span class="rg-label rg-label-warning">已推荐</span>
                                             <% } %>
                                                 <i class="ri ri-file-text-o"></i>
-                                                <a href="/articles/article" class="gray big title" target="_blank">[<%= articles[0].artCategory %>]</a>
+                                                <a href="/articles/article" class="gray big title" target="_blank">[<%= articles[i].artCategory %>]</a>
                                                 <a href="/articles/art/<%= articles[i].artId %>" class="big title">
-                                                    <a href="/articles/art/<%= articles[0].artId %>" class="big title" target="_blank">
+                                                    <a href="/articles/art/<%= articles[i].artId %>" class="big title" target="_blank">
                                                         <%= articles[i].artTitle %>
                                                     </a>
                                                 <span class="gray small text"><%= articles[i].artStartTime %>  · <%= articles[i].artUp %> 人喜欢 · <%= articles[i].artSaw %>阅读 ）</span>

@@ -31,10 +31,45 @@ router.get('/', function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            var count = 5;
-                                            var currentPage = Math.ceil(rows.length / count);
-                                            console.log("currentPage:" + currentPage);
-                                            return res.render("search", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
+
+                                            db.query("select * from post where postSaw > 0 order by postid desc", function (err, Prows) {
+                                                if (err) {
+                                                    res.render("search", { title: "用户列表", datas: [], Pdatas: [] });
+                                                } else {
+                                                    console.log(Prows[0].postUid);
+                                                    console.log(Prows.length);
+                                                    var PuserArray = [];
+                                                    var PuserArrayDemo = [];
+                                                    for (let i = 0; i < Prows.length; i++) {
+                                                        var Pselect_user = 'select * from userinfo where userid = ' + Prows[i].postUid;
+                                                        console.log(Pselect_user);
+                                                        db.query(Pselect_user, function (err, Prow) {
+                                                            if (err) {
+                                                                console.log("读用户列表失败");
+                                                            } else {
+                                                                //将文章作者信息写进数组中，渲染给页面调用
+                                                                console.log("row:");
+                                                                console.log(Prows[0]);
+                                                                PuserArray.push(Prow[0]);
+                                                                if (PuserArray.length == Prows.length) {
+                                                                    for (let j = 0; j < Prows.length; j++) {
+                                                                        var ss = 0;
+                                                                        for (let k = 0; k < PuserArray.length; k++) {
+                                                                            if (PuserArray[k].userId == Prows[j].postUid && ss == 0) {
+                                                                                PuserArrayDemo.push(PuserArray[k]);
+                                                                                ss++;
+                                                                                if (PuserArrayDemo.length == Prows.length) {
+                                                                                    return res.render("search", { title: "用户列表", datas: rows, users: userArrayDemo, Pdatas: Prows, Pusers: PuserArrayDemo });
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            });
                                         }
                                     }
                                 }
@@ -63,10 +98,10 @@ router.post('/search', function (req, res, next) {
                 console.log("查询失败");
             } else {
                 console.log(rows.length);
-                if(rows.length==0){
- return res.render("searchResult", { title: "用户列表", datas: rows,users:[]});
+                if (rows.length == 0) {
+                    return res.render("searchResult", { title: "用户列表", datas: rows, users: [] });
                 }
-               else if (rows.length != 0) {
+                else if (rows.length != 0) {
                     console.log(rows[0].artUid);
                     console.log(rows.length);
                     var userArray = [];
@@ -90,7 +125,7 @@ router.post('/search', function (req, res, next) {
                                                 userArrayDemo.push(userArray[k]);
                                                 s++;
                                                 if (userArrayDemo.length == rows.length) {
-                                                    return res.render("searchResult", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                                    return res.render("searchResult", { title: "用户列表", datas: rows, users: userArrayDemo,fzNumber:0 });
                                                 }
                                             }
                                         }
@@ -101,7 +136,7 @@ router.post('/search', function (req, res, next) {
                         });
                     }
                 } else {
-                    return res.render("searchResult", { title: "用户列表", datas: rows });
+                    return res.render("searchResult", { title: "用户列表", datas: rows ,fzNumber:0});
                 }
 
             }
@@ -115,7 +150,57 @@ router.post('/search', function (req, res, next) {
             }
             else {
                 console.log(rows);
-                return res.render("searchResult", { title: "用户列表", datas: [], users: rows });
+                return res.render("searchResult", { title: "用户列表", datas: [], users: rows,fzNumber:1 });
+            }
+        });
+    }else if(type == 'forum'){
+            let sql = "select * from post where postTitle like '%" + search + "%' or postContent like '%" + search + "%'";
+        db.query(sql, function (err, rows) {
+            if (err) {
+                console.log("查询失败");
+            } else {
+                console.log(rows.length);
+                if (rows.length == 0) {
+                    return res.render("searchResult", { title: "用户列表", datas: rows, users: [],fzNumber:1});
+                }
+                else if (rows.length != 0) {
+                    console.log(rows[0].postUid);
+                    console.log(rows.length);
+                    var userArray = [];
+                    var userArrayDemo = [];
+                    for (let i = 0; i < rows.length; i++) {
+                        var select_user = 'select * from userinfo where userid = ' + rows[i].postUid;
+                        console.log(select_user);
+                        db.query(select_user, function (err, row) {
+                            if (err) {
+                                console.log("读用户列表失败");
+                            } else {
+                                //将文章作者信息写进数组中，渲染给页面调用
+                                console.log("row:");
+                                console.log(rows[0]);
+                                userArray.push(row[0]);
+                                if (userArray.length == rows.length) {
+                                    for (let j = 0; j < rows.length; j++) {
+                                        let ss = 0;
+                                        for (let k = 0; k < userArray.length; k++) {
+                                            if (userArray[k].userId == rows[j].postUid && ss == 0) {
+                                                userArrayDemo.push(userArray[k]);
+                                                ss++;
+                                                if (userArrayDemo.length == rows.length) {
+                                                    return res.render("searchResult", { title: "用户列表", datas: rows, users: userArrayDemo,fzNumber:2 });
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    return res.render("searchResult", { title: "用户列表", datas: rows,fzNumber:2 });
+                }
+
             }
         });
     }

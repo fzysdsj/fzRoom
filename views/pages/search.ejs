@@ -40,7 +40,7 @@
                 </div>
                 <div class="rg-board-body">
                     <ul class="recommend-list">
-                        <% for(let i = 0;i<10;i++){ %>
+                        <% for(let i = 0;i<7;i++){ %>
                             <li class="result-item article-item">
                                 <p class="title" search-hit="false" keyword="">
                                     <a href="/articles/art/<%= datas[i].artId %>" class="text">
@@ -73,190 +73,29 @@
                 </div>
                 <div class="rg-board-body">
                     <ul class="recommend-list">
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2739" class="text">
-			【流水间记文】浮华一生流水间
-		</a>
-                            </p>
+                        <% for(let i = 0;i<2;i++){ %>
+                            <li class="result-item article-item">
+                                <p class="title" search-hit="false" keyword="">
+                                    <a href="/talkRoom/posts/<%= Pdatas[i].postId %>" class="text">
+                                        <%= Pdatas[i].postTitle %>
+                                    </a>
+                                </p>
 
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/1584" class="gray">
-				<i class="ri ri-user"></i> 【古风治愈君】花邱
+                                <p class="meta text gray">
+                                    <span class="span-item">
+			<a href="/users/toSelect/<%= Pusers[i].userId %>" class="gray">
+				 <img src="/uploads/<%= Pusers[i].userAvatar %>" data-original="/uploads/<%= Pusers[i].userAvatar %>" class="head img-circle" alt="<%= Pusers[i].userNick %>" width="20" height="20"> <%= Pusers[i].userNick %>
 			</a>
 		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 07月14日
+                                    <span class="span-item">
+			<i class="ri ri-clock-o"></i> <%= Pdatas[i].postStartTime %>
 		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2695" class="text">
-			【流水间记文】浮华一生流水间
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/1584" class="gray">
-				<i class="ri ri-user"></i> 【古风治愈君】花邱
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 04月28日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2686" class="text">
-			【流水间记文】目录专贴
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/193" class="gray">
-				<i class="ri ri-user"></i> 楼璟邪
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 04月04日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2667" class="text">
-			什么是垂花门？
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/5240" class="gray">
-				<i class="ri ri-user"></i> 江阴士子
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 02月16日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2666" class="text">
-			◈遗音堂◈〖古风翻唱〗《明月天涯》
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/9754" class="gray">
-				<i class="ri ri-user"></i> 清水流觞
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 02月14日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2661" class="text">
-			古风美人你喜欢哪一种
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/6299" class="gray">
-				<i class="ri ri-user"></i> 萌萌乖喵兔兔唔
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 02月01日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2660" class="text">
-			【让列表来评论你属于哪种声音？】
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/6299" class="gray">
-				<i class="ri ri-user"></i> 萌萌乖喵兔兔唔
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 02月01日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2658" class="text">
-			我的Cosplay
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/2" class="gray">
-				<i class="ri ri-user"></i> 雨梦幽隐
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 02月01日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2586" class="text">
-			 ●遗音堂●沈心工卖琴寻琴
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/9269" class="gray">
-				<i class="ri ri-user"></i> ✪弦音沾染紫晶阁✪
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 2016年09月11日
-		</span>
-                            </p>
-                        </li>
-                        <li class="result-item post-item">
-                            <p class="title" search-hit="false" keyword="">
-                                <a href="https://forum.ruogoo.cn/post/2583" class="text">
-			●遗音堂●推荐古风经典音乐
-		</a>
-                            </p>
-
-                            <p class="meta text gray">
-                                <span class="span-item">
-			<a href="https://user.ruogoo.cn/8582" class="gray">
-				<i class="ri ri-user"></i> 寒光璃御浮夢
-			</a>
-		</span>
-                                <span class="span-item">
-			<i class="ri ri-clock-o"></i> 2016年09月10日
-		</span>
-                            </p>
-                        </li>
+                                </p>
+                            </li>
+                            <% } %>
                     </ul>
                 </div>
             </div>
         </section>
     </div>
-
     <%- include('footer') %>

@@ -35,55 +35,82 @@
     <div class="col-6 col-mb-12">
         <section class="search-recommend-section">
             <div class="rg-board one-section white section">
-                <div class="rg-board-head">
-                    <p class="title">查询结果</p>
-                </div>
                 <div class="rg-board-body">
                     <ul class="recommend-list">
-
-                        <% if(datas.length!=0){ for(let i = 0;i<datas.length;i++){ %>
-                            <li class="result-item article-item">
-                                <p class="title" search-hit="false" keyword="">
-                                    <a href="/articles/art/<%= datas[i].artId %>" class="text">
-                                        <%= datas[i].artTitle %>
-                                    </a>
-                                </p>
-
-                                <p class="meta text gray">
-                                    <span class="span-item">
-			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
-				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle " alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
-			</a>
-		</span>
-                                    <span class="span-item">
-			<i class="ri ri-clock-o"></i> <%= datas[i].artStartTime %>
-		</span>
-                                </p>
-                            </li>
-                            <% } }else if(users.length!=0){for(let i = 0;i<users.length;i++){%>
+                        <% if(datas.length!=0){ if(fzNumber==0){ %>
+                            <div class="rg-board-head">
+                                <h3 class="title">文章查询结果</h3>
+                            </div>
+                            <% for(let i = 0;i<datas.length;i++){ %>
                                 <li class="result-item article-item">
+                                    <p class="title" search-hit="false" keyword="">
+                                        <a href="/articles/art/<%= datas[i].artId %>" class="text">
+                                            <%= datas[i].artTitle %>
+                                        </a>
+                                    </p>
+
                                     <p class="meta text gray">
                                         <span class="span-item">
 			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
 				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle " alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
 			</a>
-        </span>
-                                        <span class="span-item">
-			 <%= users[i].userEmail %>
 		</span>
                                         <span class="span-item">
-			 <%= users[i].userPhone %>
-		</span>
-                                        <span class="span-item">
-			 <%= users[i].userLogo %>
+			<i class="ri ri-clock-o"></i> <%= datas[i].postStartTime %>
 		</span>
                                     </p>
                                 </li>
-                                <% }}else { %>
-                                    <li class="result-item article-item">
-                                        <h3>无搜索结果</h3>
-                                    </li>
-                                    <% } %>
+                                <% } }else if(fzNumber==2){ %>
+                                    <div class="rg-board-head">
+                                        <h3 class="title">帖子查询结果</h3>
+                                    </div>
+                                    <% for(let i = 0;i<datas.length;i++){ %>
+                                        <li class="result-item article-item">
+                                            <p class="title" search-hit="false" keyword="">
+                                                <a href="/talkRoom/posts/<%= datas[i].postId %>" class="text">
+                                                    <%= datas[i].postTitle %>
+                                                </a>
+                                            </p>
+
+                                            <p class="meta text gray">
+                                                <span class="span-item">
+			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
+				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle " alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
+			</a>
+		</span>
+                                                <span class="span-item">
+			<i class="ri ri-clock-o"></i> <%= datas[i].postStartTime %>
+		</span>
+                                            </p>
+                                        </li>
+                                        <% }}}else if(users.length!=0){ %>
+                                            <div class="rg-board-head">
+                                                <h3 class="title">用户查询结果</h3>
+                                            </div>
+                                            <% for(let i = 0;i<users.length;i++){%>
+                                                <li class="result-item article-item">
+                                                    <p class="meta text gray">
+                                                        <span class="span-item">
+			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
+				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle " alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
+			</a>
+        </span>
+                                                        <span class="span-item">
+			 <%= users[i].userEmail %>
+		</span>
+                                                        <span class="span-item">
+			 <%= users[i].userPhone %>
+		</span>
+                                                        <span class="span-item">
+			 <%= users[i].userLogo %>
+		</span>
+                                                    </p>
+                                                </li>
+                                                <% }}else { %>
+                                                    <li class="result-item article-item">
+                                                        <h3>无搜索结果</h3>
+                                                    </li>
+                                                    <% } %>
                     </ul>
                 </div>
             </div>

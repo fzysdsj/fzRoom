@@ -5,7 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var formidable = require('formidable');
 var router = express.Router();
-  router.get("/", function (req, res, next) {
+router.get("/", function (req, res, next) {
     db.query("select * from post order by postid desc", function (err, rows) {
         if (err) {
             res.render("talkRoom", { title: "用户列表", datas: [] });
@@ -32,7 +32,7 @@ var router = express.Router();
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("talkRoom", { title: "用户列表", datas: rows, users: userArrayDemo});
+                                            return res.render("talkRoom", { title: "用户列表", datas: rows, users: userArrayDemo });
                                         }
                                     }
                                 }
@@ -46,8 +46,8 @@ var router = express.Router();
         }
     });
 });
-router.get('/backend/posts', function(req, res, next) {
-  db.query("select * from post", function (err, rows) {
+router.get('/backend/posts', function (req, res, next) {
+    db.query("select * from post", function (err, rows) {
         if (err) {
             res.render("postList", { title: "用户列表", datas: [] });
         } else {
@@ -94,14 +94,22 @@ router.get("/posts/:id", function (req, res, next) {
                                                 } else {
                                                     userArray.push(user[0]);
                                                     if (userArray.length == comment.length) {
-                                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray });
+                                                        let s = [];
+                                                        for (let i = 0; i < userArray.length; i++) {
+                                                            if (s.indexOf(userArray[i].userNick) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
+                                                                s.push(userArray[i].userNick);
+                                                            }
+                                                        }
+                                                        let userLength = s.length;
+                                                        console.log("userLength:"+userLength);
+                                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray,userLength:userLength });
                                                     }
                                                 }
                                             });
                                         }
                                     }
                                     else {
-                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray });
+                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray,userLength:0 });
                                     }
                                 }
                             });
@@ -148,7 +156,7 @@ router.post("/create", function (req, res, next) {
         var poststarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
         var postsaw = 0;
         var postup = 0;
-        console.log("内容："+postcontent);
+        console.log("内容：" + postcontent);
         db.query("insert into post(postuid,posttitle,postcontent,poststarttime,postpic,postcategory,postsaw,postup) values('" + postuid + "','" + posttitle + "','" + postcontent + "','" + poststarttime + "','" + postpic + "','" + postcategory + "','" + postsaw + "','" + postup + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")

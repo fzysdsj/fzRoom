@@ -299,7 +299,7 @@ router.get("/toSelect/:id/followed", function (req, res, next) {
 });
 //帖子页
 router.get("/toSelect/:id/post", function (req, res, next) {
-    var id = req.params.id;
+       var id = req.params.id;
     console.log(id);
     var sql = "select * from userinfo where userid = " + id;
     console.log(sql);
@@ -307,29 +307,36 @@ router.get("/toSelect/:id/post", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-            var user = req.session.user;
-            var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
-            db.query(SELECT_FOLLOWER, function (err, fans) {
+            var artSql = "select * from post where postUid = " + id;
+            db.query(artSql, function (err, row) {
                 if (err) {
                     res.send("查看页面跳转失败");
                 } else {
-                    console.log(fans.length);
-                    var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
-                    db.query(FAN_NUMBER, function (err, fansNumber) {
+                    var user = req.session.user;
+                    var SELECT_FOLLOWER = "select * from followedandfans where followedUserId = " + id + " and fanUserId = " + user.userId;
+                    db.query(SELECT_FOLLOWER, function (err, fans) {
                         if (err) {
                             res.send("查看页面跳转失败");
                         } else {
-                            console.log(fansNumber.length)
-                            var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
-                            db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                            console.log(fans.length);
+                            var FAN_NUMBER = 'select * from followedandfans where fanUserId = ' + id;
+                            db.query(FAN_NUMBER, function (err, fansNumber) {
                                 if (err) {
                                     res.send("查看页面跳转失败");
                                 } else {
-                                    res.render("tiezi", { datas: rows, fans: fans, user: user, fansNumber: fansNumber, followNumber: followNumber });
+                                    console.log(fansNumber.length)
+                                    var FOLLOW_NUMBER = 'select * from followedandfans where followedUserId = ' + id;
+                                    db.query(FOLLOW_NUMBER, function (err, followNumber) {
+                                        if (err) {
+                                            res.send("查看页面跳转失败");
+                                        } else {
+                                            res.render("tiezi", { datas: rows, fans: fans, posts: row, fansNumber: fansNumber, followNumber: followNumber });
+                                        }
+                                    });
                                 }
-                            });
+                            })
                         }
-                    })
+                    });
                 }
             });
         }
@@ -707,6 +714,7 @@ router.post('/set/name', function (req, res, next) {
         if (err) {
             res.send("修改失败 " + err);
         } else {
+            req.session.user.userNick=nick;
             res.redirect("/users/toSelect/" + user.userId);
         }
     });
@@ -799,6 +807,7 @@ router.post('/set/avatar', function (req, res, next) {
             if (err) {
                 res.send("修改失败 " + err);
             } else {
+                req.session.user.userAvatar = avatar;
                 res.redirect("/users/toSelect/" + user.userId);
             }
         });
