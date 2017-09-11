@@ -51,28 +51,47 @@ router.post("/create", function (req, res, next) {
         } else {
             console.log(rows);
             console.log("插入成功");
-    var UPDATE_SAYNUMBER = "update article set artsaynumber = artsaynumber +1 where artid = " + comaid;
-    db.query(UPDATE_SAYNUMBER,function(err,row){
-        if(err){
-            console.log("更新失败");
-        }else{
-            console.log(row);
-            console.log("更新成功");
-            res.redirect("/articles/art/" + comaid);
-        }
-    });
+            var UPDATE_SAYNUMBER = "update article set artsaynumber = artsaynumber +1 where artid = " + comaid;
+            db.query(UPDATE_SAYNUMBER, function (err, row) {
+                if (err) {
+                    console.log("更新失败");
+                } else {
+                    console.log(row);
+                    console.log("更新成功");
+                    res.redirect("/articles/art/" + comaid);
+                }
+            });
 
         }
     });
 });
 router.get("/del/:id", function (req, res) {
     var id = req.params.id;
-    db.query("delete from comment where comid = " + id, function (err, rows) {
+    var sql = "select * from comment where comid =" + id;
+    console.log(sql);
+    db.query(sql, function (err, row) {
         if (err) {
-            res.send("删除失败" + err);
+            res.send("操作失败："+err);
         } else {
-            return res.redirect("back");
+            console.log(row);
+            var artSql = "update article set artsaynumber = artsaynumber -1 where artid = " + row[0].comAid;
+            console.log(artSql);
+            db.query(artSql,function(err,data){
+                if(err){
+                    res.send("操作失败:"+err);
+                }else{
+    db.query("delete from comment where comid = " + id, function (err, rows) {
+                if (err) {
+                    res.send("删除失败" + err);
+                } else {
+                    return res.redirect("back");
+                }
+            });
+                }
+            })
+        
         }
-    });
+    })
+
 });
 module.exports = router;

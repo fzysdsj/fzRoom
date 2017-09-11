@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="/css/articleA.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/lib.css" />
+    <link rel="stylesheet" href="/css/text.css" />
     <div class="body">
         <div class="container">
             <div class="col-group">
@@ -41,10 +42,9 @@
                                 </div>
 
                                 <div id="content">
-                                    <pre>
-                                    <%= datas[0].artContent %>
-                                    </pre>
+                                    <pre><%= datas[0].artContent %>
                                     <img src="/uploads/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
+                                    </pre>
                                 </div>
                                 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -62,24 +62,88 @@
 
                             <div class="article-actions">
                                 <div class="like-action">
-                                    <div class="like left">
-                                        <a href="javascript:;" id="like" class="ui pop rg-button do-like" data-content="喜欢就喜欢吧">
-                                            <i class="ri ri-heart-o"></i> 喜欢 <i class="ri ri-heart-o"></i>
-                                        </a>
-                                    </div>
-                                    <div class="award right">
-                                        <a href="javascript:;" class="ui pop rg-button do-award" action="https://wenxue.ruogoo.cn/article/3125/award" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
-                                            <i class="ri ri-gift"></i> 奖励 <i class="ri ri-gift"></i>
-                                        </a>
-                                    </div>
+                                    <% if(!user){ %>
+                                        <div class="like left">
+                                            <a href="/users/signin" id="like" class="ui pop rg-button do-like" data-content="喜欢就喜欢吧">
+                                                <i class="ri ri-heart-o"></i> 喜欢 <i class="ri ri-heart-o"></i>
+                                            </a>
+                                        </div>
+                                        <% } else { %>
+                                            <% if(likeLength.length==0){ %>
+                                                <div class="like left">
+                                                    <a href="javascript:;" id="like" class="ui pop rg-button do-like" data-content="喜欢就喜欢吧">
+                                                        <i class="ri ri-heart-o"></i> 喜欢 <i class="ri ri-heart-o"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="like left">
+                                                    <a href="javascript:;" class="ui pop rg-button do-like hidden" id="do-like" data-content="喜欢就喜欢吧"><i class="ri ri-heart"></i> 喜欢过 <i class="ri ri-heart"></i></a>
+
+                                                </div>
+                                                <% }else{ %>
+                                                    <div class="like left">
+                                                        <a href="javascript:;" class="ui pop rg-button do-like" id="do-like" data-content="喜欢就喜欢吧"><i class="ri ri-heart"></i> 喜欢过 <i class="ri ri-heart"></i></a>
+
+                                                    </div>
+                                                    <% }} %>
+                                                        <div class="award right">
+                                                            <a href="javascript:;" class="ui pop rg-button do-award" action="https://wenxue.ruogoo.cn/article/3125/award" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
+                                                                <i class="ri ri-gift"></i> 奖励 <i class="ri ri-gift"></i>
+                                                            </a>
+                                                        </div>
                                 </div>
 
                                 <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
                                 </div>
-
+                                <% if(user){ %>
+                                    <div id="userId" class="hidden">
+                                        <%= user.userId %>
+                                    </div>
+                                    <% } else { %>
+                                        <div id="userId" class="hidden">
+                                            0
+                                        </div>
+                                        <% } %>
                             </div>
                         </div>
                         <hr>
+                        <script>
+                            $(function() {
+                                $("#like").click(function() {
+                                    let artId = <%= datas[0].artId %>;
+                                    let url = "/articles/ajax/" + artId;
+                                    let user = parseInt($("#userId").text().trim());
+                                    let likeId = $("#like").attr("id");
+                                    $.ajax({
+                                        url: url,
+                                        type: "GET",
+                                        dataType: "json",
+                                        data: {
+                                            like: likeId,
+                                            user: user
+                                        },
+                                        contentType: "application/json",
+                                        cache: false,
+                                        timeout: 5000,
+                                        complete: function() {
+                                            //called when complete
+                                            console.log('process complete');
+                                        },
+                                        success: function(data) {
+
+                                            console.log(data);
+                                            console.log('process sucess');
+                                            alert("喜欢就好");
+                                            $("#like").addClass('hidden');
+                                            $("#do-like").removeClass('hidden');
+                                        },
+
+                                        error: function() {
+                                            console.log('process error');
+                                        }
+                                    });
+                                })
+                            })
+                        </script>
                         <div class="article-reply reply">
                             <% if(user){ %>
                                 <div class="reply-header gray text" id="comcon">评论</div>
@@ -107,13 +171,13 @@
                                             <% }%>
                                         </div>
                                         <div class="reply-header gray text">评论内容</div>
-                                        <div class="reply-list ">
+                                        <div class="reply-list" style="padding-top:20px">
                                             <% if(comment.length==0){ %>
                                                 <h4 class="text-center red">还无人评论，快来抢第一把交椅!</h4>
                                                 <% } else{for(var i=comment.length-1;i>=0;i--){ %>
                                                     <div class="media">
                                                         <div class="media-left">
-                                                            <a href="javascript:void(0);" id="comeravatar<%= i %>">
+                                                            <a href="/users/toSelect/<%= comer[i].userId %>" id="comeravatar<%= i %>" title="点击进入<%= comer[i].userNick %>的主页">
                                                         <img class="media-object img-circle" src="/uploads/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
                                             </a>
                                                         </div>
@@ -124,19 +188,19 @@
                                                                     <%= comer[i].userClass %>
                                                                 </a>
                                                             </h4>
-                                                            <h6>
+                                                            <h5 style="height:50px;line-height:50px;color:#f45123">
 
                                                                 <%= comment[i].comContent %>
-                                                            </h6>
-                                                            <h6>
-                                                                <%= comment[i].comStartTime%>
+                                                            </h5>
+                                                            <h6 class="text-right">
+                                                                <span style="color:#654"> <%= comment[i].comStartTime%></span>
 
-                                                                    <a href="#comcon">回复</a>
-                                                                    <% if(comer[i].userClass>100000){ %>
-                                                                        <a href="/comments/del/<%= comment[i].comId %>">删除</a>
-                                                                        <% }else{ %>
-                                                                            <a href="/comments/del/<%= comment[i].comId %>">举报</a>
-                                                                            <% } %>
+                                                                <a href="#comcon" class="replyComment">回复</a>
+                                                                <% if(comer[i].userClass>100000){ %>
+                                                                    <a href="/comments/del/<%= comment[i].comId %>">删除</a>
+                                                                    <% }else{ %>
+                                                                        <a href="/comments/del/<%= comment[i].comId %>">举报</a>
+                                                                        <% } %>
                                                             </h6>
                                                         </div>
                                                     </div>
@@ -211,17 +275,26 @@
         </div>
         <script>
             $(function() {
+                $("#content").click(function() {
+                    let s = $(this).text();
+                    alert(s);
+                })
                 $("#comment").change(function() {
                     $("#comcontent")[0].value = $("#comment").val();
                     console.log($("#comcontent")[0].value);
                 });
-                $(".media").on('click', function() {
+                $(".media").on('mouseenter', function() {
                     var g = $(this).children()[1];
                     var gg = $(g).children()[0];
                     var ggg = $(gg).children()[0];
-                    var s = "@" + $(ggg).text().trim();
-                    $("#comment").val(s);
-
+                    var reH6 = $(gg).children()[2];
+                    var reply = $(reH6).children()[1];
+                    var top = $("#comment").offset().top;
+                    var topDemo = $(window).scrollTop();
+                    $(".replyComment").click(function() {
+                        var s = "@" + $(ggg).text().trim();
+                        $("#comment").val(s);
+                    })
                 });
                 var s = 0;
                 var g = <%= datas[0].artUp %>

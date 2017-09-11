@@ -44,9 +44,9 @@ router.get("/article", function (req, res, next) {
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
                                             var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("article", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -88,10 +88,10 @@ router.get("/article/recommend", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                             var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artRecommend", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artRecommend", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -133,10 +133,10 @@ router.get("/article/nice", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                               var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artNice", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artNice", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -178,10 +178,10 @@ router.get("/category/lishi", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                           var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artLishi", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artLishi", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -224,9 +224,9 @@ router.get("/category/meiwen", function (req, res, next) {
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
                                             var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artMeiwen", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artMeiwen", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -268,10 +268,10 @@ router.get("/category/jishu", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                              var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artJishu", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artJishu", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -313,10 +313,10 @@ router.get("/category/yishi", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                           var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artYishi", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artYishi", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -358,10 +358,10 @@ router.get("/category/tiyu", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                               var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artTiyu", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artTiyu", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -403,10 +403,10 @@ router.get("/category/liangxing", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                             var count = 5;
-                                            var currentPage = Math.ceil(rows.length/count);
-                                            console.log("currentPage:"+currentPage);
-                                            return res.render("artLiangxing", { title: "用户列表", datas: rows, users: userArrayDemo,currentPage:currentPage,count:count });
+                                            var count = 5;
+                                            var currentPage = Math.ceil(rows.length / count);
+                                            console.log("currentPage:" + currentPage);
+                                            return res.render("artLiangxing", { title: "用户列表", datas: rows, users: userArrayDemo, currentPage: currentPage, count: count });
                                         }
                                     }
                                 }
@@ -424,51 +424,59 @@ router.get("/art/:id", function (req, res, next) {
     var id = req.params.id;
     var anthor = "";
     var userArray = [];
-    console.log(id);
     var sql = "select * from article where artId = " + id;
-    console.log(sql);
+    let likeUser = 0;
+    if(!req.session.user){
+        likeUser = 0;
+    }else{
+     likeUser =req.session.user.userId;
+    }
+    console.log(likeUser);
     db.query(sql, function (err, rows) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-            console.log(rows[0].artUid);
-            var sqll = "select * from userinfo where userId = " + rows[0].artUid;
+             var likeSql = "select * from likeart where likeaid = " + id + " and likeuid = " + likeUser;
+        db.query(likeSql,function(err,like){
+            if(err){
+                res.send("操作失败:"+err);
+            }else{
+               var sqll = "select * from userinfo where userId = " + rows[0].artUid;
             db.query(sqll, function (err, row) {
                 if (err) {
-                    console.log("ffffff");
+                    res.send("操作失败" + err);
                 }
                 else {
                     var sqlll = "select * from comment where comAid = " + id;
                     db.query(sqlll, function (err, comment) {
                         if (err) {
-                            console.log("ssssssss");
+                            res.send("操作失败" + err);
                         }
                         else {
                             var UPDATE_PV = "update article set artsaw = artsaw+1 where artid = " + id;
                             console.log("UPDATE_PV:" + UPDATE_PV);
                             db.query(UPDATE_PV, function (err, user) {
                                 if (err) {
-                                    console.log("更新失败");
+                                    res.send("操作失败" + err);
                                 } else {
-
                                     if (comment.length != 0) {
 
                                         for (var i = 0; i < comment.length; i++) {
                                             var SELECT_USER = "select * from userinfo where userId = " + comment[i].comUid;
                                             db.query(SELECT_USER, function (err, user) {
                                                 if (err) {
-                                                    console.log("查询失败");
+                                                    res.send("操作失败" + err);
                                                 } else {
                                                     userArray.push(user[0]);
                                                     if (userArray.length == comment.length) {
-                                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray });
+                                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray,likeLength:like });
                                                     }
                                                 }
                                             });
                                         }
                                     }
                                     else {
-                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray });
+                                        res.render("articlesId", { datas: rows, anthors: row, comment: comment, comer: userArray,likeLength:like });
                                     }
                                 }
                             });
@@ -476,6 +484,8 @@ router.get("/art/:id", function (req, res, next) {
                     });
                 }
             });
+            }
+        });
         }
     });
 });
@@ -520,7 +530,7 @@ router.post("/create", function (req, res, next) {
         var artsaynumber = 0;
         var artgood = 0;
         var artpush = 0;
-        console.log("内容："+artcontent);
+        console.log("内容：" + artcontent);
         db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artsaynumber,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "','" + artsaynumber + "','" + artgood + "','" + artpush + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
@@ -542,5 +552,36 @@ router.get("/del/:id", function (req, res) {
             res.redirect("/articles");
         }
     });
+});
+router.get('/ajax/:id', function (req, res) {
+    var id = req.params.id;
+    console.log(id);
+    let likeId = req.query.like;
+    let user = req.query.user;
+    console.log(likeId);
+    console.log(user);
+    let sql = "update article set artup = artup +1 where artid = " + id;
+    
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("操作失败：" + err);
+        } else {
+             let artSql = "insert into likeart(likeaid,likeuid) values('" + id + "','" + user + "')";
+            db.query(artSql,function(err,row){
+                if(err){
+                    res.send("操作失败:"+err);
+                }else{
+                   var a = {
+                like: 'doLike',
+                user: req.query.user
+            };
+            res.send(a);
+                }
+            })
+           
+        }
+
+    })
+
 });
 module.exports = router;

@@ -8,8 +8,6 @@ router.get('/', function (req, res, next) {
         if (err) {
             res.render("search", { title: "用户列表", datas: [] });
         } else {
-            console.log(rows[0].artUid);
-            console.log(rows.length);
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
@@ -20,8 +18,6 @@ router.get('/', function (req, res, next) {
                         console.log("读用户列表失败");
                     } else {
                         //将文章作者信息写进数组中，渲染给页面调用
-                        console.log("row:");
-                        console.log(rows[0]);
                         userArray.push(row[0]);
                         if (userArray.length == rows.length) {
                             for (let j = 0; j < rows.length; j++) {
@@ -36,20 +32,15 @@ router.get('/', function (req, res, next) {
                                                 if (err) {
                                                     res.render("search", { title: "用户列表", datas: [], Pdatas: [] });
                                                 } else {
-                                                    console.log(Prows[0].postUid);
-                                                    console.log(Prows.length);
                                                     var PuserArray = [];
                                                     var PuserArrayDemo = [];
                                                     for (let i = 0; i < Prows.length; i++) {
                                                         var Pselect_user = 'select * from userinfo where userid = ' + Prows[i].postUid;
-                                                        console.log(Pselect_user);
                                                         db.query(Pselect_user, function (err, Prow) {
                                                             if (err) {
                                                                 console.log("读用户列表失败");
                                                             } else {
                                                                 //将文章作者信息写进数组中，渲染给页面调用
-                                                                console.log("row:");
-                                                                console.log(Prows[0]);
                                                                 PuserArray.push(Prow[0]);
                                                                 if (PuserArray.length == Prows.length) {
                                                                     for (let j = 0; j < Prows.length; j++) {
@@ -59,7 +50,7 @@ router.get('/', function (req, res, next) {
                                                                                 PuserArrayDemo.push(PuserArray[k]);
                                                                                 ss++;
                                                                                 if (PuserArrayDemo.length == Prows.length) {
-                                                                                    return res.render("search", { title: "用户列表", datas: rows, users: userArrayDemo, Pdatas: Prows, Pusers: PuserArrayDemo });
+                                                                                    return res.render("search", { title: "用户列表", datas: rows, users: userArrayDemo, Pdatas: Prows, Pusers: PuserArrayDemo,fzNumber:-1});
                                                                                 }
                                                                             }
                                                                         }
@@ -97,25 +88,19 @@ router.post('/search', function (req, res, next) {
             if (err) {
                 console.log("查询失败");
             } else {
-                console.log(rows.length);
                 if (rows.length == 0) {
                     return res.render("searchResult", { title: "用户列表", datas: rows, users: [] });
                 }
                 else if (rows.length != 0) {
-                    console.log(rows[0].artUid);
-                    console.log(rows.length);
                     var userArray = [];
                     var userArrayDemo = [];
                     for (let i = 0; i < rows.length; i++) {
                         var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
-                        console.log(select_user);
                         db.query(select_user, function (err, row) {
                             if (err) {
                                 console.log("读用户列表失败");
                             } else {
                                 //将文章作者信息写进数组中，渲染给页面调用
-                                console.log("row:");
-                                console.log(rows[0]);
                                 userArray.push(row[0]);
                                 if (userArray.length == rows.length) {
                                     for (let j = 0; j < rows.length; j++) {
@@ -159,25 +144,19 @@ router.post('/search', function (req, res, next) {
             if (err) {
                 console.log("查询失败");
             } else {
-                console.log(rows.length);
                 if (rows.length == 0) {
                     return res.render("searchResult", { title: "用户列表", datas: rows, users: [],fzNumber:1});
                 }
                 else if (rows.length != 0) {
-                    console.log(rows[0].postUid);
-                    console.log(rows.length);
                     var userArray = [];
                     var userArrayDemo = [];
                     for (let i = 0; i < rows.length; i++) {
                         var select_user = 'select * from userinfo where userid = ' + rows[i].postUid;
-                        console.log(select_user);
                         db.query(select_user, function (err, row) {
                             if (err) {
                                 console.log("读用户列表失败");
                             } else {
                                 //将文章作者信息写进数组中，渲染给页面调用
-                                console.log("row:");
-                                console.log(rows[0]);
                                 userArray.push(row[0]);
                                 if (userArray.length == rows.length) {
                                     for (let j = 0; j < rows.length; j++) {
