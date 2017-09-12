@@ -20,6 +20,7 @@
     <!-- jQuery -->
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
     <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
     <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
@@ -28,7 +29,7 @@
         fzRoom
     </div>
     <h2 class="form-heading">登录</h2>
-    <form class="form-signin app-cam" action="/users/signin" method="post">
+    <form class="form-signin app-cam" id="signinForm" action="/users/signin" method="post">
         <div class="form-btn btn-danger">
             <%= error %>
         </div>
@@ -48,5 +49,13 @@
             </p>
         </div>
 </body>
+<script>
+    // $("#signinForm").submit(function() {
+    //     $(this).ajaxSubmit(function() {
+    //         alert("提交成功1");
+    //     });
+    //     return false;
+    // });
+</script>
 
 </html>

@@ -59,9 +59,7 @@ router.get("/posts/:id", function (req, res, next) {
     var id = req.params.id;
     var anthor = "";
     var userArray = [];
-    console.log(id);
     var sql = "select * from post where postId = " + id;
-    console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
             res.send("查看页面跳转失败");
@@ -70,7 +68,7 @@ router.get("/posts/:id", function (req, res, next) {
             var sqll = "select * from userinfo where userId = " + rows[0].postUid;
             db.query(sqll, function (err, row) {
                 if (err) {
-                    console.log("ffffff");
+                    res.send("操作失败:" + err);
                 }
                 else {
                     var sqlll = "select * from fposts where fpostpid = " + id;
@@ -83,14 +81,14 @@ router.get("/posts/:id", function (req, res, next) {
                             console.log("UPDATE_PV:" + UPDATE_PV);
                             db.query(UPDATE_PV, function (err, user) {
                                 if (err) {
-                                    console.log("更新失败");
+                                    res.send("操作失败:" + err);
                                 } else {
                                     if (comment.length != 0) {
                                         for (var i = 0; i < comment.length; i++) {
                                             var SELECT_USER = "select * from userinfo where userId = " + comment[i].fpostUid;
                                             db.query(SELECT_USER, function (err, user) {
                                                 if (err) {
-                                                    console.log("查询失败");
+                                                    res.send("操作失败:" + err);
                                                 } else {
                                                     userArray.push(user[0]);
                                                     if (userArray.length == comment.length) {
@@ -101,15 +99,14 @@ router.get("/posts/:id", function (req, res, next) {
                                                             }
                                                         }
                                                         let userLength = s.length;
-                                                        console.log("userLength:"+userLength);
-                                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray,userLength:userLength });
+                                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray, userLength: userLength });
                                                     }
                                                 }
                                             });
                                         }
                                     }
                                     else {
-                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray,userLength:0 });
+                                        res.render("postId", { datas: rows, author: row, comment: comment, comer: userArray, userLength: 0 });
                                     }
                                 }
                             });
@@ -139,7 +136,7 @@ router.post("/create", function (req, res, next) {
         var postuid = fields.postuid;
         var postcategory = fields.postcategory;
         var time = Date.now;
-        console.log("artcategory:" + postcategory);
+        console.log("postcategory:" + postcategory);
         var postpic = path.basename(files.postpic.path)
         var date = new Date();
         var y = date.getFullYear();
@@ -156,14 +153,13 @@ router.post("/create", function (req, res, next) {
         var poststarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
         var postsaw = 0;
         var postup = 0;
-        console.log("内容：" + postcontent);
         db.query("insert into post(postuid,posttitle,postcontent,poststarttime,postpic,postcategory,postsaw,postup) values('" + postuid + "','" + posttitle + "','" + postcontent + "','" + poststarttime + "','" + postpic + "','" + postcategory + "','" + postsaw + "','" + postup + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
                 res.send("新增失败" + err);
             } else {
                 console.log("插入成功");
-                res.redirect("/");
+                res.redirect("/talkRoom");
             }
         });
     });
