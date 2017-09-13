@@ -81,7 +81,7 @@
     - 安装Node
         - 官网直接下载安装即可，不再赘述
     - 安装Mysql
-        - "相关软件"中有phpstudy，带有mysql环境，可自行选择安装
+        - 推荐wamp,xxamp，phpstudy等程序集成包，不用自己配环境了。“相关软件”文件夹下有navacat for mysql，自行斟酌使用。
 - 将sql文件夹下的"nodedb.sql"导入Mysql数据库中
 - npm install
 - npm install connect-flash
@@ -95,30 +95,25 @@
  - [索阁相关](http://localhost:3000/searchRoom):http://localhost:3000/searchRoom
  - [议阁](http://localhost:3000/talkRoom):http://localhost:3000/talkRoom
  - [武阁](http://localhost:3000/wuRoom):http://localhost:3000/wuRoom
- - [个人中心](http://localhost:3000/users/toSelect/*):http://localhost:3000/users/toSelect/*
+ - [个人中心](http://localhost:3000/users/toSelect/用户Id):http://localhost:3000/users/toSelect/用户Id
 ## 部分页面
  - 主页
-   - !['主页'](./public/images/index.png)
+    - !['主页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/index.png)
  - 注册页
-   - !['注册页'](./public/images/signup.png)
+     - !['注册页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/signup.png)
 - 登录页
-   - !['登录页'](./public/images/signin.png)
+    - !['登录页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/signin.png)
 - 文阁页
-    !['文阁页'](./public/images/wenRoom.png)
+    - !['文阁页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/wenRoom.png)
 - 索阁页
-    !['索阁页'](./public/images/searchRoom.png)
-- 注册页
-    !['主页'](./public/images/index.png)
-- 注册页
-    !['主页'](./public/images/index.png)
-- 注册页
-    !['主页'](./public/images/index.png)
- 
+    - !['索阁页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/searchRoom.png)
+- 文章列表页
+   - !['文章列表页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/recommend.png)
+- 个人中心
+    - !['个人中心'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/personInformation.png)
+- 发表文章
+    - !['主页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/createArticle.png)
+- 知阁页
+    - !['主页'](https://github.com/fzysdsj/fzRoom/blob/master/public/images/knowRoom.png)
 
-
-
-
-
-
- - 其他的就不放了，因为还没做完。项目框架写出来以后，接下来是软件工程的流程了，要再开始着手做，得小十天呢，毕竟需求和设计不是边敲代码，就能想出来的。为什么要做这个网站呢，起初是想着用cocos creator把自己的小说做成一个RPG游戏，那样的话，自己的大学也算完美了吧。不过玩了一个月，感觉功能还是有点太少，坑还是太多，很多时候无从下手。由担心着毕业问题，果断转了人人都做的网站。话没说完，且到此处。
 
